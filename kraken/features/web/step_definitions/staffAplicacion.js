@@ -54,10 +54,9 @@ Then('Debe aparecer el staff en la lista {string}', async function (Esperado) {
     let i = 1;
     let resultado;
     while(isMostrar) {
-        let element = await this.driver.$('/html/body/div[2]/div/main/section/section/section[1]/div/div['+ i +']/article/div[1]/div/h3');
-        let isExisting = await element.isExisting();
-        if(isExisting) {
-            let emailSave = await element.getText();
+        let element = await this.driver.$$('/html/body/div[2]/div/main/section/section/section[1]/div/div['+ i +']/article/div[1]/div/h3');
+        if(element.length > 0) {
+            let emailSave = await element[0].getText();
             if(emailSave == mail) {
                 resultado = 'Exitoso';
                 isMostrar = false;
@@ -76,10 +75,9 @@ When('Eliminar un staff creado previamente {string}', async function (Esperado) 
     let i = 1;
     let resultado;
     while(isMostrar) {
-        let element = await this.driver.$('/html/body/div[2]/div/main/section/section/section[1]/div/div['+ i +']/article/div[1]/div/h3');
-        let isExisting = await element.isExisting();
-        if(isExisting) {
-            let emailSave = await element.getText();
+        let element = await this.driver.$$('/html/body/div[2]/div/main/section/section/section[1]/div/div['+ i +']/article/div[1]/div/h3');
+        if(element.length > 0) {
+            let emailSave = await element[0].getText();
             if(emailSave == mail) {
                 let elementoEliminar = await this.driver.$('/html/body/div[2]/div/main/section/section/section[1]/div/div['+ i +']/article/div[2]/div/a[1]');
                 await elementoEliminar.click();
