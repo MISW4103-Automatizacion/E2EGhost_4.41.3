@@ -1,0 +1,9 @@
+{
+    "baseUrl": "http://localhost:2368/ghost/",
+    "env": {
+        "NAMEBLOG": "Mi blog de pruebas con kraken",
+        "FULLNAME": "Pruebas E2E en kraken",
+        "USER": "krakenTest@kraken.com.co",
+        "PASSWORD": "Kraken123456@"
+    }
+}

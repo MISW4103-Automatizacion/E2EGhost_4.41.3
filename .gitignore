@@ -1,0 +1,4 @@
+cypress/node_modules
+cypress/test/cypress/videos
+kraken/node_modules
+kraken/reports
