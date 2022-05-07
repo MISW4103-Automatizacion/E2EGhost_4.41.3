@@ -3,5 +3,26 @@
     "NAMEBLOG": "Mi blog de pruebas con kraken y cypress",
     "FULLNAME": "Pruebas E2E en kraken y cypress",
     "USER": "krakenCypressTest@automatizacion.com.co",
-    "PASSWORD": "KrakenCypress123456@"
+    "PASSWORD": "KrakenCypress123456@",
+    
+    "MEMBER_NAME":"memberPrueba2022_1",
+    "MEMBER_EMAIL":"memberPrueba2022_1@gmail.com",
+
+    "MEMBER_LABEL":"Label_prueba",
+    "MEMBER_NOTE":"Nota de prueba",
+
+    "MEMBER_NAME_2":"memberPrueba2022_2",
+    "MEMBER_EMAIL_2":"memberPrueba2022_2@gmail.com",
+
+    "MEMBER_NAME_3":"memberPrueba2022_3",
+    "MEMBER_EMAIL_3":"memberPrueba2022_3@gmail.com",
+
+    "NEW_MEMBER_NAME":"memberPrueba2022_changed",
+    "NEW_MEMBER_EMAIL":"memberPrueba2022_changed@gmail.com",
+
+    "NEW_MEMBER_LABEL":"Nueva_etiqueta_prueba",
+    "NEW_MEMBER_NOTE":"Nueva Nota de prueba",
+
+    "NEW_MEMBER_UNSUBSCRIBE":"memberPrueba2022_unsubscribed",
+    "NEW_MEMBER_EMAIL_UNSUBSCRIBE":"memberPrueba2022_unsubscribe@gmail.com"
 }
