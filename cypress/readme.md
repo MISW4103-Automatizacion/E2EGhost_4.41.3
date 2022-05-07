@@ -1,11 +1,6 @@
-| Especificaciones de la máquina |
-| ------------------------------ |
-| Sistema Operativos             | Linux Ubuntu. Versión 20.04 LTS |
-| Memoria Ram                    | 6GB |
-| Disco Duro                     | 100GB SS |
-| Git ubuntu 20.04 LTS           |  https://git-scm.com/download/linux |
-| Node.js                        | 16.14.2 LTS |### Especificaciones de la máquina
-| Caracteristica.      | Especificación                      |
+### Especificaciones de la máquina
+
+| Característica      | Especificación                      |
 | -------------------- | ----------------------------------- |
 | Sistema Operativos   | Linux Ubuntu. Versión 20.04 LTS     |
 | Memoria Ram          | 6GB                                 |
@@ -14,13 +9,13 @@
 | Node.js              | 16.14.2 LTS                         |
 
 ### Aplicación a Probar
-| Caracteristica.      | Especificación                      |
+| Característica     | Especificación                      |
 | -------------------- | ----------------------------------- |
 | Nombre              | Ghost |
 | Version             | 4.41.3 |
 
 ### Pasos Instalacion Ghots ubuntu 20.04 LTS
-| Caracteristica.      | Especificación                      |
+| Característica      | Comandos                      |
 | -------------------- | ----------------------------------- |
 | Instalar cliente ghost                   | sudo npm install ghost-cli@latest -g |
 | Crear un directorio vacio                | mkdir ghost\_4.41.3 |

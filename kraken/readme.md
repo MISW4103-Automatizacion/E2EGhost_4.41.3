@@ -1,5 +1,6 @@
 ### Especificaciones de la máquina
-| Caracteristica.      | Especificación                      |
+
+| Característica      | Especificación                      |
 | -------------------- | ----------------------------------- |
 | Sistema Operativos   | Linux Ubuntu. Versión 20.04 LTS     |
 | Memoria Ram          | 6GB                                 |
@@ -8,13 +9,13 @@
 | Node.js              | 16.14.2 LTS                         |
 
 ### Aplicación a Probar
-| Caracteristica.      | Especificación                      |
+| Característica     | Especificación                      |
 | -------------------- | ----------------------------------- |
 | Nombre              | Ghost |
 | Version             | 4.41.3 |
 
 ### Pasos Instalacion Ghots ubuntu 20.04 LTS
-| Caracteristica.      | Especificación                      |
+| Característica      | Comandos                      |
 | -------------------- | ----------------------------------- |
 | Instalar cliente ghost                   | sudo npm install ghost-cli@latest -g |
 | Crear un directorio vacio                | mkdir ghost\_4.41.3 |
@@ -23,7 +24,7 @@
 | Validar si ghost esta ejecutando.        | [http://localhost:2368/ghost/](http://localhost:2368/ghost/) |
 
 ### Pasos Instalacion Kraken ubuntu 20.04 LTS
-| Caracteristica.      | Comandos                      |
+| Característica      | Comandos                      |
 | -------------------- | ----------------------------------- |
 | Instalar kraken de forma global                    | npm install kraken-node -g |
 | Descargar el proyecto actual de pruebas            | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
