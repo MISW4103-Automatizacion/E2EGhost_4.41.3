@@ -5,6 +5,7 @@
     "USER": "krakenCypressTest@automatizacion.com.co",
     "PASSWORD": "KrakenCypress123456@",
     
+    "URLMAIN": "http://localhost:2368/",
     "MEMBER_NAME":"memberPrueba2022_1",
     "MEMBER_EMAIL":"memberPrueba2022_1@gmail.com",
 
