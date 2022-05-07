@@ -1,6 +1,6 @@
-Feature: Crear staff de tipo Administrador en ghost
-
-@user1 @web
+Feature: Escenario 4 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Administrador y validar que aparezca en la lista de staff, sale de la aplicación
+  
+  @user1 @web
   Scenario: Como usuario quiero agregar un staff de tipo Administrador
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 5 seconds

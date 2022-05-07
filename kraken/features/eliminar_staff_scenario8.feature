@@ -1,7 +1,7 @@
-Feature: Eliminar staff de tipo Autor en ghost
-
+Feature: Escenario 8 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Administrador y validar que aparezca en la lista de staff, eliminarlos y validar que ya no aparezca en la lista, sale de la aplicación
+  
   @user1 @web
-  Scenario: Como usuario quiero agregar un staff y eliminarlo de tipo Autor
+  Scenario: Como usuario quiero agregar un staff y eliminarlo de tipo Administrador
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 5 seconds
     When Escribo el Site title "<NAMEBLOG>"
@@ -23,7 +23,7 @@ Feature: Eliminar staff de tipo Autor en ghost
       And Doy clic en el boton staff
       And Doy clic en el boton invite people
       And Escribo el correo electronico de la invitacion
-      And Doy click en el radio boton Autor
+      And Doy click en el radio boton Administrador
       And Doy click en el boton Send invitation now
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 3 seconds

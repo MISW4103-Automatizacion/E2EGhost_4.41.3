@@ -7,7 +7,7 @@ describe('Escenario 7 Ingresar a la aplicación, si el usuario no existe se crea
     const staffAplicacionBuscar = require('../funcionalidades/staffAplicacionBuscar')
     const staffAplicacionEliminar = require('../funcionalidades/staffAplicacionEliminar')
     const { faker } = require('@faker-js/faker')
-    
+
     beforeEach(()=> {
       cy.clearCookies()
       cy.visit('/')
