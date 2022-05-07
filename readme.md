@@ -29,6 +29,6 @@
 # Escenario  20 Ingresar a la aplicación, si el usuario no existe se crea. Crear un post y publicarlo. Salir de la aplicación, dirigirse a la página Web y validar que aparezca el post en la página. Ingresar a la aplicación, ir al módulo de posts y modificar el primer post. Salir de la aplicación, dirigirse a la página Web y validar que aparezca el post en la página. Ingresar a la aplicación, ir al módulo de posts y eliminar el primer post. Salir de la aplicación, dirigirse a la página Web y validar que ya no aparezca el post en la página.
 # Escenario  21 Crear un member y validar que aparezca en la lista de members
 # Escenario  22 Crear un member y validar que aparezca en la lista de member, eliminarlos y validar que ya no aparezca en la lista
-# Escenario  23 Moificar un member y validar que aparezca en la lista de members
+# Escenario  23 Modificar un member y validar que aparezca en la lista de members
 # Escenario  24 Crear un member unsubscribe y validar que aparezca en la lista de members
 
