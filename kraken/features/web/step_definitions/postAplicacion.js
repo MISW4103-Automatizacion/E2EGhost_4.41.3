@@ -100,10 +100,9 @@ Then('Debe aparecer el post creado en la pagina', async function () {
     isMostrar = true;
     let i = 1;
     while(isMostrar) {
-        let element = await this.driver.$('/html/body/div[1]/div/main/div/div/article['+ i +']/div/a/header/h2');
-        let isExisting = await element.isExisting();
-        if(isExisting) {
-            let tituloSave = await element.getText();
+        let element = await this.driver.$$('/html/body/div[1]/div/main/div/div/article['+ i +']/div/a/header/h2');
+        if(element.length > 0) {
+            let tituloSave = await element[0].getText();
             if(tituloSave == titulo) {
                 return assert.equal(tituloSave, titulo);
             } else {
@@ -119,10 +118,9 @@ Then('Debe desaparecer el post creado en la pagina', async function () {
     isMostrar = true;
     let i = 1;
     while(isMostrar) {
-        let element = await this.driver.$('/html/body/div[1]/div/main/div/div/article['+ i +']/div/a/header/h2');
-        let isExisting = await element.isExisting();
-        if(isExisting) {
-            let tituloSave = await element.getText();
+        let element = await this.driver.$$('/html/body/div[1]/div/main/div/div/article['+ i +']/div/a/header/h2');
+        if(element.length > 0) {
+            let tituloSave = await element[0].getText();
             if(tituloSave == titulo) {
                 return assert.notEqual(tituloSave, titulo);
             } else {
