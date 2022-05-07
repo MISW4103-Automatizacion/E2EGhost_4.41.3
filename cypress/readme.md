@@ -38,7 +38,7 @@
 
 ### Ejecutar las pruebas con la aplicación de cypress
 1. Cypress open
-2. Cuando abra la aplicación debe buscar la carpeta donde se decargo el proyecto de las pruebas https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git y buscar cypress/tests yhay apareceran todos los test a ejecutar.
+2. Cuando abra la aplicación debe buscar la carpeta donde se decargo el proyecto de las pruebas https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git y buscar cypress/tests y hay apareceran todos los test a ejecutar.
 
 | Consideraciones tener en cuenta                                                                                                                                                                             |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
