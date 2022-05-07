@@ -1,3 +1,5 @@
+Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una hat un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
+
 ## Lista de funcionalidades a probar
 
 | Módulo           | Funcionalidad |
