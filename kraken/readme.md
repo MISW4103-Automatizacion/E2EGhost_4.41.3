@@ -30,8 +30,17 @@
 | Descargar el proyecto actual de pruebas            | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
 | Ingresar a la carpeta                              | cd kraken |
 | Instalar dependencias                              | npm install |
+| Instalar kraken de forma local para no generar problemas con cucumber| npm install kraken-node |
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
 ### Comando para ejecutar las pruebas
 ./node_modules/kraken-node/bin/kraken-node run
+
+| Consideraciones tener en cuenta                                                                                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Validar que la direccion web de la aplicaion de ghost sea http://localhost:2368/ghost/                                                                                                               |
+| En caso de no ser asi debe modificar el archivo kraken/properties.json y cambiar las varibales "URL": "http://localhost:2368/ghost/" y "URLMAIN": "http://localhost:2368/" a la ruta correspondiente |
+| Debe serguir el paso a paso para garantizar la efectiva ejecucion de las pruebas.                                                                                                                    |
+| Las pruebas estan construidas para que se ejecuten en cualquier orden que lo disponga ya que no tiene dependecia las unas con las otras.                                                             |
+| Para la primera ejecución el sistema valida si el usuario existe en caso contrario lo creara.                                                                                                        |
