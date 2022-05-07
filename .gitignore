@@ -1,4 +1,5 @@
 cypress/node_modules
 cypress/test/cypress/videos
+cypress/test/cypress/screenshots
 kraken/node_modules
 kraken/reports
