@@ -1,5 +1,5 @@
 const postAplicacionComprobar = function (cy,titulo,siExiste){
-    cy.visit('http://localhost:2369/');
+    cy.visit(Cypress.env('URLMAIN'));
     cy.wait(4000); 
     let tituloSave='' ;
     cy.get("body").then($body => {
