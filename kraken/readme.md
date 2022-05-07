@@ -30,6 +30,7 @@
 | Descargar el proyecto actual de pruebas            | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
 | Ingresar a la carpeta                              | cd kraken |
 | Instalar dependencias                              | npm install |
+| Instalar kraken de forma local para bno generar problemas con cucumber                    | npm install kraken-node |
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
