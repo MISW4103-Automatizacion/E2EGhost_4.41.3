@@ -6,7 +6,7 @@
 | Memoria Ram          | 6GB                                 |
 | Disco Duro           | 100GB SS                            |
 | Git ubuntu 20.04 LTS |  https://git-scm.com/download/linux |
-| Node.js              | 16.14.2 LTS                         |
+| Node.js              | 16.14.2 LTS https://nodejs.org/es/                        |
 
 ### Aplicación a Probar
 | Característica     | Especificación                      |
@@ -36,3 +36,11 @@
 
 ### Comando para ejecutar las pruebas
 ./node_modules/kraken-node/bin/kraken-node run
+
+| Consideraciones tener en cuenta                                                                                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Validar que la direccion web de la aplicaion de ghost sea http://localhost:2368/ghost/                                                                                                               |
+| En caso de no ser asi debe modificar el archivo kraken/properties.json y cambiar las varibales "URL": "http://localhost:2368/ghost/" y "URLMAIN": "http://localhost:2368/" a la ruta correspondiente |
+| Debe serguir el paso a paso de este readme para garantizar la efectiva ejecucion de las pruebas.                                                                                                                    |
+| Las pruebas estan construidas para que se ejecuten en cualquier orden que lo disponga ya que no tiene dependecia las unas con las otras.                                                             |
+| Para la primera ejecución el sistema valida si el usuario existe en caso contrario lo creara.                                                                                                        |
