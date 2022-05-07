@@ -1,6 +1,6 @@
 ## Lista de funcionalidades a probar
 
-| Modulo           | Funcionalidad |
+| Módulo           | Funcionalidad |
 | ---------------- | ------------- |
 | Login - Registro | Consultar     |
 |                  | Crear         |
@@ -27,7 +27,7 @@
 
 
 ## Lista de escenarios
-| Modulo      | Escenarios | Descripcion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Módulo      | Escenarios | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Gestión de Staff   | 1          |  Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, sale de la aplicación                                                                                                                                                                                                                                                                                                                                             |
 | Gestión de Staff   | 2          |  Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Autor y validar que aparezca en la lista de staff, sale de la aplicación                                                                                                                                                                                                                                                                                                                                                   |
