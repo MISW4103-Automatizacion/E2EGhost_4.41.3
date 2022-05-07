@@ -26,7 +26,6 @@ describe('Escenario 19 Ingresar a la aplicación, si el usuario no existe se cre
       let titulo = faker.lorem.sentence()
       let texto = faker.lorem.paragraph()
       let titulo2 = faker.lorem.sentence()
-      postAplicacionEliminar.postAplicacionEliminar(cy)
       postAplicacionCrear.postAplicacionCrear(cy,titulo, texto)
       salirAplicacion.salirAplicacion(cy)
       postAplicacionComprobar.postAplicacionComprobar(cy, titulo, true)

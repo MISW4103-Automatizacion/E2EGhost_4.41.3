@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "kraken-node": "^1.0.24"
-  }
+  },
+  "name": "kraken",
+  "description": "sudo npm install ghost-cli@latest -g",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

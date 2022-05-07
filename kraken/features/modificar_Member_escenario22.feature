@@ -1,71 +1,71 @@
-Feature: Escenario 3 Modificación de Member
+Feature: Escenario  22, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member y validar que aparezca en la lista de member, modificarlo, eliminarlos y validar que ya no aparezca en la lista, , sale de la aplicacion.
     @user1 @web
-    Scenario: Escenario  22, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member y validar que aparezca en la lista de member, eliminarlos y validar que ya no aparezca en la lista, , sale de la aplicacion.
+    Scenario: Como usuario quiero modificar un member
         Given Ir a la aplicacion Ghost "<URL>"
-        And I wait for 10 seconds
+            And I wait for 5 seconds
+        When Escribo el Site title "<NAMEBLOG>"
+            And Escribo el Full name "<FULLNAME>"
+            And Escribo el Email address "<USER>"
+            And Escribo el Password "<PASSWORD>"
+            And Doy click on the button Create account & start publishing →
+            And I wait for 5 seconds
+        Then Deberia ver la palabra 'All done!' despues de crear el usuario
+        When Doy click on the button Explore Ghost admin
+            And Doy click en el boton del avatar inferior
+            And Doy click en el menu Sign out
         When Escribo el email login "<USER>"
-        And I wait for 3 seconds
-        And Escribo el password login "<PASSWORD>"
-        And I wait for 3 seconds
-        And Doy clic en el boton Sing In
-        And I wait for 5 seconds
-        And Doy click en member
-        And I wait for 3 seconds
-        And Doy click en newMember
-        And I wait for 3 seconds
-        When Escribo el nombre "<MEMBER_NAME_3>"
-        And I wait for 3 seconds
-        When Escribo el email "<MEMBER_EMAIL_3>"
-        And I wait for 3 seconds
-        And Doy click en Label
-        And I wait for 3 seconds
-        When Escribo el Label "<MEMBER_LABEL>"
-        And I wait for 3 seconds
-        When Escribo una nota "<MEMBER_NOTE>"
-        And I wait for 3 seconds
-        And Doy click en save
-        And I wait for 3 seconds
-        And Doy click en member
-        And I wait for 3 seconds
+            And Escribo el password login "<PASSWORD>"
+            And Doy clic en el boton Sing In
+            And I wait for 2 seconds
+        Then Deberia ver la palabra 'Dashboard' en el página principal
 
-        And Doy click en memberPrueba_3
-        And I wait for 3 seconds
+        When Doy click en member
+            And I wait for 3 seconds
+            And Doy click en newMember
+            And I wait for 3 seconds
+        When Escribo el nombre
+            And I wait for 3 seconds
+        When Escribo el email
+            And I wait for 3 seconds
+            And Doy click en Label
+            And I wait for 3 seconds
+        When Escribo el Label
+            And I wait for 3 seconds
+        When Escribo una nota
+            And I wait for 3 seconds
+            And Doy click en save
+            And I wait for 3 seconds
+        When Doy click en member
+            And I wait for 3 seconds
+        Then Debe aparecer el Member en la lista y lo selecciono
+            And I wait for 3 seconds
 
-        When Escribo el nombre "<NEW_MEMBER_NAME>"
-        And I wait for 3 seconds
-
-        When Escribo el email "<NEW_MEMBER_EMAIL>"
-        And I wait for 3 seconds
-
-        And Doy click en Label
-        And I wait for 3 seconds
-        When Escribo el Label "<NEW_MEMBER_LABEL>"
-
-        And I wait for 3 seconds
-        When Escribo una nota "<NEW_MEMBER_NOTE>"
-        And I wait for 3 seconds
+        When Escribo el nuevo nombre
+            And I wait for 3 seconds
         
-        And Doy click en save
-        And I wait for 3 seconds
+        When Escribo el nuevo email
+            And I wait for 3 seconds
+        
+        When Escribo una nueva nota
+            And I wait for 3 seconds
+            And Doy click en save
+            And I wait for 3 seconds         
+        When Doy click en member
+            And I wait for 3 seconds
+        
+        Then Debe aparecer el Member en la lista y lo selecciono
+            And I wait for 3 seconds
 
-        And Doy click en member
-        And I wait for 3 seconds
+            And Doy click en boton settings
+            And I wait for 3 seconds
 
+            And Doy click en Delete Member
+            And I wait for 3 seconds
 
-        And Doy click en memberPrueba_4
-        And I wait for 3 seconds
+            And Doy click en Confirm Delete Member
+            And I wait for 3 seconds
 
-
-        And Doy click en boton settings
-        And I wait for 3 seconds
-
-        And Doy click en Delete Member
-        And I wait for 3 seconds
-
-        And Doy click en Confirm Delete Member
-        And I wait for 3 seconds
-
-        And Doy click en el boton del avatar inferior
-        And I wait for 3 seconds
-        And Doy click en el menu Sign out
-        And I wait for 5 seconds
+            And Doy click en el boton del avatar inferior
+            And I wait for 3 seconds
+            And Doy click en el menu Sign out
+            And I wait for 5 seconds
