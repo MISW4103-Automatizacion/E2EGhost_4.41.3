@@ -1,5 +1,7 @@
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
+[Ver Pros y Contras de las herramientas](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/wiki)
+
 ## Lista de funcionalidades a probar
 
 | Módulo           | Funcionalidad |
@@ -22,10 +24,7 @@ Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramie
 |                  | Crear         |
 |                  | Modificar     |
 |                  | Actualizar    |
-| Pagina           | Consultar     |
-|                  | Crear         |
-|                  | Modificar     |
-|                  | Actualizar    |
+
 
 
 ## Lista de escenarios
