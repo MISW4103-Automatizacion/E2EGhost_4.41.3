@@ -7,7 +7,7 @@ texto = faker.lorem.paragraph();
 
 When('Doy click en el boton New Post', async function () {
     let element = await this.driver.$('/html/body/div[2]/div/nav[1]/div/section/div[1]/ul[2]/li[1]/a[2]');
-    return await element.click();  
+    return await element.click();
 });
 
 
@@ -23,31 +23,27 @@ When('Escribo el texto del post', async function () {
 });
 
 When('Doy click en el menu de publicar post', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div/section/header/section/div[2]/div[1]');
-    let isExisting = await element.isExisting();
-    if(isExisting)
-        return await element.click();
+    let element = await this.driver.$$('/html/body/div[2]/div/main/div/section/header/section/div[2]/div[1]');
+    if(element.length > 0)
+        return await element[0].click();
 });
 
 When('Doy click en el boton Publish post', async function () {
-    let element = await this.driver.$('/html/body/div[1]/div/footer/button[2]');
-    let isExisting = await element.isExisting();
-    if(isExisting)
-        return await element.click();
+    let element = await this.driver.$$('/html/body/div[1]/div/footer/button[2]');
+    if(element.length > 0)
+        return await element[0].click();
 });
 
 When('Doy click en la confirmacion de la publicacion del post', async function () {
-    let element = await this.driver.$('/html/body/div[5]/div/div/div[2]/button[2]'); 
-    let isExisting = await element.isExisting();
-    if(isExisting)
-        return await element.click();
+    let element = await this.driver.$$('/html/body/div[5]/div/div/div[2]/button[2]'); 
+    if(element.length > 0)
+        return await element[0].click();
 });
 
 When('Doy click en el boton Post', async function () {
-    let element = await this.driver.$('/html/body/div[2]/div/main/div/section/header/div/div[1]/a'); 
-    let isExisting = await element.isExisting();
-    if(isExisting)
-        return await element.click();
+    let element = await this.driver.$$('/html/body/div[2]/div/main/div/section/header/div/div[1]/a'); 
+    if(element.length > 0)
+        return await element[0].click();
 });
 
 When('Voy a la pagina de visualizacion {kraken-string}', async function (url) {
@@ -70,10 +66,9 @@ When('Borro el titulo del post', async function(){
 }); 
 
 When('Doy click en el menu de update post', async function(){
-    let element = await this.driver.$('/html/body/div[2]/div/main/div/section/header/section/div[1]/div[1]');
-    let isExisting = await element.isExisting();
-    if(isExisting)
-        return await element.click();
+    let element = await this.driver.$$('/html/body/div[2]/div/main/div/section/header/section/div[1]/div[1]');
+    if(element.length > 0)
+        return await element[0].click();
 });
 
 When('Doy click en el boton Update post', async function(){

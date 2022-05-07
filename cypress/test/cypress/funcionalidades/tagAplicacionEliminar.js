@@ -1,4 +1,5 @@
 const tagAplicacionEliminar = function (cy, nameTag) {
+    cy.wait(1000)
     cy.xpath('/html/body/div[2]/div/main/section/section/ol/li[2]/a[1]/h3').click() // Primer tag creado
     cy.wait(1000)
     cy.xpath('/html/body/div[2]/div/main/section/div/button/span').click() //Delete tag
