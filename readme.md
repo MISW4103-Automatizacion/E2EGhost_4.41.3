@@ -1,10 +1,12 @@
 ## Lista de funcionalidades:
 
-# Members
-# Post
-# Tag
-# Staff
-# Pagina
+### 1. Members
+### 2. Post
+### 3. Tag
+### 4. Staff
+### 5. Pagina
+### 6. Login
+### 7. Registro
 
 ## Lista de escenarios
 | Funcionalidad      | Escenarios | Descripcion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
