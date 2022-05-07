@@ -1,4 +1,4 @@
-describe('Escenario 1 Crear un staff de tipo Contributor y validar que aparezca en la lista de staff', () => {
+describe('Escenario 1 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, sale de la aplicación', () => {
   const loginUser = require('../funcionalidades/ingresarLogin')
   const registerUser = require('../funcionalidades/registrarUsuario')
   const salirAplicacion = require('../funcionalidades/salirAplicacion')

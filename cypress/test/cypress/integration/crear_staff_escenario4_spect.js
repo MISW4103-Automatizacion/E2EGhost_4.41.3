@@ -1,4 +1,4 @@
-describe('Escenario 4 Crear un staff de tipo Administrador y validar que aparezca en la lista de staff', () => {
+describe('Escenario 4 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Administrador y validar que aparezca en la lista de staff, sale de la aplicación', () => {
     const loginUser = require('../funcionalidades/ingresarLogin')
     const registerUser = require('../funcionalidades/registrarUsuario')
     const salirAplicacion = require('../funcionalidades/salirAplicacion')
