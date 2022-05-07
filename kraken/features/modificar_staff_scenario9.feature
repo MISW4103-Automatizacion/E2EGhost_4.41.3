@@ -1,4 +1,5 @@
 Feature: Escenario 9 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Administrador y validar que aparezca en la lista de staff, eliminarlos y validar que ya no aparezca en la lista, el mismo staff pasarlo ahora que sea de tipo Autor y validarlo nuevamente, sale de la aplicación
+  
   @user1 @web
   Scenario: Como usuario quiero modificar un staff y eliminarlo de tipo Administrador y pasarlo al tipo Autor
     Given Ir a la aplicacion Ghost "<URL>"

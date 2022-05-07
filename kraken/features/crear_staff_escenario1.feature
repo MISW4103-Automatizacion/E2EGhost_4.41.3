@@ -1,4 +1,5 @@
 Feature: Escenario 1 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, sale de la aplicación
+  
   @user1 @web
   Scenario: Como usuario quiero agregar un staff de tipo Contributor
     Given Ir a la aplicacion Ghost "<URL>"
