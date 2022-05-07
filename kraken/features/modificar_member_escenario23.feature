@@ -1,6 +1,6 @@
-Feature: Escenario  23, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member.  y validar que aparezca en la lista de members, , sale de la aplicacion.
+Feature: Escenario  23 Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member y validar que aparezca en la lista de member. Modificarlo, eliminarlo y validar que ya no aparezca en la lista. Salir de la aplicacion.
     @user1 @web
-    Scenario: Como usuario quiero eliminar un Member
+    Scenario: Como usuario quiero modificar un member
         Given Ir a la aplicacion Ghost "<URL>"
             And I wait for 5 seconds
         When Escribo el Site title "<NAMEBLOG>"
@@ -40,9 +40,25 @@ Feature: Escenario  23, Ingresar a la aplicacion, si el usuario no existe se cre
         Then Debe aparecer el Member en la lista y lo selecciono
             And I wait for 3 seconds
 
+        When Escribo el nuevo nombre
+            And I wait for 3 seconds
+        
+        When Escribo el nuevo email
+            And I wait for 3 seconds
+        
+        When Escribo una nueva nota
+            And I wait for 3 seconds
+            And Doy click en save
+            And I wait for 3 seconds         
+        When Doy click en member
+            And I wait for 3 seconds
+        
+        Then Debe aparecer el Member en la lista y lo selecciono
+            And I wait for 3 seconds
+
             And Doy click en boton settings
             And I wait for 3 seconds
-            
+
             And Doy click en Delete Member
             And I wait for 3 seconds
 
@@ -52,4 +68,4 @@ Feature: Escenario  23, Ingresar a la aplicacion, si el usuario no existe se cre
             And Doy click en el boton del avatar inferior
             And I wait for 3 seconds
             And Doy click en el menu Sign out
-            And I wait for 10 seconds
+            And I wait for 5 seconds

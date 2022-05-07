@@ -1,6 +1,6 @@
-Feature: Escenario  24, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member unsubscribe y validar que aparezca en la lista de members, , sale de la aplicacion.
+Feature: Escenario  22 Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member y validar que aparezca en la lista de members, elimina el member y sale de la aplicacion.
     @user1 @web
-    Scenario: Como usuario deseo crear un member sin subscripcion
+    Scenario: Como usuario quiero eliminar un Member
         Given Ir a la aplicacion Ghost "<URL>"
             And I wait for 5 seconds
         When Escribo el Site title "<NAMEBLOG>"
@@ -33,9 +33,6 @@ Feature: Escenario  24, Ingresar a la aplicacion, si el usuario no existe se cre
             And I wait for 3 seconds
         When Escribo una nota
             And I wait for 3 seconds
-
-        When Doy click en unsubscribe
-            And I wait for 3 seconds
             And Doy click en save
             And I wait for 3 seconds
         When Doy click en member
@@ -55,4 +52,4 @@ Feature: Escenario  24, Ingresar a la aplicacion, si el usuario no existe se cre
             And Doy click en el boton del avatar inferior
             And I wait for 3 seconds
             And Doy click en el menu Sign out
-            And I wait for 5 seconds
+            And I wait for 10 seconds
