@@ -1,7 +1,6 @@
-Feature: Eliminar staff de tipo Editor en ghost
-
+Feature: Escenario 12 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, eliminarlos y validar que ya no aparezca en la lista, el mismo staff pasarlo ahora que sea de tipo Autor y validarlo nuevamente, sale de la aplicación
   @user1 @web
-  Scenario: Como usuario quiero agregar un staff y eliminarlo de tipo Editor
+  Scenario: Como usuario quiero modificar un staff y eliminarlo de tipo Contributor y pasarlo al tipo Autor
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 5 seconds
     When Escribo el Site title "<NAMEBLOG>"
@@ -23,7 +22,7 @@ Feature: Eliminar staff de tipo Editor en ghost
       And Doy clic en el boton staff
       And Doy clic en el boton invite people
       And Escribo el correo electronico de la invitacion
-      And Doy click en el radio boton Editor
+      And Doy click en el radio boton Contributor
       And Doy click en el boton Send invitation now
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 3 seconds
@@ -34,4 +33,19 @@ Feature: Eliminar staff de tipo Editor en ghost
       And I wait for 3 seconds
     When Eliminar un staff creado previamente 'Eliminado'
       And I wait for 3 seconds
-    Then Debe aparecer el staff en la lista 'No encontrado'
+    Then Debe aparecer el staff en la lista 'No encontrado'  
+    Given Ir a la aplicacion Ghost "<URL>"
+      And I wait for 3 seconds
+    When Doy clic en el boton settings
+      And Doy clic en el boton staff
+      And Doy clic en el boton invite people
+      And Escribo el correo electronico de la invitacion
+      And Doy click en el radio boton Autor
+      And Doy click en el boton Send invitation now
+    Given Ir a la aplicacion Ghost "<URL>"
+      And I wait for 3 seconds
+    When Doy clic en el boton settings
+      And Doy clic en el boton staff
+      And I wait for 3 seconds
+    Then Debe aparecer el staff en la lista 'Exitoso'
+      And I wait for 3 seconds

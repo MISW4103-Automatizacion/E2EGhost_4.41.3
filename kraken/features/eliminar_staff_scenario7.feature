@@ -1,6 +1,6 @@
-Feature: Escenario 3 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Editor y validar que aparezca en la lista de staff, sale de la aplicación
+Feature: Escenario 7 Ingresar a la aplicación, si el usuario no existe se crea, se dirige hasta el modulo de staff. Crear un staff de tipo Editor y validar que aparezca en la lista de staff, eliminarlos y validar que ya no aparezca en la lista, sale de la aplicación
   @user1 @web
-  Scenario: Como usuario quiero agregar un staff de tipo Editor
+  Scenario: Como usuario quiero agregar un staff y eliminarlo de tipo Editor
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 5 seconds
     When Escribo el Site title "<NAMEBLOG>"
@@ -30,3 +30,7 @@ Feature: Escenario 3 Ingresar a la aplicación, si el usuario no existe se crea,
       And Doy clic en el boton staff
       And I wait for 3 seconds
     Then Debe aparecer el staff en la lista 'Exitoso'
+      And I wait for 3 seconds
+    When Eliminar un staff creado previamente 'Eliminado'
+      And I wait for 3 seconds
+    Then Debe aparecer el staff en la lista 'No encontrado'

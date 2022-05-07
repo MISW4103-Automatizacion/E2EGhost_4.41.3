@@ -1,7 +1,7 @@
 {
     "URL": "http://localhost:2368/ghost",
-    "NAMEBLOG": "Mi blog de pruebas con kraken",
-    "FULLNAME": "Pruebas E2E en kraken",
-    "USER": "krakenTest@kraken.com.co",
-    "PASSWORD": "Kraken123456@"
+    "NAMEBLOG": "Mi blog de pruebas con kraken y cypress",
+    "FULLNAME": "Pruebas E2E en kraken y cypress",
+    "USER": "krakenCypressTest@automatizacion.com.co",
+    "PASSWORD": "KrakenCypress123456@"
 }
