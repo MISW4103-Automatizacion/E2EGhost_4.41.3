@@ -1,11 +1,30 @@
-| Lista de funcionalidades a probar |
-| --------------------------------- |
-| Login - Registro.                 |
-| Members                           |
-| Posts                             |
-| Tags                              |
-| Staff                             |
-| Página                            |
+##Lista de funcionalidades a probar
+
+| Modulo           | Funcionalidad |
+| ---------------- | ------------- |
+| Login - Registro | Consultar     |
+|                  | Crear         |
+| Members          | Consultar     |
+|                  | Crear         |
+|                  | Modificar     |
+|                  | Actualizar    |
+| Posts            | Consultar     |
+|                  | Crear         |
+|                  | Modificar     |
+|                  | Actualizar    |
+| Tags             | Consultar     |
+|                  | Crear         |
+|                  | Modificar     |
+|                  | Actualizar    |
+| Staff            | Consultar     |
+|                  | Crear         |
+|                  | Modificar     |
+|                  | Actualizar    |
+| Pagina           | Consultar     |
+|                  | Crear         |
+|                  | Modificar     |
+|                  | Actualizar    |
+
 
 ## Lista de escenarios
 | Funcionalidad      | Escenarios | Descripcion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
