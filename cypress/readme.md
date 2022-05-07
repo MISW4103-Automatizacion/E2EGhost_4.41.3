@@ -32,11 +32,11 @@
 | Prerrequisitos para cypress cliente        | apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb |
 | Instalacion cypress                        | npm install cypress --save-dev |
 
-### Se ejecutan las pruebas forma 1
+### Comandos para ejecutar las pruebas por consola
 1. cd test/cypress
 2. cypress run --headless
 
-### Se ejecutan las pruebas forma 2
+### Ejecutar las pruebas con la aplicación de cypress
 1. Cypress open
 2. Cuando abra la aplicación debe buscar la carpeta donde se decargo el proyecto de las pruebas https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git y buscar cypress/tests yhay apareceran todos los test a ejecutar.
 
