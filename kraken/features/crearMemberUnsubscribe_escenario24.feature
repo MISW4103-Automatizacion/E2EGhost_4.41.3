@@ -1,6 +1,6 @@
 Feature: Escenario 4 Crear, Modificación de Member, activar unsubscribe
     @user1 @web
-    Scenario: Escenario 24 Crear un member unsubscribe y validar que aparezca en la lista de members
+    Scenario: Escenario  24, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member unsubscribe y validar que aparezca en la lista de members, , sale de la aplicacion.
         Given Ir a la aplicacion Ghost "<URL>"
         And I wait for 15 seconds
         When Escribo el email login "<USER>"

@@ -1,4 +1,4 @@
-describe('Escenario 22 Crear un member y validar que aparezca en la lista de member, eliminarlos y validar que ya no aparezca en la lista', () => {
+describe('Escenario  22, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member y validar que aparezca en la lista de member, eliminarlos y validar que ya no aparezca en la lista, , sale de la aplicacion.', () => {
     const loginUser = require('../funcionalidades/ingresarLogin')
     const registerUser = require('../funcionalidades/registrarUsuario')
     const salirAplicacion = require('../funcionalidades/salirAplicacion')
