@@ -6,7 +6,7 @@
 | Memoria Ram          | 6GB                                 |
 | Disco Duro           | 100GB SS                            |
 | Git ubuntu 20.04 LTS |  https://git-scm.com/download/linux |
-| Node.js              | 16.14.2 LTS                         |
+| Node.js              | 16.14.2 LTS https://nodejs.org/es/                        |
 
 ### Aplicación a Probar
 | Característica     | Especificación                      |
