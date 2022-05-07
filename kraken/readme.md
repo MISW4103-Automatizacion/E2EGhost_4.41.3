@@ -1,45 +1,32 @@
-## La siguiente configuracion es para un sistema operativo Linux Ubuntu v. 20.04 LTS
-## Memoria RAM 6MB
-## Disco Duro 100GB estado solido
+| Especificaciones de la máquina |
+| ------------------------------ |
+| Sistema Operativos             | Linux Ubuntu. Versión 20.04 LTS |
+| Memoria Ram                    | 6GB |
+| Disco Duro                     | 100GB SS |
+| Git ubuntu 20.04 LTS           |  https://git-scm.com/download/linux |
+| Node.js                        | 16.14.2 LTS |
 
-## Utilizar la version LTS de node https://nodejs.org/es/ y seguir los pasos para su instalacion y configuración en ubuntu 20.04 LTS
+| Aplicación a Probar |
+| ------------------- |
+| Nombre              | Ghost |
+| Version             | 4.41.3 |
 
-## Instalar Ghost 4.41.3
-### instalar ghost-cli
-sudo npm install ghost-cli@latest -g
+| Pasos Instalacion Ghots ubuntu 20.04 LTS |
+| ---------------------------------------- |
+| Instalar cliente ghost                   | sudo npm install ghost-cli@latest -g |
+| Crear un directorio vacio                | mkdir ghost\_4.41.3 |
+| Ingresar a la carpeta                    | cd ghost\_4.41.3 |
+| Instalar ghost 4.41.3                    | ghost install 4.41.3 --local |
+| Validar si ghost esta ejecutando.        | [http://localhost:2368/ghost/](http://localhost:2368/ghost/) |
 
-### Crear un directorio vacio
-mkdir ghost_4.41.3
+| Pasos Instalacion Kraken ubuntu 20.04 LTS          |
+| -------------------------------------------------- |
+| Instalar kraken de forma global                    | npm install kraken-node -g |
+| Descargar el proyecto actual de pruebas            | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
+| Ingresar a la carpeta                              | cd kraken |
+| Instalar dependencias                              | npm install |
+| Instalar appium                                    | npm install -g appium |
+| libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
-### Ingresar a la carpeta
-cd ghost_4.41.3
-
-### Instalar ghost 4.41.3
-ghost install 4.41.3 --local
-
-### Validar si ghost esta ejecutando http://localhost:2368/ghost/
-ghost ls
-
-### Si ghost esta detendio debe comenzarlo de lo contrario no ejecutar la siguiente instruccion
-ghost start
-
-## Instalar kraken
-### Instalar kraken de forma global
-npm install kraken-node -g
-
-### Asegurese de tener git instalador en ubuntu 20.04 LTS sino puede consultar esta pagina https://git-scm.com/download/linux
-### Descargar el proyecto actual de pruebas
-git clone https://github.com/MISW4103-Automatizacion/Ghost-4.41.3-Kraken.git
-
-### Consideraciones adicionales
-### Al momento de la ejecución de sus pruebas con Kraken, puede encontrarse con varios problemas. En primer lugar, como esta librería tiene # dependencias internas, como lo son Appium y Cucumber, es necesario que ambas sean accesibles para su entorno de ejecución.
-npm install kraken-node
-
-### Instalar appium desde npm
-npm install -g appium
-
-### Se debe instalar la siguiente libreria para los dispositivos en ubuntu 20.04 LTS 
-sudo apt install adb -y
-
-### Se ejecutan las pruebas
+### Comando para ejecutar las pruebas
 ./node_modules/kraken-node/bin/kraken-node run

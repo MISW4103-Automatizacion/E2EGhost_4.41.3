@@ -1,42 +1,39 @@
-## La siguiente configuracion es para un sistema operativo Linux Ubuntu v. 20.04 LTS
-## Memoria RAM 6MB
-## Disco Duro 100GB estado solido
+| Especificaciones de la máquina |
+| ------------------------------ |
+| Sistema Operativos             | Linux Ubuntu. Versión 20.04 LTS |
+| Memoria Ram                    | 6GB |
+| Disco Duro                     | 100GB SS |
+| Git ubuntu 20.04 LTS           |  https://git-scm.com/download/linux |
+| Node.js                        | 16.14.2 LTS |
 
-## Utilizar la version LTS de node https://nodejs.org/es/ y seguir los pasos para su instalacion y configuración en ubuntu 20.04 LTS
+| Aplicación a Probar |
+| ------------------- |
+| Nombre              | Ghost |
+| Version             | 4.41.3 |
 
-## Instalar Ghost 4.41.3
-### instalar ghost-cli
-sudo npm install ghost-cli@latest -g
+| Pasos Instalacion Ghots ubuntu 20.04 LTS |
+| ---------------------------------------- |
+| Instalar cliente ghost                   | sudo npm install ghost-cli@latest -g |
+| Crear un directorio vacio                | mkdir ghost\_4.41.3 |
+| Ingresar a la carpeta                    | cd ghost\_4.41.3 |
+| Instalar ghost 4.41.3                    | ghost install 4.41.3 --local |
+| Validar si ghost esta ejecutando.        | [http://localhost:2368/ghost/](http://localhost:2368/ghost/) |
 
-### Crear un directorio vacio
-mkdir ghost_4.41.3
+| Pasos Instalacion Cypress ubuntu 20.04 LTS |
+| ------------------------------------------ |
+| Descargar el proyecto actual de pruebas    | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
+| Ingresar a la carpeta                      | cd cypress |
+| Instalar dependencias                      | npm install |
+| Prerrequisitos para cypress cliente        | apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb |
+| Instalacion cypress                        | npm install cypress --save-dev |
 
-### Ingresar a la carpeta
-cd ghost_4.41.3
+### Se ejecutan las pruebas form 1
+1. cd test/cypress
+2. cypress run --headless
 
-### Instalar ghost 4.41.3
-ghost install 4.41.3 --local
+### Se ejecutan las pruebas form 2
+1. Cypress open
+2. Cuando abra la aplicación debe buscar la carpeta donde se decargo el proyecto de las pruebas https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git y buscar cypress/tests yhay apareceran todos los test a ejecutar.
 
-### Validar si ghost esta ejecutando http://localhost:2368/ghost/
-ghost ls
 
-### Si ghost esta detendio debe comenzarlo de lo contrario no ejecutar la siguiente instruccion
-ghost start
 
-## Instalar kraken
-### Instalar kraken de forma global
-npm install kraken-node -g
-
-### Asegurese de tener git instalador en ubuntu 20.04 LTS sino puede consultar esta pagina https://git-scm.com/download/linux
-### Descargar el proyecto actual de pruebas
-git clone 
-
-## Instalar cypress
-npm install
-
-## Instalar faker
-npm i @faker-js/faker --save
-
-### Se ejecutan las pruebas
-cd test/cypress
-cypress run --headless
