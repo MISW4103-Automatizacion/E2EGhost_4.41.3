@@ -1,7 +1,6 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const { faker } = require("@faker-js/faker");
 const assert = require("assert");
-const { debug } = require("console");
 
 nuevoTag = faker.name.jobType();
 modificadoTag = faker.name.jobType();
@@ -39,13 +38,12 @@ Then("Debe aparecer el Tag en la lista", async function () {
   let i = 2;
   let tagSave;
   while (isMostrar) {
-    let element = await this.driver.$(
+    let element = await this.driver.$$(
       "/html/body/div[2]/div/main/section/section/ol/li[" + i + "]/a[1]/h3"
     );
-    let isExisting = await element.isExisting()
-
-    if (isExisting)  {
-        tagSave = await element.getText();
+    
+    if (element.length > 0)  {
+        tagSave = await element[0].getText();
       if (tagSave == nuevoTag) {
         return assert.equal(tagSave, nuevoTag);
       } else {
@@ -76,14 +74,12 @@ Then("Debe aparecer el Tag modificado en la lista", async function () {
   let i = 2;
   let tagSave;
   while (isMostrar) {
-    let element = await this.driver.$(
+    let element = await this.driver.$$(
       "/html/body/div[2]/div/main/section/section/ol/li[" + i + "]/a[1]/h3"
     );
     
-    let isExisting = await element.isExisting()
-
-    if (isExisting)  {
-        tagSave = await element.getText();
+    if (element.length > 0)  {
+        tagSave = await element[0].getText();
       if (tagSave == modificadoTag) {
         return assert.equal(tagSave, modificadoTag);
       } else {
@@ -115,11 +111,10 @@ Then("No debe aparecer el Tag eliminado en la lista", async function () {
   let tagSave;
 
   while (isMostrar) {
-    let element = await this.driver.$("/html/body/div[2]/div/main/section/section/ol/li[" + i + "]/a[1]/h3");
-    let isExisting = await element.isExisting()
+    let element = await this.driver.$$("/html/body/div[2]/div/main/section/section/ol/li[" + i + "]/a[1]/h3");
 
-    if (isExisting) {
-        tagSave = await element.getText();
+    if (element.length > 0) {
+        tagSave = await element[0].getText();
       if (tagSave == nuevoTag) {
         return assert.equal(tagSave, nuevoTag);
       } else {
