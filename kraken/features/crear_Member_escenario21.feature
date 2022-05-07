@@ -1,6 +1,6 @@
 Feature: Escenario 1 Creacion de Member
     @user1 @web
-    Scenario: Escenario 21 Crear un member y validar que aparezca en la lista de members
+    Scenario: Escenario  21, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member y validar que aparezca en la lista de members, sale de la aplicacion.
         Given Ir a la aplicacion Ghost "<URL>"
         And I wait for 10 seconds
         When Escribo el email login "<USER>"

@@ -1,6 +1,6 @@
 Feature: Escenario 2 Eliminacion de Member
     @user1 @web
-    Scenario: Escenario 22 Crear un member y validar que aparezca en la lista de member, eliminarlos y validar que ya no aparezca en la lista
+    Scenario: Escenario  23, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Modificar un member y validar que aparezca en la lista de members, , sale de la aplicacion.
         Given Ir a la aplicacion Ghost "<URL>"
         And I wait for 10 seconds
         When Escribo el email login "<USER>"

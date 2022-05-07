@@ -1,4 +1,4 @@
-describe('Escenario 23 Moificar un member y validar que aparezca en la lista de members', () => {
+describe('Escenario  23, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Modificar un member y validar que aparezca en la lista de members, , sale de la aplicacion.', () => {
     const loginUser = require('../funcionalidades/ingresarLogin')
     const registerUser = require('../funcionalidades/registrarUsuario')
     const salirAplicacion = require('../funcionalidades/salirAplicacion')
