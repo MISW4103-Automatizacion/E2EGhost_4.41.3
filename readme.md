@@ -24,6 +24,10 @@ Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramie
 |                  | Crear         |
 |                  | Modificar     |
 |                  | Actualizar    |
+| Página            | Consultar     |
+|                  | Crear         |
+|                  | Modificar     |
+|                  | Actualizar    |
 
 
 
@@ -54,3 +58,11 @@ Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramie
 | Gestión de members | 22         |  Ingresar a la aplicación, si el usuario no existe se crea. Se dirige al módulo Member. Crear un member y validar que aparezca en la lista de member. Eliminar el member, validar que ya no aparezca en la lista y salir de la aplicación.                                                                                                                                                                                                                                                                                                                                        |
 | Gestión de members | 23         |  Ingresar a la aplicación, si el usuario no existe se crea. Se dirige al módulo Member. Modificar un member, validar que aparezca en la lista de members y salir de la aplicación.                                                                                                                                                                                                                                                                                                                                                                                         |
 | Gestión de members | 24         | Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member. Darle opción de  unsubscribe y validar que aparezca en la lista de members. Eliminar el member´, validar que no aparezca en la lista de members y salir de la aplicacion.             |
+
+| Gestión páginas | 25         | Escenario 25 Ingresar a la aplicacion, si el usuario no existe se crea. Crear una página y publicarlo. Salir de la aplicacion, dirigirse a la pagina Web y validar que la pagina tenga el estado de PUBLISHED, salir de la aplicacion.             |
+
+| Gestión páginas | 26         | Escenario 26 Ingresar a la aplicacion, si el usuario no existe se crea. Crear una página y publicarlo. Salir de la aplicacion, dirigirse a la pagina Web y validar que la pagina tenga el estado de PUBLISHED, ingresar a la pagina recien creada, cambia el titulo, actualiza la pagina y vuelve a validar con el nuevo titulo el estado PUBLISHED, salir de la aplicacion.             |
+
+| Gestión páginas | 27         | Escenario 27 Ingresar a la aplicacion, si el usuario no existe se crea. Crear una página y publicarlo. Salir de la aplicacion, dirigirse a la pagina Web y validar que la pagina tenga el estado de PUBLISHED, ingresar a la pagina recien creada, cambia el titulo, actualiza la pagina y vuelve a validar con el nuevo titulo el estado PUBLISHED, salir de la aplicacion.             |
+
+| Gestión páginas | 28         | Escenario 28 Ingresar a la aplicacion, si el usuario no existe se crea. Crear una página y publicarlo. Salir de la aplicacion, dirigirse a la pagina Web y validar que la pagina tenga el estado de PUBLISHED, ingresar a la pagina recien creada, cambia el titulo, actualiza la pagina y vuelve a validar con el nuevo titulo el estado PUBLISHED luego se elimina la pagina salir de la aplicacion.             |
