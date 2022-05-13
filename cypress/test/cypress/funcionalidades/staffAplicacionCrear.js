@@ -4,18 +4,38 @@ const staffAplicacionCrear = function (cy, email, tipo) {
     cy.get('#new-user-email').type(email)
     switch(tipo) {
         case 'Contributor':
-            cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[1]').click()
+            if (Cypress.env('VersionEnPrueba') != 1) {
+                cy.xpath('/html/body/div[4]/div/div/div/div/div[2]/section/div[1]/fieldset/div[2]/div[1]').click()
+            } else {
+                cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[1]').click()
+            }    
             break;
         case 'Autor':
-            cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[2]').click()
+            if (Cypress.env('VersionEnPrueba') != 1) {
+                cy.xpath('/html/body/div[4]/div/div/div/div/div[2]/section/div[1]/fieldset/div[2]/div[2]').click()
+            } else {
+                cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[2]').click()
+            }            
             break;
         case 'Editor':
-            cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[3]').click()
+            if (Cypress.env('VersionEnPrueba') != 1) {
+                cy.xpath('/html/body/div[4]/div/div/div/div/div[2]/section/div[1]/fieldset/div[2]/div[5]').click()
+            } else {
+                cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[3]').click()
+            }
             break;
         case 'Administrador':
-            cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[4]').click()
+            if (Cypress.env('VersionEnPrueba') != 1) {
+                cy.xpath('/html/body/div[4]/div/div/div/div/div[2]/section/div[1]/fieldset/div[2]/div[4]').click()
+            } else {
+                cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[4]').click()    
+            }
             break;
     }
-    cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[2]/button').click() // invitar ahora
+    if (Cypress.env('VersionEnPrueba') != 1) {
+        cy.xpath('/html/body/div[4]/div/div/div/div/div[2]/section/div[2]/button').click() // invitar ahora
+    } else {
+        cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[2]/button').click() // invitar ahora
+    }        
 };
 module.exports = {staffAplicacionCrear: staffAplicacionCrear};
