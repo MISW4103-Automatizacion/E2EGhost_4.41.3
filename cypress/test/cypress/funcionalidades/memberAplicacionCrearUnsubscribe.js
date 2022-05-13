@@ -11,6 +11,9 @@ const memberAplicacionCrearUnsubscribe = function (cy, name, email, note) {
     cy.xpath("//span[@class='input-toggle-component']").should("be.visible").click()
     cy.wait(3000);
 
+    cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario24_Create_UnsubscribeMember')
+    cy.wait(1000);
+
     cy.xpath("//span[contains(.,'Save')]").should("be.visible").click()
     cy.wait(1000);
 
