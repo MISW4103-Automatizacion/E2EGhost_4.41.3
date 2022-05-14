@@ -23,13 +23,23 @@ describe('Escenario 19 Ingresar a la aplicación, si el usuario no existe se cre
           }
         }
       })
-      loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+      loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'));
     })
     
-    it('Crear y eliminar un post', () => {
-      let titulo = faker.lorem.sentence()
-      let texto = faker.lorem.paragraph()
+    it('Crear y eliminar un post', () => {      
+      let titulo = '';
+      let texto = '';
+      let titulo2 = '';
       let escenario = '_Escenario19_eliminar_post_'
+      if (Cypress.env('isRegresionVisual') == false) {
+        titulo = faker.lorem.sentence();
+        texto = faker.lorem.paragraph();
+        titulo2 = faker.lorem.sentence()
+      }else{
+        titulo = 'Mi primer post';
+        texto = 'Qui in ex. Facilis et non molestiae. Illum debitis unde ad sapiente nisi corrupti est culpa quia. Minima enim animi excepturi. Quia in molestiae aspernatur nihil eos et. Amet et fugiat accusantium saepe quae doloribus culpa est.'
+        titulo2 = 'Mi segundo post'
+      }
       postAplicacionIrNuevoPost.postAplicacionIrNuevoPost(cy);
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
       postAplicacionCrear.postAplicacionCrear(cy,titulo, texto);

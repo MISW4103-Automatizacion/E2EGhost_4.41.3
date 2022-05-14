@@ -32,7 +32,7 @@ describe('Escenario 20 Ingresar a la aplicación, si el usuario no existe se cre
       let titulo = '';
       let texto = '';
       let titulo2 = '';
-      let escenario = '_Escenario18_modificar_post_';
+      let escenario = '_Escenario20_crear_modificar_eliminar_post';
       if (Cypress.env('isRegresionVisual') == false) {
         titulo = faker.lorem.sentence();
         texto = faker.lorem.paragraph();
@@ -51,6 +51,7 @@ describe('Escenario 20 Ingresar a la aplicación, si el usuario no existe se cre
       postAplicacionSalirCrearPost.postAplicacionSalirCrearPost(cy);
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
       salirAplicacion.salirAplicacion(cy);
+      cy.wait(4000)
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
       postAplicacionComprobar.postAplicacionComprobar(cy, titulo, true);
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
@@ -66,7 +67,6 @@ describe('Escenario 20 Ingresar a la aplicación, si el usuario no existe se cre
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
       postAplicacionSalirCrearPost.postAplicacionSalirCrearPost(cy);
       salirAplicacion.salirAplicacion(cy);
-      cy.wait(4000)
       postAplicacionComprobar.postAplicacionComprobar(cy, titulo2, true)
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
 
@@ -79,7 +79,6 @@ describe('Escenario 20 Ingresar a la aplicación, si el usuario no existe se cre
       postAplicacionEliminar.postAplicacionEliminar(cy);
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
       salirAplicacion.salirAplicacion(cy);
-      cy.wait(4000);
       postAplicacionComprobar.postAplicacionComprobar(cy, titulo2, false);
       cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + escenario);
     })
