@@ -23,5 +23,6 @@ const memberAplicacionModificar = function (cy, new_name, new_email, new_note) {
     cy.wait(1000);
 
     // cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[2]/button').click() // invitar ahora
+    cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario23_Modificar_Member')
 };
 module.exports = {memberAplicacionModificar: memberAplicacionModificar};
