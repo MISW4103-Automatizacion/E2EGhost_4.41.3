@@ -5,6 +5,6 @@
     "FULLNAME": "Pruebas E2E en kraken y cypress",
     "USER": "krakenCypressTest@automatizacion.com.co",
     "PASSWORD": "KrakenCypress123456@",
-    "isRegresionVisual" : false,
-    "VersionEnPrueba": 1
+    "isRegresionVisual" : true,
+    "VersionEnPrueba": 2
 }
