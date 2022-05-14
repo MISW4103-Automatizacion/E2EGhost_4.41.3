@@ -2,8 +2,23 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const assert = require('assert');
 const { faker } = require('@faker-js/faker');
 
-titulo = '';
-texto = faker.lorem.paragraph();
+let titulo = '';
+let texto = '';
+let titulo2 = '';
+if (Cypress.env('isRegresionVisual') == false) {
+  titulo = faker.lorem.sentence();
+  texto = faker.lorem.paragraph();
+  titulo2 = faker.lorem.sentence()
+}else{
+  titulo = 'Mi primer post';
+  texto = 'Qui in ex. Facilis et non molestiae. Illum debitis unde ad sapiente nisi corrupti est culpa quia. Minima enim animi excepturi. Quia in molestiae aspernatur nihil eos et. Amet et fugiat accusantium saepe quae doloribus culpa est.'
+  titulo2 = 'Mi segundo post'
+}
+
+When('Tomo screenshot', async function () {
+    let body = await this.driver.$('/html/body');
+    await body.saveScreenshot('test_screenshot2022_2212.png');
+});
 
 When('Doy click en el boton New Post', async function () {
     let element = await this.driver.$('/html/body/div[2]/div/nav[1]/div/section/div[1]/ul[2]/li[1]/a[2]');
