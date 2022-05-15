@@ -15,6 +15,26 @@
 | Version             | 4.41.3 | Original |
 | Version             | 4.30.0 | Nueva |
 
+### Pasos Instalacion Cypress ubuntu 20.04 LTS
+| Caracteristica.      | Especificación                      |
+| -------------------- | ----------------------------------- |
+| Descargar el proyecto actual de pruebas    | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
+| Ingresar a la carpeta                      | cd cypress |
+| Instalar dependencias                      | npm install |
+| Prerrequisitos para cypress cliente        | apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb |
+| Instalacion cypress                        | npm install cypress --save-dev |
+
+### Pasos Instalacion Kraken ubuntu 20.04 LTS
+| Característica      | Comandos                      |
+| -------------------- | ----------------------------------- |
+| Instalar kraken de forma global                    | npm install kraken-node -g |
+| Descargar el proyecto actual de pruebas            | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
+| Ingresar a la carpeta                              | cd kraken |
+| Instalar dependencias                              | npm install |
+| Instalar kraken de forma local para no generar problemas con cucumber| npm install kraken-node |
+| Instalar appium                                    | npm install -g appium |
+| libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
+
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
 [Ver Pros y Contras de las herramientas](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/wiki)
