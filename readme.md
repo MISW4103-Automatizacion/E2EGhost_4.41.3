@@ -19,6 +19,7 @@
 | Caracteristica.      | Especificación                      |
 | -------------------- | ----------------------------------- |
 | Descargar el proyecto actual de pruebas    | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
+| Ingresar a la carpeta del proyecto                      | cd E2EGhost_4.41.3 |
 | Ingresar a la carpeta                      | cd cypress |
 | Instalar dependencias                      | npm install |
 | Prerrequisitos para cypress cliente        | apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb |
