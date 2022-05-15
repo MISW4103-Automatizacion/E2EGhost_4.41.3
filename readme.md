@@ -30,7 +30,6 @@
 | -------------------- | ----------------------------------- |
 | Ingresar a la carpeta del proyecto                      | cd E2EGhost_4.41.3 |
 | Instalar kraken de forma global                    | npm install kraken-node -g |
-| Descargar el proyecto actual de pruebas            | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
 | Ingresar a la carpeta                              | cd kraken |
 | Instalar dependencias                              | npm install |
 | Instalar kraken de forma local para no generar problemas con cucumber| npm install kraken-node |
