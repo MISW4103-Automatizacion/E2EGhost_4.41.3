@@ -1,3 +1,5 @@
+## Regresión visual Aplicación GHOST
+
 ## Especificaciones de la máquina
 
 | Característica      | Especificación                      |
