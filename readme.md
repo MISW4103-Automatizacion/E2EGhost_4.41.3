@@ -37,7 +37,7 @@
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
-## Debve estar en la raiz del proyecto E2EGhost_4.41.3
+## Debe estar en la raiz del proyecto E2EGhost_4.41.3
 
 Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos,  importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso que por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
 
