@@ -1,5 +1,5 @@
 {
-    "baseUrl": "http://localhost:2368/ghost/",
+    "baseUrl": "http://localhost:2368/ghost",
     "env": {
         "URLMAIN": "http://localhost:2368/",
         "NAMEBLOG": "Mi blog de pruebas con kraken y cypress",
@@ -7,7 +7,7 @@
         "USER": "krakenCypressTest@automatizacion.com.co",
         "PASSWORD": "KrakenCypress123456@",
         "isRegresionVisual" : true,
-        "VersionEnPrueba": 2
+        "VersionEnPrueba": 1
     },
     "viewportWidth": 1024,
     "viewportHeight": 1024

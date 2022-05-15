@@ -8,28 +8,44 @@ describe('Escenario 6 Ingresar a la aplicación, si el usuario no existe se crea
     const staffAplicacionEliminar = require('../funcionalidades/staffAplicacionEliminar')
     const { faker } = require('@faker-js/faker')
 
+    let mail;
+    
     beforeEach(()=> {
       cy.clearCookies()
       cy.visit('/')
+      
       cy.get('main').then(($main) => {
         if($main.find('form').length > 0){
-          if($main.find('form')[0].id == 'setup') {
+          if($main.find('form')[0].id == 'setup') {            
             registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
+            cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_registrarUsuario_')
             salirAplicacion.salirAplicacion(cy)
           }
         }
-      })
+      })      
       loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_ingresoLogin_')
     })
     
     it('Eliminar un staff de tipo Autor', () => {
-      let mail = faker.internet.email();
+      if(Cypress.env('isRegresionVisual') == false){
+        mail = faker.internet.email();
+      } else {
+        mail = 'pruebaRegresion@regresion.com.co';
+      }
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_crear_staff_')
       staffAplicacion.staffAplicacion(cy)
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_crear_staff_')
       staffAplicacionCrear.staffAplicacionCrear(cy, mail, 'Autor')
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_crear_staff_')
       staffAplicacion.staffAplicacion(cy)
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_crear_staff_')
       staffAplicacionBuscar.staffAplicacionBuscar(cy, mail, true)
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_crear_staff_')
       staffAplicacionEliminar.staffAplicacionEliminar(cy, mail)
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_crear_staff_')
       staffAplicacionBuscar.staffAplicacionBuscar(cy, mail, false)
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario6_crear_staff_')
       salirAplicacion.salirAplicacion(cy)
     })
   })

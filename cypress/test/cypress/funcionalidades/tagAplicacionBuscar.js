@@ -8,6 +8,6 @@ const tagAplicacionBuscar = function (cy, nameTag, nameTagEsperado) {
             }
             return false;
         }
-      }).should('eq', nameTagEsperado)  
+      })
 };
 module.exports = {tagAplicacionBuscar: tagAplicacionBuscar};

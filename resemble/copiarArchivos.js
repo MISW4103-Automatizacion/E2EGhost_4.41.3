@@ -16,33 +16,40 @@ async function executeTest(){
         if(!b in ['chromium']){
             return;
         }
-        
-        filewalker("../reporteFinal_Cypress", async function(err, archivosCompare){
+                
+        filewalker("../imagenes1/screenshots", async function(err, archivos){
           if(err){
               throw err;
           }
-          for(let i=0; i < archivosCompare.length -1; i++) {
-            let FileBefore = archivosCompare[i];
-            let FileAfter = archivosCompare[i].replace('ghost1_','ghost2_')
-            const data = await compareImages(
-              fs.readFileSync(FileBefore),
-              fs.readFileSync(FileAfter),
-              options
-            );
-            resultInfo[b] = {
-              isSameDimensions: data.isSameDimensions,
-              dimensionDifference: data.dimensionDifference,
-              rawMisMatchPercentage: data.rawMisMatchPercentage,
-              misMatchPercentage: data.misMatchPercentage,
-              diffBounds: data.diffBounds,
-              analysisTime: data.analysisTime
+          
+          for(let i = 0; i < archivos.length -1; i++) {       
+                        
+            let directorio = archivos[i].split('/')[archivos[i].split('/').length-1].replace('(','').replace(')','').replace(' ','').replace('.png','');            
+            
+            if(fs.existsSync('../reporteFinal_Cypress/' + directorio)){
+              fs.mkdirSync('../reporteFinal_Cypress/' + directorio);
             }
-            let directorio = archivosCompare[i].split('/')[archivosCompare[i].split('/').length -2];            
-            let archivoCompare = archivosCompare[i].replace('.png','').replace('ghost1_','') + `_compare-${b}.png`;
-            fs.writeFileSync(archivoCompare, data.getBuffer());
-            fs.copyFileSync('./results/index.css', '../reporteFinal_Cypress/' + directorio + '/index.css');
-            fs.writeFileSync('../reporteFinal_Cypress/' + directorio + '/report.html', createReport(datetime, resultInfo, FileBefore, FileAfter, archivoCompare.replace('ghost2_', '')));
-          }
+            
+            directorio = '/' + directorio + '_' + i;
+
+            console.log(directorio)
+            
+            fs.mkdirSync('../reporteFinal_Cypress/' + directorio);
+  
+            let nombreArchivo = 'ghost1_' + archivos[i].split('/')[archivos[i].split('/').length-1].replace('(','').replace(')','').replace(' ','');
+                        
+            
+            fs.copyFile(archivos[i], '../reporteFinal_Cypress/' + directorio + '/' + nombreArchivo, function (err) {
+              if (err) return console.error(err)
+              console.log('success!')
+            });
+            let nombreArchivo2 = 'ghost2_' + archivos[i].replace('imagenes1', 'imagenes2').split('/')[archivos[i].replace('imagenes1', 'imagenes2').split('/').length-1].replace('(','').replace(')','').replace(' ','');
+            
+            fs.copyFile(archivos[i].replace('imagenes1', 'imagenes2'), '../reporteFinal_Cypress/' + directorio + '/' + nombreArchivo2, function (err) {
+              if (err) return console.error(err)
+              console.log('success!')
+            });            
+          }          
         });
     }
     
@@ -87,7 +94,7 @@ async function executeTest(){
   };
 
 
-  function browser(b, info, FileBefore, FileAfter, fileCompare){
+  function browser(b, info){
     return `<div class=" browser" id="test0">
     <div class=" btitle">
         <h2>Browser: ${b}</h2>
@@ -96,23 +103,23 @@ async function executeTest(){
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Reference</span>
-        <img class="img2" src=${FileBefore.split('/')[FileBefore.split('/').length -1]} id="refImage" label="Reference">
+        <img class="img2" src="before-${b}.png" id="refImage" label="Reference">
       </div>
       <div class="imgcontainer">
         <span class="imgname">Test</span>
-        <img class="img2" src=${FileAfter.split('/')[FileAfter.split('/').length -1]} id="testImage" label="Test">
+        <img class="img2" src="after-${b}.png" id="testImage" label="Test">
       </div>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Diff</span>
-        <img class="imgfull" src=${fileCompare.split('/')[fileCompare.split('/').length -1]} id="diffImage" label="Diff">
+        <img class="imgfull" src="./compare-${b}.png" id="diffImage" label="Diff">
       </div>
     </div>
   </div>`
 }
 
-function createReport(datetime, resInfo, FileBefore, FileAfter, fileCompare){
+function createReport(datetime, resInfo){
     return `
     <html>
         <head>
@@ -125,11 +132,9 @@ function createReport(datetime, resInfo, FileBefore, FileAfter, fileCompare){
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
-                ${config.browsers.map(b=>browser(b, resInfo[b], FileBefore, FileAfter, fileCompare))}
+                ${config.browsers.map(b=>browser(b, resInfo[b]))}
             </div>
         </body>
     </html>`
 }
 (async ()=>console.log(await executeTest()))();
-
-

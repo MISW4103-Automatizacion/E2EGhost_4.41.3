@@ -17,21 +17,19 @@ describe('Escenario  22, Ingresar a la aplicacion, si el usuario no existe se cr
     
     beforeEach(()=> {
       cy.clearCookies()
-        cy.visit('/')
-        
-        // if(Cypress.env('VersionEnPrueba') == 2) {
-        //   cy.xpath('/html/body/div[2]/div/main/div/div/section/a').click()
-        // }
-        
-        cy.get('main').then(($main) => {
-          if($main.find('form').length > 0){
-            if($main.find('form')[0].id == 'setup') {
-              registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
-              salirAplicacion.salirAplicacion(cy)
-            }
+      cy.visit('/')
+      
+      cy.get('main').then(($main) => {
+        if($main.find('form').length > 0){
+          if($main.find('form')[0].id == 'setup') {            
+            registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
+            cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_registrarUsuario_')
+            salirAplicacion.salirAplicacion(cy)
           }
-        })
-        loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+        }
+      })      
+      loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_ingresoLogin_')
     })
 
     

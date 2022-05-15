@@ -1,6 +1,6 @@
 const staffAplicacionCrear = function (cy, email, tipo) {
     cy.xpath('/html/body/div[2]/div/main/section/div/header/section/button').click() // people
-    cy.wait(1000)
+    cy.wait(3000)
     cy.get('#new-user-email').type(email)
     switch(tipo) {
         case 'Contributor':
@@ -19,7 +19,7 @@ const staffAplicacionCrear = function (cy, email, tipo) {
             break;
         case 'Editor':
             if (Cypress.env('VersionEnPrueba') != 1) {
-                cy.xpath('/html/body/div[4]/div/div/div/div/div[2]/section/div[1]/fieldset/div[2]/div[5]').click()
+                cy.xpath('/html/body/div[4]/div/div/div/div/div[2]/section/div[1]/fieldset/div[2]/div[3]').click()
             } else {
                 cy.xpath('/html/body/div[5]/div/div/div/div/div[2]/section/div/div[1]/fieldset/div[2]/div[3]').click()
             }

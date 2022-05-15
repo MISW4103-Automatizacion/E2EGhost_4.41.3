@@ -17,15 +17,18 @@ describe('Escenario 18 Ingresar a la aplicación, si el usuario no existe se cre
     beforeEach(()=> {
       cy.clearCookies()
       cy.visit('/')
+      
       cy.get('main').then(($main) => {
-        if($main.find('form').length > 0) {
-          if($main.find('form')[0].id == 'setup') {
+        if($main.find('form').length > 0){
+          if($main.find('form')[0].id == 'setup') {            
             registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
+            cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_registrarUsuario_')
             salirAplicacion.salirAplicacion(cy)
           }
         }
-      })
+      })      
       loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+      cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_ingresoLogin_')
     });
     
     it('Crear y modificar un post', () => {
