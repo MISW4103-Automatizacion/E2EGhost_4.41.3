@@ -36,6 +36,15 @@
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
             
+Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos,  importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso que por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
+
+| Herramienta | Archivos configuración Ghost 4.41.3.                                                                                                                                                          | Archivos configuración Ghost 4.30.0.                                                                                                                                                                  |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cypress     |  https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/cypress/test/cypress1.json                                                                                             | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/cypress/test/cypress12.json |
+| Kraken      | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/kraken/properties1.json | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/kraken/properties2.json         |
+
+Ghost ls para valiar que ninguna versión de ghost se este ejecutando.
+
 ## no cambie el nombre del archivo o sus extensiones esto puede provocar que el proceso no se ejecute correctamente.
 
 | Descripcion                       | Comando                                                                                                                                                                           | Carpeta evidencias resember | Evidencias Ghost 4.41.3  | Evidencias Ghost 4.30.0  |
@@ -45,12 +54,6 @@
 | Ejecutar proceso completo cypress | ./ejecutarProcesoCypress.sh                                                                                                                                                       |                             | ./imagenes1\_All         | ./imagenes2\_All         |
 | Ejecutar proceso completo kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                               |                             | ./imagenes1\_Kraken\_All | ./imagenes1\_Kraken\_All |
 
-Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos,  importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso que por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
-
-| Herramienta | Archivos configuración Ghost 4.41.3.                                                                                                                                                          | Archivos configuración Ghost 4.30.0.                                                                                                                                                                  |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cypress     |  https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/cypress/test/cypress1.json                                                                                             | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/cypress/test/cypress12.json |
-| Kraken      | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/kraken/properties1.json | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/kraken/properties2.json         |
 
 Nota: estos archivos se pueden ejecutar segun la preferencia de la persona, no dependen el uno al otro.
 
