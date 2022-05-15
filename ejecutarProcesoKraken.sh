@@ -1,7 +1,6 @@
 #!/bin/bash
-
 echo "###########################################"
-echo "*** Ejecucion regresion visual grupo 12 ***"
+echo "***  Comienza la ejecucion de todo el proceso ***"
 echo "###########################################"
 
 echo "*** Ejecucion kraken ***"
@@ -11,11 +10,16 @@ DIRECTORIOCYPRESS=$DIRECTORIOACTUAL/kraken
 echo "*** prepara la ejecucion de Ghost version 4.41.3 ***"
 mv $DIRECTORIOCYPRESS/properties1.json $DIRECTORIOCYPRESS/properties.json
 
+rm -rf $DIRECTORIOCYPRESS/features/ejecutados
+mkdir $DIRECTORIOCYPRESS/features/ejecutados
+
+echo "*** prepara los archivos de la ejecución de Ghost version 4.41.3 ***"
+mv $DIRECTORIOCYPRESS/features/*.feature $DIRECTORIOCYPRESS/features/ejecutados
+mv $DIRECTORIOCYPRESS/features/sinEjecutar/*.feature $DIRECTORIOCYPRESS/features
 
 echo "*** Elimina la carpeta para poner las imagenes de la ejecucion de ghost 4.41.3***"
 rm -rf $DIRECTORIOCYPRESS/reports
 mkdir $DIRECTORIOCYPRESS/reports
-
 
 echo "*** se detiene Ghost version 4.41.3 ***"
 if [ -d  "$DIRECTORIOACTUAL/ghost_4.41.3" ]; then
@@ -46,9 +50,9 @@ cd $DIRECTORIOCYPRESS
 ./node_modules/kraken-node/bin/kraken-node run
 
 echo "*** Elimina la carpeta para poner las imagenes de la ejecucion de ghost 4.41.3***"
-rm -rf $DIRECTORIOACTUAL/imagenes1_Kraken
-mkdir $DIRECTORIOACTUAL/imagenes1_Kraken
-cp -r $DIRECTORIOCYPRESS/reports/*.png $DIRECTORIOACTUAL/imagenes1_Kraken
+rm -rf $DIRECTORIOACTUAL/imagenes1_Kraken_All
+mkdir $DIRECTORIOACTUAL/imagenes1_Kraken_All
+cp -r $DIRECTORIOCYPRESS/reports/*.png $DIRECTORIOACTUAL/imagenes1_Kraken_All
 
 echo "*** finaliza la ejecucionde ghost versión de ghost 4.41.3 ***"
 mv $DIRECTORIOCYPRESS/properties.json $DIRECTORIOCYPRESS/properties1.json
@@ -89,27 +93,14 @@ cd $DIRECTORIOCYPRESS
 ./node_modules/kraken-node/bin/kraken-node run
 
 echo "*** Elimina la carpeta para poner las imagenes de la ejecucion de ghost 4.30.0***"
-rm -rf $DIRECTORIOACTUAL/imagenes2_Kraken
-mkdir $DIRECTORIOACTUAL/imagenes2_Kraken
-cp -r $DIRECTORIOCYPRESS/reports/*.png $DIRECTORIOACTUAL/imagenes2_Kraken
+rm -rf $DIRECTORIOACTUAL/imagenes2_Kraken_All
+mkdir $DIRECTORIOACTUAL/imagenes2_Kraken_All
+cp -r $DIRECTORIOCYPRESS/reports/*.png $DIRECTORIOACTUAL/imagenes2_Kraken_All
 
 echo "*** finaliza la ejecucionde ghost versión de ghost 4.30.0 ***"
 mv $DIRECTORIOCYPRESS/properties.json $DIRECTORIOCYPRESS/properties2.json
 
-echo "*** Instala las librerias de resemble ***"
-cd $DIRECTORIOACTUAL
-cd resemble
-npm install
+echo "*** Devuelve los archivos a su estado inicial ***"
+mv $DIRECTORIOCYPRESS/features/*.feature $DIRECTORIOCYPRESS/features/sinEjecutar
+mv $DIRECTORIOCYPRESS/features/ejecutados/*.feature $DIRECTORIOCYPRESS/features
 
-echo "*** Eliminar carpeta de las imagenes finales***"
-rm -rf $DIRECTORIOACTUAL/reporteFinal_Kraken
-mkdir $DIRECTORIOACTUAL/reporteFinal_Kraken
-
-echo "*** Ejecuta el comparador de imagenes con resemble ***"
-node copiarArchivos_Kraken.js
-node index_Kraken.js
-
-echo "*** El reporte de la regresion visual en kraken quedo en la ruta: ***"
-echo $DIRECTORIOACTUAL/reporteFinal_Kraken
-
-echo "*** Finaliza el reporte ***"
