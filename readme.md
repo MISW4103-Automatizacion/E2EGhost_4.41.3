@@ -1,3 +1,20 @@
+### Especificaciones de la máquina
+
+| Característica      | Especificación                      |
+| -------------------- | ----------------------------------- |
+| Sistema Operativos   | Linux Ubuntu. Versión 20.04 LTS     |
+| Memoria Ram          | 6GB                                 |
+| Disco Duro           | 100GB SS                            |
+| Git ubuntu 20.04 LTS |  https://git-scm.com/download/linux |
+| Node.js              | 16.14.2 LTS https://nodejs.org/es/                        |
+
+### Aplicaciones a Probar
+| Característica     | Especificación                      |
+| -------------------- | ----------------------------------- |
+| Nombre              | Ghost | |
+| Version             | 4.41.3 | Original |
+| Version             | 4.30.0 | Nueva |
+
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
 [Ver Pros y Contras de las herramientas](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/wiki)
