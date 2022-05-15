@@ -61,20 +61,20 @@ Nota: estos archivos se pueden ejecutar segun la preferencia de la persona, no d
 
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
-| Registro Jira                                           | Inventario de Issues reportado por Regresión visual                                                                                                    | Herramienta |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| [PT-28](https://pruebastsdc.atlassian.net/browse/PT-28) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Delete Member (Kraken)](https://pruebastsdc.atlassian.net/browse/PT-28)        | Kraken      |
-| [PT-27](https://pruebastsdc.atlassian.net/browse/PT-27) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Login (Kraken)](https://pruebastsdc.atlassian.net/browse/PT-27)                | Kraken      |
-| [PT-26](https://pruebastsdc.atlassian.net/browse/PT-26) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: New Member (Kraken)](https://pruebastsdc.atlassian.net/browse/PT-26)           | Kraken      |
-| [PT-25](https://pruebastsdc.atlassian.net/browse/PT-25) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Staff (Kraken)](https://pruebastsdc.atlassian.net/browse/PT-25)                | Kraken      |
-| [PT-24](https://pruebastsdc.atlassian.net/browse/PT-24) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Dashboard (Kraken)](https://pruebastsdc.atlassian.net/browse/PT-24)            | Kraken      |
-| [PT-23](https://pruebastsdc.atlassian.net/browse/PT-23) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Registro de Usuario (Kraken)](https://pruebastsdc.atlassian.net/browse/PT-23)  | Kraken      |
-| [PT-22](https://pruebastsdc.atlassian.net/browse/PT-22) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Delete Member (Cypress)](https://pruebastsdc.atlassian.net/browse/PT-22)       | Cypress     |
-| [PT-21](https://pruebastsdc.atlassian.net/browse/PT-21) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: New Member (Cypress)](https://pruebastsdc.atlassian.net/browse/PT-21)          | Cypress     |
-| [PT-20](https://pruebastsdc.atlassian.net/browse/PT-20) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Login (Cypress)](https://pruebastsdc.atlassian.net/browse/PT-20)               | Cypress     |
-| [PT-19](https://pruebastsdc.atlassian.net/browse/PT-19) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Staff (Cypress)](https://pruebastsdc.atlassian.net/browse/PT-19)               | Cypress     |
-| [PT-18](https://pruebastsdc.atlassian.net/browse/PT-18) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Dashboard (Cypress)](https://pruebastsdc.atlassian.net/browse/PT-18)           | Cypress     |
-| [PT-17](https://pruebastsdc.atlassian.net/browse/PT-17) | [Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Registro de Usuario (Cypress)](https://pruebastsdc.atlassian.net/browse/PT-17) | Cypress     |
+| Registro Jira                                           | Inventario de Issues reportado por Regresión visual                                                  | Herramienta |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
+| [PT-28](https://pruebastsdc.atlassian.net/browse/PT-28) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Delete Member (Kraken)        | Kraken      |
+| [PT-27](https://pruebastsdc.atlassian.net/browse/PT-27) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Login (Kraken)                | Kraken      |
+| [PT-26](https://pruebastsdc.atlassian.net/browse/PT-26) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: New Member (Kraken)           | Kraken      |
+| [PT-25](https://pruebastsdc.atlassian.net/browse/PT-25) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Staff (Kraken)                | Kraken      |
+| [PT-24](https://pruebastsdc.atlassian.net/browse/PT-24) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Dashboard (Kraken)            | Kraken      |
+| [PT-23](https://pruebastsdc.atlassian.net/browse/PT-23) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Registro de Usuario (Kraken)  | Kraken      |
+| [PT-22](https://pruebastsdc.atlassian.net/browse/PT-22) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Delete Member (Cypress)       | Cypress     |
+| [PT-21](https://pruebastsdc.atlassian.net/browse/PT-21) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: New Member (Cypress)          | Cypress     |
+| [PT-20](https://pruebastsdc.atlassian.net/browse/PT-20) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Login (Cypress)               | Cypress     |
+| [PT-19](https://pruebastsdc.atlassian.net/browse/PT-19) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Staff (Cypress)               | Cypress     |
+| [PT-18](https://pruebastsdc.atlassian.net/browse/PT-18) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Dashboard (Cypress)           | Cypress     |
+| [PT-17](https://pruebastsdc.atlassian.net/browse/PT-17) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Registro de Usuario (Cypress) | Cypress     |
 
 [Ver Pros y Contras de las herramientas](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/wiki)
 
