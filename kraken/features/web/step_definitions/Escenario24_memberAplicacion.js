@@ -96,9 +96,7 @@ When('Escenario24 Doy click en save', async function() {
     let element = await this.driver.$("//span[contains(.,'Save')]");
 
 
-    let body = await this.driver.$('/html/body');
-    await body.saveScreenshot('reports/Ghost_' + json.VersionEnPrueba + '_Escenario24_crear_member_save1.png');
-
+    
     return await element.click();
 
 
@@ -111,8 +109,8 @@ Then("Escenario24 Debe aparecer el Member en la lista y lo selecciono", async fu
     let memberSave;
     let elementoEliminar = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]');
     await elementoEliminar.click();  
-    let body = await this.driver.$('/html/body');
-    await body.saveScreenshot('reports/Ghost_' + json.VersionEnPrueba + '_Escenario24_crear_member1.png');
+
+
      
 
   });
@@ -132,8 +130,8 @@ When('Escenario24 Doy click en Delete Member', async function() {
 
 
 When('Escenario24 Doy click en Confirm Delete Member', async function() {
-    let body = await this.driver.$('/html/body/div[5]/div/div/div/div/div[2]/section');
-    await body.saveScreenshot('reports/Ghost_' + json.VersionEnPrueba + '_Escenario24_delete_member1.png');
+
+
     let element = await this.driver.$("(//span[contains(.,'Delete member')])[3]");
     return await element.click();
 });
@@ -206,8 +204,8 @@ if(json.VersionEnPrueba==2){
         let element = await this.driver.$("//span[contains(.,'Save')]");
     
     
-        let body = await this.driver.$('/html/body');
-        await body.saveScreenshot('reports/Ghost_' + json.VersionEnPrueba + '_Escenario24_crear_member_save2.png');
+
+   
     
         return await element.click();
     
@@ -221,8 +219,8 @@ if(json.VersionEnPrueba==2){
         let memberSave;
         let elementoEliminar = await this.driver.$('/html/body/div[2]/div/main/section/section/div[1]/table/tbody/tr[1]/a[1]');
         await elementoEliminar.click();  
-        let body = await this.driver.$('/html/body');
-        await body.saveScreenshot('reports/Ghost_' + json.VersionEnPrueba + '_Escenario24_crear_member2.png');
+
+
          
     
       });
@@ -241,8 +239,8 @@ if(json.VersionEnPrueba==2){
     
     
     When('Escenario24 Doy click en Confirm Delete Member', async function() {
-        let body = await this.driver.$('/html/body/div[4]/div/div/div/div/div[2]/section');
-        await body.saveScreenshot('reports/Ghost_' + json.VersionEnPrueba + '_Escenario24_delete_member2.png');
+
+
         let element = await this.driver.$("/html/body/div[4]/div/div/div/div/div[2]/section/div[2]/button[2]/span");
         return await element.click();
     });
