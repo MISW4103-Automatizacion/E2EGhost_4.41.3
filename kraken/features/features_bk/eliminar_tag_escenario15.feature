@@ -8,44 +8,40 @@ Feature: Escenario 15 Ingresar a la aplicación, si el usuario no existe se crea
       And Escribo el Full name "<FULLNAME>"
       And Escribo el Email address "<USER>"
       And Escribo el Password "<PASSWORD>"
+      And Capturo imagen "RegistrarUsuario_Escenario15"
       And Doy click on the button Create account & start publishing →
       And I wait for 5 seconds
+      And Doy click on the button no invitar
+      And Capturo imagen "Dashboard_Escenario15"
     Then Deberia ver la palabra 'All done!' despues de crear el usuario
     When Doy click on the button Explore Ghost admin
       And Doy click en el boton del avatar inferior
       And Doy click en el menu Sign out
     When Escribo el email login "<USER>"
       And Escribo el password login "<PASSWORD>"
+      And Capturo imagen "Login_Escenario15"
       And Doy clic en el boton Sing In
       And I wait for 2 seconds
-      And Capturo imagen "15_eliminar_tag_1"
-    Then Deberia ver la palabra 'Dashboard' en el página principal
+      Then Deberia ver la palabra 'Dashboard' en el página principal
     When Doy clic en el boton Tags
       And I wait for 2 seconds
-      And Capturo imagen "15_eliminar_tag_2"
+      And Capturo imagen "TagsInicio_Escenario15"
       And Doy clic en el boton New tag
       And I wait for 2 seconds
-      And Capturo imagen "15_eliminar_tag_3"
+      And Capturo imagen "TagsCrear_Escenario15"
       And Escribo el nombre del tag
-      And I wait for 2 seconds
       And Doy click en el Boton Save
-      And I wait for 2 seconds
     Given Ir a la aplicacion Ghost "<URL>"
     When Doy clic en el boton Tags
-    And I wait for 2 seconds
-    And Capturo imagen "15_eliminar_tag_4"
     Then Debe aparecer el Tag en la lista
     And I wait for 2 seconds
+    And Capturo imagen "TagsValidacion_Escenario15"
     When Doy clic en el primer Tag creado
     And I wait for 2 seconds
-    And Capturo imagen "15_eliminar_tag_5"
+    And Capturo imagen "TagsEliminar_Escenario15"
     And Doy click en el Boton Delete Tag
-    And I wait for 2 seconds
-    And Capturo imagen "15_eliminar_tag_6"
     And Doy click en el Boton Delete
-    And I wait for 2 seconds
-    And Capturo imagen "15_eliminar_tag_7"
     Then No debe aparecer el Tag eliminado en la lista
     And I wait for 2 seconds
-    And Capturo imagen "15_eliminar_tag_8"
+    And Capturo imagen "TagsValidacionEliminar_Escenario15"
     And I wait for 2 seconds

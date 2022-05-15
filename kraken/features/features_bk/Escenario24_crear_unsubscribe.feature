@@ -14,7 +14,6 @@ Feature: Escenario  24 Ingresar a la aplicacion, si el usuario no existe se crea
             And Capturo imagen "Dashboard_Escenario24"
         Then Deberia ver la palabra 'All done!' despues de crear el usuario
         When Doy click on the button Explore Ghost admin
-            And Capturo imagen "01_DashBoard_Escenario_24"
             And Doy click en el boton del avatar inferior
             And Doy click en el menu Sign out
         When Escribo el email login "<USER>"
@@ -26,6 +25,7 @@ Feature: Escenario  24 Ingresar a la aplicacion, si el usuario no existe se crea
         When Escenario24 Doy click en member
             And I wait for 3 seconds
             And Escenario24 Doy click en newMember
+            And Capturo imagen "MemberCrear_Escenario24"
             And I wait for 3 seconds
         When Escenario24 Escribo el nombre
             And I wait for 3 seconds
@@ -39,6 +39,7 @@ Feature: Escenario  24 Ingresar a la aplicacion, si el usuario no existe se crea
             And I wait for 3 seconds
 
         When Escenario24 Doy click en unsubscribe
+            And Capturo imagen "MemberUnsubscribe_Escenario24"
             And I wait for 3 seconds
             And Escenario24 Doy click en save
             And I wait for 3 seconds
