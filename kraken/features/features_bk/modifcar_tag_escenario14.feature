@@ -55,3 +55,4 @@ Feature: Escenario 14 Ingresar a la aplicación, si el usuario no existe se crea
     And I wait for 2 seconds
     Then No debe aparecer el Tag eliminado en la lista
     And I wait for 2 seconds
+    And I wait for 2 seconds

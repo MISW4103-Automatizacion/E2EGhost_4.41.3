@@ -54,3 +54,4 @@ Feature: Escenario 16 Ingresar a la aplicación, si el usuario no existe se crea
     Then No debe aparecer el Tag eliminado en la lista
     And I wait for 2 seconds
     And Capturo imagen "TagsValidacionEliminar_Escenario16"
+    And I wait for 2 seconds
