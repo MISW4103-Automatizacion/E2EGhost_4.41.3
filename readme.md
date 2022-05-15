@@ -1,4 +1,4 @@
-### Especificaciones de la máquina
+## Especificaciones de la máquina
 
 | Característica      | Especificación                      |
 | -------------------- | ----------------------------------- |
@@ -8,14 +8,14 @@
 | Git ubuntu 20.04 LTS |  https://git-scm.com/download/linux |
 | Node.js              | 16.14.2 LTS https://nodejs.org/es/                        |
 
-### Aplicaciones a Probar
+## Aplicaciones a Probar
 | Característica     | Especificación                      |
 | -------------------- | ----------------------------------- |
 | Nombre              | Ghost | |
 | Version             | 4.41.3 | Original |
 | Version             | 4.30.0 | Nueva |
 
-### Pasos Instalacion Cypress ubuntu 20.04 LTS
+## Pasos Instalacion Cypress ubuntu 20.04 LTS
 | Caracteristica.      | Especificación                      |
 | -------------------- | ----------------------------------- |
 | Descargar el proyecto actual de pruebas    | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
@@ -24,7 +24,7 @@
 | Prerrequisitos para cypress cliente        | apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb |
 | Instalacion cypress                        | npm install cypress --save-dev |
 
-### Pasos Instalacion Kraken ubuntu 20.04 LTS
+## Pasos Instalacion Kraken ubuntu 20.04 LTS
 | Característica      | Comandos                      |
 | -------------------- | ----------------------------------- |
 | Instalar kraken de forma global                    | npm install kraken-node -g |
@@ -35,15 +35,13 @@
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
-### Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos, estos bash aseguran el proceso de ejecucion automatizada cargando y descagando la versión de ghost 4.41.3 y ghost 4.30.0, importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso qeu por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
+## Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos, estos bash aseguran el proceso de ejecucion automatizada cargando y descagando la versión de ghost 4.41.3 y ghost 4.30.0, importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso qeu por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
 
-### cypress: https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/cypress/test/cypress1.json
-             https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/cypress/test/cypress12.json
+## cypress: https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/cypress/test/cypress1.json y https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/cypress/test/cypress12.json
              
-### Kraken: https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/kraken/properties1.json
-            https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/kraken/properties2.json
+### Kraken: https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/kraken/properties1.json y https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/kraken/properties2.json
             
-### no cambie el nombre del archivo o sus extensiones esto puede provocar que el proceso no se ejecute correctamente.
+## no cambie el nombre del archivo o sus extensiones esto puede provocar que el proceso no se ejecute correctamente.
 
 | Descripcion                       | Comando                                                                                                                                                                           | Carpeta evidencias resember | Evidencias Ghost 4.41.3  | Evidencias Ghost 4.30.0  |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------ | ------------------------ |
