@@ -28,6 +28,7 @@
 ## Pasos Instalacion Kraken ubuntu 20.04 LTS
 | Característica      | Comandos                      |
 | -------------------- | ----------------------------------- |
+| Ingresar a la carpeta del proyecto                      | cd E2EGhost_4.41.3 |
 | Instalar kraken de forma global                    | npm install kraken-node -g |
 | Descargar el proyecto actual de pruebas            | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
 | Ingresar a la carpeta                              | cd kraken |
@@ -35,7 +36,9 @@
 | Instalar kraken de forma local para no generar problemas con cucumber| npm install kraken-node |
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
-            
+
+## Debve estar en la raiz del proyecto E2EGhost_4.41.3
+
 Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos,  importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso que por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
 
 | Herramienta | Archivos configuración Ghost 4.41.3.                                                                                                                                                          | Archivos configuración Ghost 4.30.0.                                                                                                                                                                  |
