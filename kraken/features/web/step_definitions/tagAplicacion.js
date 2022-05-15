@@ -6,11 +6,6 @@ let json = require('../../../properties.json');
 let nuevoTag = faker.name.jobType();
 let modificadoTag = faker.name.jobType();
 
-When ("Capturo imagen {string}", async function(escenario){
-  let body = await this.driver.$('/html/body');
-    // await body.saveScreenshot('screenshots/escenario'+escenario+'/Ghost_' + json.VersionEnPrueba + '_Escenario'+escenario);
-    await body.saveScreenshot('./reports/Ghost_' + json.VersionEnPrueba + 'escenario'+escenario+'.png');
-})
 
 When("Doy clic en el boton Tags", async function () {
   let element = await this.driver.$(

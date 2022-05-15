@@ -7,18 +7,22 @@ Feature: Escenario  24 Ingresar a la aplicacion, si el usuario no existe se crea
             And Escribo el Full name "<FULLNAME>"
             And Escribo el Email address "<USER>"
             And Escribo el Password "<PASSWORD>"
+            And Capturo imagen "RegistrarUsuario_Escenario24"
             And Doy click on the button Create account & start publishing →
             And I wait for 5 seconds
+            And Doy click on the button no invitar
+            And Capturo imagen "Dashboard_Escenario24"
         Then Deberia ver la palabra 'All done!' despues de crear el usuario
         When Doy click on the button Explore Ghost admin
+            And Capturo imagen "01_DashBoard_Escenario_24"
             And Doy click en el boton del avatar inferior
             And Doy click en el menu Sign out
         When Escribo el email login "<USER>"
             And Escribo el password login "<PASSWORD>"
+            And Capturo imagen "Login_Escenario24"
             And Doy clic en el boton Sing In
             And I wait for 2 seconds
         Then Deberia ver la palabra 'Dashboard' en el página principal
-
         When Escenario24 Doy click en member
             And I wait for 3 seconds
             And Escenario24 Doy click en newMember

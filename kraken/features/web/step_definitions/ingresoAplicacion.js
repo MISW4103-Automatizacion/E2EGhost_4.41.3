@@ -18,5 +18,6 @@ When('Doy clic en el boton Sing In', async function () {
 
 Then('Deberia ver la palabra {string} en el página principal', async function (title) {
     let element = await this.driver.$('h2.gh-canvas-title');
+    
     return assert.equal(await element.getText(), title);
 });

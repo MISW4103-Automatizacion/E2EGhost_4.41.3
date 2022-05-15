@@ -18,15 +18,14 @@ Feature: Escenario 2 Ingresar a la aplicación, si el usuario no existe se crea,
       And Escribo el password login "<PASSWORD>"
       And Doy clic en el boton Sing In
       And I wait for 2 seconds
-    When Doy clic en el boton settings "<VersionEnPrueba>"
-      And Doy clic en el boton staff "<VersionEnPrueba>"
-      And Doy clic en el boton invite people "<VersionEnPrueba>"
-      And Escribo el correo electronico de la invitacion "<VersionEnPrueba>"
-      And Doy click en el radio boton Autor "<VersionEnPrueba>"
-      And Doy click en el boton Send invitation now "<VersionEnPrueba>"
-    Given Ir a la aplicacion Ghost "<URL>"
+    When Doy clic en el boton settings 
+      And Doy clic en el boton staff 
+      And Doy clic en el boton invite people 
+      And Escribo el correo electronico de la invitacion 
+      And Doy click en el radio boton Autor 
+      And Doy click en el boton Send invitation now 
       And I wait for 3 seconds
-    When Doy clic en el boton settings "<VersionEnPrueba>"
-      And Doy clic en el boton staff "<VersionEnPrueba>"
+    When Doy clic en el boton settings 
+      And Doy clic en el boton staff 
       And I wait for 3 seconds
-    Then Debe aparecer el staff en la lista 'Exitoso', "<VersionEnPrueba>"
+    Then Debe aparecer el staff en la lista 'Exitoso' 

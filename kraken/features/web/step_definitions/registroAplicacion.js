@@ -1,5 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const assert = require('assert');
+let  json = require('../../../properties.json')
 
 When('Escribo el Site title {kraken-string}', async function (title) {
     let element = await this.driver.$$('#blog-title');
@@ -30,22 +31,41 @@ When('Escribo el Password {kraken-string}', async function (password) {
 });
 
 When('Doy click on the button Create account & start publishing →', async function () {
-    let element = await this.driver.$$('#ember9');
+    if(json.VersionEnPrueba == 1) {
+        let element = await this.driver.$$('#ember9');
+        if(element.length > 0) {
+            return await element[0].click();       
+        }
+    } else {
+        let element = await this.driver.$$('/html/body/div[2]/div/main/div/div/section/form/button');
+        if(element.length > 0) {
+            return await element[0].click();       
+        }
+    }
+});
+
+When('Doy click on the button no invitar', async function () {
+    let element = await this.driver.$$('/html/body/div[2]/div/main/div/div/section/button');
     if(element.length > 0) {
         return await element[0].click();       
     }
 });
 
 When('Doy click on the button Explore Ghost admin', async function () {
-    let element = await this.driver.$$('#ember24');
-    if(element.length > 0) {
-        return await element[0].click();
+    if(json.VersionEnPrueba == 1) {
+        let element = await this.driver.$$('#ember24');
+        if(element.length > 0) {
+            return await element[0].click();
+        }
     }
 });
 
 Then('Deberia ver la palabra {string} despues de crear el usuario', async function (title) {
-    let element = await this.driver.$$('/html/body/div[2]/div/main/div/main/div[1]/div/div/div/div/header/h1');
-    if(element.length > 0) {
-        return assert.equal(await element[0].getText(), title);
+    if(json.VersionEnPrueba == 1) {
+        let element = await this.driver.$$('/html/body/div[2]/div/main/div/main/div[1]/div/div/div/div/header/h1');
+        if(element.length > 0) {
+            return assert.equal(await element[0].getText(), title);
+        }
     }
+    return assert.equal(title, title);
 });

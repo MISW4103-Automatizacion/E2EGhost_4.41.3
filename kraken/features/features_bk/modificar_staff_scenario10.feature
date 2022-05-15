@@ -19,34 +19,34 @@ Feature: Escenario 10 Ingresar a la aplicación, si el usuario no existe se crea
       And Doy clic en el boton Sing In
       And I wait for 2 seconds
     Then Deberia ver la palabra 'Dashboard' en el página principal
-    When Doy clic en el boton settings "<VersionEnPrueba>"
-      And Doy clic en el boton staff "<VersionEnPrueba>"
-      And Doy clic en el boton invite people "<VersionEnPrueba>"
-      And Escribo el correo electronico de la invitacion "<VersionEnPrueba>"
-      And Doy click en el radio boton Autor "<VersionEnPrueba>"
-      And Doy click en el boton Send invitation now "<VersionEnPrueba>"
+    When Doy clic en el boton settings 
+      And Doy clic en el boton staff 
+      And Doy clic en el boton invite people 
+      And Escribo el correo electronico de la invitacion 
+      And Doy click en el radio boton Autor 
+      And Doy click en el boton Send invitation now 
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 3 seconds
-    When Doy clic en el boton settings "<VersionEnPrueba>"
-      And Doy clic en el boton staff "<VersionEnPrueba>"
+    When Doy clic en el boton settings 
+      And Doy clic en el boton staff 
       And I wait for 3 seconds
-    Then Debe aparecer el staff en la lista 'Exitoso', "<VersionEnPrueba>"
+    Then Debe aparecer el staff en la lista 'Exitoso' 
       And I wait for 3 seconds
-    When Eliminar un staff creado previamente 'Eliminado', "<VersionEnPrueba>"
+    When Eliminar un staff creado previamente 'Eliminado'
       And I wait for 3 seconds
-    Then Debe aparecer el staff en la lista 'No encontrado', "<VersionEnPrueba>"
+    Then Debe aparecer el staff en la lista 'No encontrado'
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 3 seconds
-    When Doy clic en el boton settings "<VersionEnPrueba>"
-      And Doy clic en el boton staff "<VersionEnPrueba>"
-      And Doy clic en el boton invite people "<VersionEnPrueba>"
-      And Escribo el correo electronico de la invitacion "<VersionEnPrueba>"
-      And Doy click en el radio boton Editor "<VersionEnPrueba>"
-      And Doy click en el boton Send invitation now "<VersionEnPrueba>"
+    When Doy clic en el boton settings 
+      And Doy clic en el boton staff 
+      And Doy clic en el boton invite people 
+      And Escribo el correo electronico de la invitacion 
+      And Doy click en el radio boton Editor 
+      And Doy click en el boton Send invitation now 
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 3 seconds
-    When Doy clic en el boton settings "<VersionEnPrueba>"
-      And Doy clic en el boton staff "<VersionEnPrueba>"
+    When Doy clic en el boton settings 
+      And Doy clic en el boton staff 
       And I wait for 3 seconds
-    Then Debe aparecer el staff en la lista 'Exitoso', "<VersionEnPrueba>"
+    Then Debe aparecer el staff en la lista 'Exitoso' 
       And I wait for 3 seconds

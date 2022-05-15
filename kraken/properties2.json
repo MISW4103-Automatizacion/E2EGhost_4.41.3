@@ -1,11 +1,10 @@
 {
-    "URL": "http://localhost:2368/ghost",
+    "URL": "http://localhost:2368/ghost/#/setup/two",
     "URLMAIN": "http://localhost:2368/",
     "NAMEBLOG": "Mi blog de pruebas con kraken y cypress",
     "FULLNAME": "Pruebas E2E en kraken y cypress",
     "USER": "krakenCypressTest@automatizacion.com.co",
     "PASSWORD": "KrakenCypress123456@",
     "isRegresionVisual" : true,
-    "VersionEnPrueba": 1
-
+    "VersionEnPrueba": 2
 }

@@ -21,7 +21,7 @@ if (json.isRegresionVisual) {
 When('Tomo screenshot {kraken-string}', async function (escenario) {
     let body = await this.driver.$('/html/body');
     nScreenshot ++ ;
-    return body.saveScreenshot('./reports/'+escenario +'/Ghost_' + json.VersionEnPrueba + escenario +'(' + nScreenshot + ').png');
+    return body.saveScreenshot('./reports/Ghost_' + json.VersionEnPrueba + '_' + escenario + '_' + nScreenshot + '.png');
 
 });
 
