@@ -1,3 +1,64 @@
+## Especificaciones de la máquina
+
+| Característica      | Especificación                      |
+| -------------------- | ----------------------------------- |
+| Sistema Operativos   | Linux Ubuntu. Versión 20.04 LTS     |
+| Memoria Ram          | 6GB                                 |
+| Disco Duro           | 100GB SS                            |
+| Git ubuntu 20.04 LTS |  https://git-scm.com/download/linux |
+| Node.js              | 16.14.2 LTS https://nodejs.org/es/                        |
+
+## Aplicaciones a Probar
+| Característica     | Especificación                      |
+| -------------------- | ----------------------------------- |
+| Nombre              | Ghost | |
+| Version             | 4.41.3 | Original |
+| Version             | 4.30.0 | Nueva |
+
+## Pasos Instalacion Cypress ubuntu 20.04 LTS
+| Caracteristica.      | Especificación                      |
+| -------------------- | ----------------------------------- |
+| Descargar el proyecto actual de pruebas    | git clone https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3.git |
+| Ingresar a la carpeta del proyecto                      | cd E2EGhost_4.41.3 |
+| Ingresar a la carpeta                      | cd cypress |
+| Instalar dependencias                      | npm install |
+| Prerrequisitos para cypress cliente        | apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb |
+| Instalacion cypress                        | npm install cypress --save-dev |
+
+## Pasos Instalacion Kraken ubuntu 20.04 LTS
+| Característica      | Comandos                      |
+| -------------------- | ----------------------------------- |
+| Ingresar a la carpeta del proyecto                      | cd E2EGhost_4.41.3 |
+| Instalar kraken de forma global                    | npm install kraken-node -g |
+| Ingresar a la carpeta                              | cd kraken |
+| Instalar dependencias                              | npm install |
+| Instalar kraken de forma local para no generar problemas con cucumber| npm install kraken-node |
+| Instalar appium                                    | npm install -g appium |
+| libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
+
+## Debe estar en la raiz del proyecto E2EGhost_4.41.3
+
+Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos,  importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso que por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
+
+| Herramienta | Archivos configuración Ghost 4.41.3.                                                                                                                                                          | Archivos configuración Ghost 4.30.0.                                                                                                                                                                  |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cypress     |  https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/cypress/test/cypress1.json                                                                                             | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/cypress/test/cypress12.json |
+| Kraken      | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/kraken/properties1.json | https://github.com/MISW4103-Automatizacion/E2EGhost\_4.41.3/blob/main/kraken/properties2.json         |
+
+Ghost ls para valiar que ninguna versión de ghost se este ejecutando.
+
+## no cambie el nombre del archivo o sus extensiones esto puede provocar que el proceso no se ejecute correctamente.
+
+| Descripcion                       | Comando                                                                                                                                                                           | Carpeta evidencias resember | Evidencias Ghost 4.41.3  | Evidencias Ghost 4.30.0  |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------ | ------------------------ |
+| Ejecutar regresión visual cypress | ./ejecutarRegresionVisualCypress.sh | ./reporteFinal\_Cypress     |                          |                          |
+| Ejecutar regresión visual kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                                | ./reporteFinal\_Kraken      |                          |                          |
+| Ejecutar proceso completo cypress | ./ejecutarProcesoCypress.sh                                                                                                                                                       |                             | ./imagenes1\_All         | ./imagenes2\_All         |
+| Ejecutar proceso completo kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                               |                             | ./imagenes1\_Kraken\_All | ./imagenes1\_Kraken\_All |
+
+
+Nota: estos archivos se pueden ejecutar segun la preferencia de la persona, no dependen el uno al otro.
+
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
 [Ver Pros y Contras de las herramientas](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/wiki)
