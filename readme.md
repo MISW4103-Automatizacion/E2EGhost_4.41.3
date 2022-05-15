@@ -61,6 +61,9 @@ Nota: estos archivos se pueden ejecutar segun la preferencia de la persona, no d
 
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
+El proceso genera los archivos si desea un ejemplo puede descargar los reportes tanto Gost y Kraken de la siguiente ruta:
+Reporte consolidado HTML de solo los 6  issues: https://uniandes-my.sharepoint.com/:u:/g/personal/af_ostor10_uniandes_edu_co/EY1X1s6Er5VHvcGi4BjraHgB3IUGK-jjUFbhn5vC_UsLwQ?e=2SRQio
+
 - Usuario Jira: j.idarragar@uniandes.edu.co
 - Contraseña: MISO4103
 
