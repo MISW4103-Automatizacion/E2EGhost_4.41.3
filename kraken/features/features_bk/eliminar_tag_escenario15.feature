@@ -45,3 +45,4 @@ Feature: Escenario 15 Ingresar a la aplicación, si el usuario no existe se crea
     And I wait for 2 seconds
     And Capturo imagen "TagsValidacionEliminar_Escenario15"
     And I wait for 2 seconds
+    And I wait for 2 seconds
