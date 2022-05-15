@@ -35,6 +35,13 @@
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
+| Descripcion                       | Comando                                                                                                                                                                           | Carpeta evidencias resember | Evidencias Ghost 4.41.3  | Evidencias Ghost 4.30.0  |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------ | ------------------------ |
+| Ejecutar regresión visual cypress | [./ejecutarRegresionVisualCypress.sh](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/ejecutarRegresionVisualCypress.sh "ejecutarRegresionVisualCypress.sh") | ./reporteFinal\_Cypress     |                          |                          |
+| Ejecutar regresión visual kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                                | ./reporteFinal\_Kraken      |                          |                          |
+| Ejecutar proceso completo cypress | ./ejecutarProcesoCypress.sh                                                                                                                                                       |                             | ./imagenes1\_All         | ./imagenes2\_All         |
+| Ejecutar proceso completo kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                                |                             | ./imagenes1\_Kraken\_All | ./imagenes1\_Kraken\_All |
+
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
 [Ver Pros y Contras de las herramientas](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/wiki)
