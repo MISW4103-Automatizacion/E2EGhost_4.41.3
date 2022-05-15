@@ -1,23 +1,28 @@
-const { Given, When, Then } = require('@cucumber/cucumber');
+const { When, Then } = require('@cucumber/cucumber');
 const assert = require('assert');
 const { faker } = require('@faker-js/faker');
-
+let  json = require('../../../properties.json')
 let titulo = '';
 let texto = '';
+let titulo1 = ''
 let titulo2 = '';
-if (Cypress.env('isRegresionVisual') == false) {
-  titulo = faker.lorem.sentence();
-  texto = faker.lorem.paragraph();
-  titulo2 = faker.lorem.sentence()
-}else{
-  titulo = 'Mi primer post';
-  texto = 'Qui in ex. Facilis et non molestiae. Illum debitis unde ad sapiente nisi corrupti est culpa quia. Minima enim animi excepturi. Quia in molestiae aspernatur nihil eos et. Amet et fugiat accusantium saepe quae doloribus culpa est.'
-  titulo2 = 'Mi segundo post'
+let nScreenshot = 0;
+let esModificar = false;
+if (json.isRegresionVisual) {
+    titulo1 = 'Mi primer post';
+    texto = 'Qui in ex. Facilis et non molestiae. Illum debitis unde ad sapiente nisi corrupti est culpa quia. Minima enim animi excepturi. Quia in molestiae aspernatur nihil eos et. Amet et fugiat accusantium saepe quae doloribus culpa est.'
+    titulo2 = 'Mi segundo post'
+} else {
+    titulo1 = faker.lorem.sentence();
+    texto = faker.lorem.paragraph();
+    titulo2 = faker.lorem.sentence()
 }
 
-When('Tomo screenshot', async function () {
+When('Tomo screenshot {kraken-string}', async function (escenario) {
     let body = await this.driver.$('/html/body');
-    await body.saveScreenshot('test_screenshot2022_2212.png');
+    nScreenshot ++ ;
+    return body.saveScreenshot('./reports/'+escenario +'/Ghost_' + json.VersionEnPrueba + escenario +'(' + nScreenshot + ').png');
+
 });
 
 When('Doy click en el boton New Post', async function () {
@@ -28,7 +33,11 @@ When('Doy click en el boton New Post', async function () {
 
 When('Escribo el titulo del post', async function () {
     let element = await this.driver.$('/html/body/div[2]/div/main/div/section/div[1]/div[1]/textarea');
-    titulo = faker.lorem.sentence();
+    if (titulo==''){
+        titulo = titulo1;
+    }else {
+        titulo = titulo2;
+    };
     return await element.setValue(titulo);
 });
 
@@ -50,7 +59,7 @@ When('Doy click en el boton Publish post', async function () {
 });
 
 When('Doy click en la confirmacion de la publicacion del post', async function () {
-    let element = await this.driver.$$('/html/body/div[5]/div/div/div[2]/button[2]'); 
+    let element = await this.driver.$$('/html/body/div[' + (6-json.VersionEnPrueba) + ']/div/div/div[2]/button[2]'); 
     if(element.length > 0)
         return await element[0].click();
 });
@@ -97,13 +106,15 @@ When('Doy click en el boton settings del post', async function(){
 });
 
 When('Doy click en delete post', async function(){
-    let element = await this.driver.$('/html/body/div[2]/div/main/div/div/div/div/div[2]/form/button');
-    return await element.click();
+    let element = await this.driver.$$('/html/body/div[2]/div/main/div/div/div/div/div[2]/form/button'); 
+    if(element.length > 0)
+        return await element[0].click();
 });
 
 When('Doy click en confirmacion delete post', async function(){
-    let element = await this.driver.$('/html/body/div[5]/div/div/div[2]/button[2]');
-    return await element.click();
+    let element = await this.driver.$$('/html/body/div[' + (6-json.VersionEnPrueba) + ']/div/div/div[2]/button[2]'); 
+    if(element.length > 0)
+        return await element[0].click();
 });      
 
 Then('Debe aparecer el post creado en la pagina', async function () {
