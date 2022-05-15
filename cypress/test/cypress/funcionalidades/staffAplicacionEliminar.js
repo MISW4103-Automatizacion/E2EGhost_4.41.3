@@ -1,5 +1,5 @@
 const staffAplicacionEliminar = function (cy, email) {
-    cy.wait(1000)
+    cy.wait(3000)
     cy.get('div.apps-grid').then(($div) => {
         if($div.length > 0) {
             for(let i = 0; i <= $div[0].children.length -1; i++) {   
@@ -13,6 +13,6 @@ const staffAplicacionEliminar = function (cy, email) {
             }
         }
       }).click()
-    cy.wait(1000)
+    cy.wait(3000)
 };
 module.exports = {staffAplicacionEliminar: staffAplicacionEliminar};

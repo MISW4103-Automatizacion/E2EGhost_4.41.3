@@ -7,43 +7,42 @@ describe('Escenario 1 Ingresar a la aplicación, si el usuario no existe se crea
   const staffAplicacionBuscar = require('../funcionalidades/staffAplicacionBuscar')
   const staffAplicacionEliminar = require('../funcionalidades/staffAplicacionEliminar')
   const { faker } = require('@faker-js/faker')
+  
   let mail;
 
   beforeEach(()=> {
     cy.clearCookies()
-      cy.visit('/')
-      
-      if(Cypress.env('VersionEnPrueba') == 2) {
-        cy.xpath('/html/body/div[2]/div/main/div/div/section/a').click()
-      }
-      
-      cy.get('main').then(($main) => {
-        if($main.find('form').length > 0){
-          if($main.find('form')[0].id == 'setup') {
-            registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
-            salirAplicacion.salirAplicacion(cy)
-          }
+    cy.visit('/')
+    
+    cy.get('main').then(($main) => {
+      if($main.find('form').length > 0){
+        if($main.find('form')[0].id == 'setup') { 
+          cy.screenshot('Escenario01_registrarUsuario_')           
+          registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
+          salirAplicacion.salirAplicacion(cy)
         }
-      })
-      loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+      }
+    })    
+    loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+    cy.screenshot('Escenario02_ingresoLogin_')
   })
   
   it('crear un staff de tipo Contributor', () => {
-    if(Cypress.env('isRegresionVisual') != false){
+    if(Cypress.env('isRegresionVisual') == false){
       mail = faker.internet.email();
     } else {
       mail = 'pruebaRegresion@regresion.com.co';
     }
-    cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_crear_staff_')
+    cy.screenshot('Escenario1_crear_staff_')
     staffAplicacion.staffAplicacion(cy)
-    cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_crear_staff_')
+    cy.screenshot('Escenario1_crear_staff_')
     staffAplicacionCrear.staffAplicacionCrear(cy, mail, 'Contributor')
-    cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_crear_staff_')
+    cy.screenshot('Escenario1_crear_staff_')
     staffAplicacion.staffAplicacion(cy)
-    cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_crear_staff_')
+    cy.screenshot('Escenario1_crear_staff_')
     staffAplicacionBuscar.staffAplicacionBuscar(cy, mail, true)
-    cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario1_crear_staff_')
-    if(Cypress.env('isRegresionVisual') == false) {
+    cy.screenshot('Escenario1_crear_staff_')
+    if(Cypress.env('isRegresionVisual') == true) {
       staffAplicacionEliminar.staffAplicacionEliminar(cy, mail)
       staffAplicacionBuscar.staffAplicacionBuscar(cy, mail, false)
     }

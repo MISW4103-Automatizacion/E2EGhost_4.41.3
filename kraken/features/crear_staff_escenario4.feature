@@ -19,15 +19,15 @@ Feature: Escenario 4 Ingresar a la aplicación, si el usuario no existe se crea,
       And Doy clic en el boton Sing In
       And I wait for 2 seconds
     Then Deberia ver la palabra 'Dashboard' en el página principal
-    When Doy clic en el boton settings
-      And Doy clic en el boton staff
-      And Doy clic en el boton invite people
-      And Escribo el correo electronico de la invitacion
-      And Doy click en el radio boton Administrador
-      And Doy click en el boton Send invitation now
+    When Doy clic en el boton settings "<VersionEnPrueba>"
+      And Doy clic en el boton staff "<VersionEnPrueba>"
+      And Doy clic en el boton invite people "<VersionEnPrueba>"
+      And Escribo el correo electronico de la invitacion "<VersionEnPrueba>"
+      And Doy click en el radio boton Administrador "<VersionEnPrueba>"
+      And Doy click en el boton Send invitation now "<VersionEnPrueba>"
     Given Ir a la aplicacion Ghost "<URL>"
       And I wait for 3 seconds
-    When Doy clic en el boton settings
-      And Doy clic en el boton staff
+    When Doy clic en el boton settings "<VersionEnPrueba>"
+      And Doy clic en el boton staff "<VersionEnPrueba>"
       And I wait for 3 seconds
-    Then Debe aparecer el staff en la lista 'Exitoso'
+    Then Debe aparecer el staff en la lista 'Exitoso', "<VersionEnPrueba>"

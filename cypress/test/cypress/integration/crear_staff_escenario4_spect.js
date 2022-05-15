@@ -5,28 +5,47 @@ describe('Escenario 4 Ingresar a la aplicación, si el usuario no existe se crea
     const staffAplicacion = require('../funcionalidades/staffAplicacion')
     const staffAplicacionCrear = require('../funcionalidades/staffAplicacionCrear')
     const staffAplicacionBuscar = require('../funcionalidades/staffAplicacionBuscar')
+    const staffAplicacionEliminar = require('../funcionalidades/staffAplicacionEliminar')
     const { faker } = require('@faker-js/faker')
 
+    let mail;
+    
     beforeEach(()=> {
       cy.clearCookies()
       cy.visit('/')
+      
       cy.get('main').then(($main) => {
         if($main.find('form').length > 0){
-          if($main.find('form')[0].id == 'setup') {
+          if($main.find('form')[0].id == 'setup') {            
             registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
+            cy.screenshot('Escenario01_registrarUsuario_')
             salirAplicacion.salirAplicacion(cy)
           }
         }
-      })
+      })      
       loginUser.loginUser(cy, Cypress.env('USER'), Cypress.env('PASSWORD'))
+      cy.screenshot('Escenario02_ingresoLogin_')
     })
     
     it('crear un staff de tipo Administrador', () => {
-      let mail = faker.internet.email();
+      if(Cypress.env('isRegresionVisual') == false){
+        mail = faker.internet.email();
+      } else {
+        mail = 'pruebaRegresion@regresion.com.co';
+      }
+      cy.screenshot('Escenario4_crear_staff_')
       staffAplicacion.staffAplicacion(cy)
+      cy.screenshot('Escenario4_crear_staff_')
       staffAplicacionCrear.staffAplicacionCrear(cy, mail, 'Administrador')
+      cy.screenshot('Escenario4_crear_staff_')
       staffAplicacion.staffAplicacion(cy)
+      cy.screenshot('Escenario4_crear_staff_')
       staffAplicacionBuscar.staffAplicacionBuscar(cy, mail, true)
+      cy.screenshot('Escenario4_crear_staff_')
+      if(Cypress.env('isRegresionVisual') == true) {
+        staffAplicacionEliminar.staffAplicacionEliminar(cy, mail)
+        staffAplicacionBuscar.staffAplicacionBuscar(cy, mail, false)
+      }
       salirAplicacion.salirAplicacion(cy)
     })
   })
