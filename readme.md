@@ -35,7 +35,10 @@
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
-
+## Pasos Instalacion resemble en ubuntu 20.04 LTS
+| ---------------------------------------------- | ----------- |
+| Caracteristica.                                | Comando     |
+| Ingresar a la carpeta cd resemble              | npm install |
             
 ## no cambie el nombre del archivo o sus extensiones esto puede provocar que el proceso no se ejecute correctamente.
 
