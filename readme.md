@@ -1,4 +1,4 @@
-## Regresión visual Aplicación GHOST
+## Regresión visual Aplicación GHOST GRUPO 12
 
 ## Especificaciones de la máquina
 
