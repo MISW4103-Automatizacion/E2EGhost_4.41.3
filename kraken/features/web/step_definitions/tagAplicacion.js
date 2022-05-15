@@ -1,9 +1,16 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const { faker } = require("@faker-js/faker");
 const assert = require("assert");
+let json = require('../../../properties.json');
 
-nuevoTag = faker.name.jobType();
-modificadoTag = faker.name.jobType();
+let nuevoTag = faker.name.jobType();
+let modificadoTag = faker.name.jobType();
+
+When ("Capturo imagen {string}", async function(escenario){
+  let body = await this.driver.$('/html/body');
+    // await body.saveScreenshot('screenshots/escenario'+escenario+'/Ghost_' + json.VersionEnPrueba + '_Escenario'+escenario);
+    await body.saveScreenshot('./reports/Ghost_' + json.VersionEnPrueba + 'escenario'+escenario+'.png');
+})
 
 When("Doy clic en el boton Tags", async function () {
   let element = await this.driver.$(
@@ -20,6 +27,10 @@ When("Doy clic en el boton New tag", async function () {
 });
 
 When("Escribo el nombre del tag", async function () {
+  if(json.isRegresionVisual == true){
+    nuevoTag = 'Tag Prueba';
+    modificadoTag = 'Modificado';
+  }
   let element = await this.driver.$(
     "/html/body/div[2]/div/main/section/form/div[2]/div/section/div/div[1]/div[1]/div[1]/input"
   );
@@ -34,6 +45,10 @@ When("Doy click en el Boton Save", async function () {
 });
 
 Then("Debe aparecer el Tag en la lista", async function () {
+  if(json.isRegresionVisual == true){
+    nuevoTag = 'Tag Prueba';
+    modificadoTag = 'Modificado';
+  }
   isMostrar = true;
   let i = 2;
   let tagSave;
@@ -56,13 +71,20 @@ Then("Debe aparecer el Tag en la lista", async function () {
 });
 
 When("Doy clic en el primer Tag creado", async function () {
-  let element = await this.driver.$(
-    "/html/body/div[2]/div/main/section/section/ol/li[2]/a[1]/h3"
-  );
+  let element;
+  if (json.VersionEnPrueba== 1) {
+    element = await this.driver.$("/html/body/div[2]/div/main/section/section/ol/li[2]/a[1]/h3"); // Primer tag creado
+} else {
+    element = await this.driver.$("/html/body/div[2]/div/main/section/section/ol/li[3]/a[1]/h3");
+} 
   return await element.click();
 });
 
 When("Escribo el nombre del tag modificado", async function () {
+  if(json.isRegresionVisual == true){
+    nuevoTag = 'Tag Prueba';
+    modificadoTag = 'Modificado';
+  }
   let element = await this.driver.$(
     "/html/body/div[2]/div/main/section/form/div[2]/div/section/div/div[1]/div[1]/div[1]/input"
   );
@@ -70,6 +92,10 @@ When("Escribo el nombre del tag modificado", async function () {
 });
 
 Then("Debe aparecer el Tag modificado en la lista", async function () {
+  if(json.isRegresionVisual == true){
+    nuevoTag = 'Tag Prueba';
+    modificadoTag = 'Modificado';
+  }
   isMostrar = true;
   let i = 2;
   let tagSave;
@@ -99,13 +125,20 @@ When("Doy click en el Boton Delete Tag", async function () {
 });
 
 When("Doy click en el Boton Delete", async function () {
-  let element = await this.driver.$(
-    "/html/body/div[5]/div/div/div/div/div[2]/section/div[2]/button[2]/span"
-  );
-  return await element.click();
+  let element;
+  if (json.VersionEnPrueba== 1) {
+      element = await this.driver.$("/html/body/div[5]/div/div/div/div/div[2]/section/div[2]/button[2]/span"); // Delete
+} else {
+    element = await this.driver.$("/html/body/div[4]/div/div/div/div/div[2]/section/div[2]/button[2]/span");
+} 
+   return await element.click();
 });
 
 Then("No debe aparecer el Tag eliminado en la lista", async function () {
+  if(json.isRegresionVisual == true){
+    nuevoTag = 'Tag Prueba';
+    modificadoTag = 'Modificado';
+  }
   isMostrar = true;
   let i = 2;
   let tagSave;
