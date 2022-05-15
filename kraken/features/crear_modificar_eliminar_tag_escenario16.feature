@@ -18,11 +18,14 @@ Feature: Escenario 16 Ingresar a la aplicación, si el usuario no existe se crea
       And Escribo el password login "<PASSWORD>"
       And Doy clic en el boton Sing In
       And I wait for 2 seconds
+      And Capturo imagen "16_crear_modificar_eliminar_tag_1"
     Then Deberia ver la palabra 'Dashboard' en el página principal
     When Doy clic en el boton Tags
-    And I wait for 2 seconds
+      And I wait for 2 seconds
+      And Capturo imagen "16_crear_modificar_eliminar_tag_2"
       And Doy clic en el boton New tag
       And I wait for 2 seconds
+      And Capturo imagen "16_crear_modificar_eliminar_tag_3"
       And Escribo el nombre del tag
       And I wait for 2 seconds
       And Doy click en el Boton Save
@@ -30,23 +33,31 @@ Feature: Escenario 16 Ingresar a la aplicación, si el usuario no existe se crea
     Given Ir a la aplicacion Ghost "<URL>"
     When Doy clic en el boton Tags
     And I wait for 2 seconds
+    And Capturo imagen "16_crear_modificar_eliminar_tag_4"
     Then Debe aparecer el Tag en la lista
     And I wait for 2 seconds
     When Doy clic en el primer Tag creado
     And I wait for 2 seconds
+    And Capturo imagen "16_crear_modificar_eliminar_tag_5"
     And Escribo el nombre del tag modificado
     And I wait for 2 seconds
     And Doy click en el Boton Save
     And I wait for 2 seconds
     Given Ir a la aplicacion Ghost "<URL>"
     When Doy clic en el boton Tags
+    And I wait for 2 seconds
+    And Capturo imagen "16_crear_modificar_eliminar_tag_6"
     Then Debe aparecer el Tag modificado en la lista
     And I wait for 2 seconds
     When Doy clic en el primer Tag creado
     And I wait for 2 seconds
+    And Capturo imagen "16_crear_modificar_eliminar_tag_7"
     And Doy click en el Boton Delete Tag
     And I wait for 2 seconds
+    And Capturo imagen "16_crear_modificar_eliminar_tag_8"
     And Doy click en el Boton Delete
     And I wait for 2 seconds
+    And Capturo imagen "16_crear_modificar_eliminar_tag_9"
     Then No debe aparecer el Tag eliminado en la lista
     And I wait for 2 seconds
+    And Capturo imagen "16_crear_modificar_eliminar_tag_11"
