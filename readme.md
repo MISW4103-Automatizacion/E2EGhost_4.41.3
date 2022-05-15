@@ -35,12 +35,24 @@
 | Instalar appium                                    | npm install -g appium |
 | libreria para los dispositivos en ubuntu 20.04 LTS | sudo apt install adb -y |
 
+### Desde la consola de la terminal y en la misma carpeta donde descargo las fuente ejecutas los siguientes comandos, estos bash aseguran el proceso de ejecucion automatizada cargando y descagando la versión de ghost 4.41.3 y ghost 4.30.0, importante antes de ejecutar estos comandos asegurese que su maquina no esta ejecutando ninguna version de ghots, estos script aseguran que la ejecucion se realice desde la url que genera por defecto esta herramienta http://localhost:2368/ghost/. en caso qeu por fuerza mayor necesite configurar otro puerto de la aplicación por favor debe realizarlos en los sigientes archivos: 
+
+### cypress: https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/cypress/test/cypress1.json
+             https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/cypress/test/cypress12.json
+             
+### Kraken: https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/kraken/properties1.json
+            https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/blob/main/kraken/properties2.json
+            
+### no cambie el nombre del archivo o sus extensiones esto puede provocar que el proceso no se ejecute correctamente.
+
 | Descripcion                       | Comando                                                                                                                                                                           | Carpeta evidencias resember | Evidencias Ghost 4.41.3  | Evidencias Ghost 4.30.0  |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------ | ------------------------ |
 | Ejecutar regresión visual cypress | ./ejecutarRegresionVisualCypress.sh | ./reporteFinal\_Cypress     |                          |                          |
 | Ejecutar regresión visual kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                                | ./reporteFinal\_Kraken      |                          |                          |
 | Ejecutar proceso completo cypress | ./ejecutarProcesoCypress.sh                                                                                                                                                       |                             | ./imagenes1\_All         | ./imagenes2\_All         |
-| Ejecutar proceso completo kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                                |                             | ./imagenes1\_Kraken\_All | ./imagenes1\_Kraken\_All |
+| Ejecutar proceso completo kraken  | ./ejecutarRegresionVisualKraken.sh                                                                                                                                               |                             | ./imagenes1\_Kraken\_All | ./imagenes1\_Kraken\_All |
+
+### Nota: estos archivos se pueden ejecutar segun la preferencia de la persona, no dependen el uno al otro.
 
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
