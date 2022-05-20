@@ -1,3 +1,5 @@
+## Regresión visual Aplicación GHOST GRUPO 12
+
 ## Especificaciones de la máquina
 
 | Característica      | Especificación                      |
@@ -61,7 +63,37 @@ Nota: estos archivos se pueden ejecutar segun la preferencia de la persona, no d
 
 Nota: El repositorio cuenta con dos carpetas que hacen referencia a las herramientas que se utilizarón para estas pruebas de E2E, cypress y kraken en cada una contiene un archivo readme.md con las consideraciones y pasos para ejecutar exitosamente cada set de pruebas.
 
+El proceso genera los archivos si desea un ejemplo puede descargar los reportes tanto Gost y Kraken de la siguiente ruta:
+Reporte consolidado HTML de solo los 6  issues: https://uniandes-my.sharepoint.com/:u:/g/personal/af_ostor10_uniandes_edu_co/EY1X1s6Er5VHvcGi4BjraHgB3IUGK-jjUFbhn5vC_UsLwQ?e=2SRQio
+
+- Usuario Jira: j.idarragar@uniandes.edu.co
+- Contraseña: MISO4103
+
+| Registro Jira                                           | Inventario de Issues reportado por Regresión visual                                                  | Herramienta |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
+| [PT-28](https://pruebastsdc.atlassian.net/browse/PT-28) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Delete Member (Kraken)        | Kraken      |
+| [PT-27](https://pruebastsdc.atlassian.net/browse/PT-27) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Login (Kraken)                | Kraken      |
+| [PT-26](https://pruebastsdc.atlassian.net/browse/PT-26) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: New Member (Kraken)           | Kraken      |
+| [PT-25](https://pruebastsdc.atlassian.net/browse/PT-25) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Staff (Kraken)                | Kraken      |
+| [PT-24](https://pruebastsdc.atlassian.net/browse/PT-24) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Dashboard (Kraken)            | Kraken      |
+| [PT-23](https://pruebastsdc.atlassian.net/browse/PT-23) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Registro de Usuario (Kraken)  | Kraken      |
+| [PT-22](https://pruebastsdc.atlassian.net/browse/PT-22) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Delete Member (Cypress)       | Cypress     |
+| [PT-21](https://pruebastsdc.atlassian.net/browse/PT-21) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: New Member (Cypress)          | Cypress     |
+| [PT-20](https://pruebastsdc.atlassian.net/browse/PT-20) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Login (Cypress)               | Cypress     |
+| [PT-19](https://pruebastsdc.atlassian.net/browse/PT-19) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Staff (Cypress)               | Cypress     |
+| [PT-18](https://pruebastsdc.atlassian.net/browse/PT-18) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Dashboard (Cypress)           | Cypress     |
+| [PT-17](https://pruebastsdc.atlassian.net/browse/PT-17) | Regresión Visual: Diferencia entre versiones 4.41.3 y 4.30.0 de Ghost: Registro de Usuario (Cypress) | Cypress     |
+
+### Pros y Contras de la Herramienta Resemble
+
+| Pros                                                                        | Contras                                                                                                   |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Hace la comparación de dos imágenes y muestra gráficamente las diferencias. | Se requiere de un alto nivel de personalización del archivo index para lograr su funcionamiento adecuado. |
+| Genera las comparaciones de varias imágenes rápidamente.                    | Cualquier mínimo cambio, desconfigura la aplicación.                                                      |
+| Permite la integración con otros elementos de Node.js.                      |                                                                                                           |
+
 [Ver Pros y Contras de las herramientas](https://github.com/MISW4103-Automatizacion/E2EGhost_4.41.3/wiki)
+
 
 ## Lista de funcionalidades a probar
 
