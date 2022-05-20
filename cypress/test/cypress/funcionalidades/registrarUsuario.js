@@ -5,7 +5,6 @@ const registerUser = function (cy, titleBlog, fullName, email, password) {
         cy.xpath('/html/body/div[2]/div/main/section/div/form/div[3]/span/input').type(email)
         cy.xpath('/html/body/div[2]/div/main/section/div/form/div[4]/span/input').type(password)
         cy.xpath('/html/body/div[2]/div/main/section/div/form/button').click()
-        //cy.xpath('/html/body/div[2]/div/main/div/main/div[1]/div/div/div/div/header/h1').should('contain', 'All done!')
         cy.xpath('/html/body/div[2]/div/main/div/main/div[1]/div/div/div/div/section/a[4]').click()
     } else {
         cy.xpath('/html/body/div[2]/div/main/div/div/section/form/div[2]/span/input').type(titleBlog)
