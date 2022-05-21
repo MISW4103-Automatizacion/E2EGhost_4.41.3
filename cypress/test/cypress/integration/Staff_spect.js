@@ -25,6 +25,10 @@ describe('Pruebas de Staff', () => {
                 }
             }
         })
+        pageLogin.eMail(cy, datos.EmailValido)
+        pageLogin.password(cy, datos.PasswordValido)
+        pageLogin.clicSignIn(cy)
+        cy.wait(3000)
 
         if(Cypress.env('isRegresionVisual') == false){
             email = faker.internet.email();
@@ -34,10 +38,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 1 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -60,10 +60,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 2 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Autor y validar que aparezca en la lista de staff, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -86,10 +82,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 3 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Editor y validar que aparezca en la lista de staff, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -112,10 +104,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 4 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Administrador y validar que aparezca en la lista de staff, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -138,10 +126,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 5 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, elimina el staff creado, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -162,10 +146,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 6 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Autor y validar que aparezca en la lista de staff, elimina el staff creado, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -186,10 +166,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 7 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Editor y validar que aparezca en la lista de staff, elimina el staff creado, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -210,10 +186,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 8 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Administrador y validar que aparezca en la lista de staff, elimina el staff creado, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -234,10 +206,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 9 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, elimina el staff creado, y se debe cambiar a de tipo Autor, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -271,10 +239,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 10 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Author y validar que aparezca en la lista de staff, elimina el staff creado, y se debe cambiar a de tipo Editor, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -308,10 +272,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 11 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Editor y validar que aparezca en la lista de staff, elimina el staff creado, y se debe cambiar a de tipo Administrator, sale de la aplicación', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
