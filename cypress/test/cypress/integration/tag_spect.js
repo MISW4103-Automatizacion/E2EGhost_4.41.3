@@ -12,7 +12,7 @@ describe('Pruebas de Tag', () => {
   let slug;
   let description;
   let meta_title;
-  let mdescription ;
+  let meta_description ;
   let canonical_url;
 
   beforeEach(()=> {
@@ -265,6 +265,154 @@ it(`Escenario 5, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el 
       pageMenuLeftAplicacion.clicSignOut(cy) 
     })
 
+    it(`Escenario 15. prueba Positiva Crear un tag con registro en name limite a 191 caracteres`, () => {
+      
+      nameTag = faker.lorem.paragraphs()+faker.lorem.paragraphs();
+      console.log("cadena antes"+nameTag);
+      color = "111111 ";
+      slug = " ";
+      description= faker.lorem.sentence();
+      meta_title= faker.name.jobType();
+      meta_description = faker.lorem.sentence();
+      canonical_url =faker.internet.url();
+      pageTag.tagAplicacion(cy);
+      pageTag.tagAplicacionCrear(cy, nameTag.substring(0,190), color, slug,description,meta_title,meta_description,canonical_url)
+      cy.screenshot(`Escenario 15 Prueba positiva Crear un tag con registro en name limite a 191 caracteres`);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+    });
+
+    it(`Escenario 16 Prueba Negativa. Crear un tag con registro en name limite a 192 caracteres`, () => {
+
+      nameTag = faker.lorem.paragraphs()+faker.lorem.paragraphs();
+      color = "111111 ";
+      slug = " ";
+      description= faker.lorem.sentence();
+      meta_title= faker.name.jobType();
+      meta_description = faker.lorem.sentence();
+      canonical_url =faker.internet.url();
+      pageTag.tagAplicacion(cy);
+      pageTag.tagAplicacionCrear(cy, nameTag.substring(0,193), color, slug,description,meta_title,meta_description,canonical_url)
+      cy.screenshot(`Escenario 35 Prueba Negativa Crear un tag con registro en name limite a 193 caracteres`);
+       pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+    });
+
+    it(`Escenario 17. prueba Positiva Crear un tag con registro en description limite a 500 caracteres`, () => {
+      
+      nameTag = faker.name.jobType();
+      color = "111111 ";
+      slug = faker.name.jobType();
+      description= faker.lorem.paragraphs()+faker.lorem.paragraphs();
+      meta_title= faker.name.jobType();
+      meta_description = faker.lorem.sentence();
+      canonical_url =faker.internet.url();
+      pageTag.tagAplicacion(cy);
+      pageTag.tagAplicacionCrear(cy, nameTag, color, slug,description.substring(0,500),meta_title,meta_description,canonical_url)
+      cy.screenshot(`Escenario 17 Prueba positiva Crear un tag con registro en description limite a 500 caracteres`);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+    });
+
+    it(`Escenario 18 Prueba Negativa. Crear un tag con registro en description limite a 501 caracteres`, () => {
+
+      nameTag =faker.name.jobType();
+      color = "111111 ";
+      slug = faker.name.jobType();
+      description= faker.lorem.paragraphs()+faker.lorem.paragraphs();
+      meta_title= faker.name.jobType();
+      meta_description = faker.lorem.sentence();
+      canonical_url =faker.internet.url();
+      pageTag.tagAplicacion(cy);
+      pageTag.tagAplicacionCrear(cy, nameTag, color, slug,description.substring(0,501),meta_title,meta_description,canonical_url)
+      cy.screenshot(`Escenario 18 Prueba Negativa Crear un tag con registro en description limite a 5001 caracteres`);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+    });
+
+    it(`Escenario 19. prueba Positiva Crear un tag con registro en meta_title limite a 300 caracteres`, () => {
+      
+      nameTag = faker.name.jobType();
+      color = "111111 ";
+      slug = faker.name.jobType();
+      description=faker.lorem.sentence();
+      meta_title=  faker.lorem.paragraphs()+faker.lorem.paragraphs();
+      meta_description = faker.lorem.sentence();
+      canonical_url =faker.internet.url();
+      pageTag.tagAplicacion(cy);
+      pageTag.tagAplicacionCrear(cy, nameTag, color, slug,description,meta_title.substring(0,300),meta_description,canonical_url)
+      cy.screenshot(`Escenario 19 Prueba positiva Crear un tag con registro en meta_title limite a 300 caracteres`);
+       pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+    });
+
+    it(`Escenario 20 Prueba Negativa. Crear un tag con registro en meta_title limite a 301 caracteres`, () => {
+
+      nameTag =faker.name.jobType();
+      color = "111111 ";
+      slug = faker.name.jobType();
+      description= faker.lorem.sentence();
+      meta_title= faker.lorem.paragraphs()+faker.lorem.paragraphs()+faker.lorem.paragraphs()+faker.lorem.paragraphs();
+      meta_description = faker.lorem.sentence();
+      canonical_url =faker.internet.url();
+      pageTag.tagAplicacion(cy);
+      pageTag.tagAplicacionCrear(cy, nameTag, color, slug,description,meta_title.substring(0,301),meta_description,canonical_url)
+      cy.screenshot(`Escenario 20 Prueba Negativa Crear un tag con registro en meta_title limite a 3001 caracteres`);
+       pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+    });
+
+      it(`Escenario 21, Prueba Negativa Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag ingresando el campo canonical url incorrecta`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[14].tag_name,json[14].color,json[14].slug,json[14].description,json[14].meta_title,json[14].meta_description,json[14].canonical_url)
+    cy.wait(1000)
+    cy.screenshot('Escenario 21 Prueba positiva, crear un tag ingresando el campo canonical url  incorrecta')
+      cy.contains("Retry").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy) 
+    })
+
+    it(`Escenario 22, Prueba Positiva Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag ingresando el campo  name, slug y color los demas vacios`, () => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, json[15].tag_name,json[15].color,json[15].slug,json[15].description,json[15].meta_title,json[15].meta_description,json[15].canonical_url)
+      cy.wait(1000)
+      cy.screenshot('Escenario 22 Prueba positiva, crear un tag ingresando el campo name, slug, canonical_url y color')
+        cy.contains("Saved").should("be.visible");
+        pageMenuLeftAplicacion.clicAvatar(cy)
+        pageMenuLeftAplicacion.clicSignOut(cy) 
+      })
+      
+      it(`Escenario 23, Prueba Positiva Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag ingresando el campo name, slug, color y meta_title`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[16].tag_name,json[16].color,json[16].slug,json[16].description,json[16].meta_title,json[16].meta_description,json[16].canonical_url)
+    cy.wait(1000)
+    cy.screenshot('Escenario 23 Prueba positiva, crear un tag ingresando el campo name, slug,color,canonical_url y meta_title')
+      cy.contains("Saved").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy) 
+    })
+
+    it(`Escenario 24, Prueba Positiva Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag ingresando el campo name, slug, color y meta_descripcion`, () => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, json[17].tag_name,json[17].color,json[17].slug,json[17].description,json[17].meta_title,json[17].meta_description,json[17].canonical_url)
+      cy.wait(1000)
+      cy.screenshot('Escenario 24 Prueba positiva, crear un tag ingresando el campo name, slug, color, canonical_url y meta_descripcion')
+        cy.contains("Saved").should("be.visible");
+        pageMenuLeftAplicacion.clicAvatar(cy)
+        pageMenuLeftAplicacion.clicSignOut(cy) 
+      })
+      
+      it(`Escenario 25, Prueba Positiva Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag ingresando el campo  name, slug, color y description los demas vacios`, () => {
+        pageTag.tagAplicacion(cy)
+        pageTag.tagAplicacionCrear(cy, json[18].tag_name,json[18].color,json[18].slug,json[18].description,json[18].meta_title,json[18].meta_description,json[18].canonical_url)
+        cy.wait(1000)
+        cy.screenshot('Escenario 22 Prueba positiva, crear un tag ingresando el campo name, slug, color, canonical_url, description')
+          cy.contains("Saved").should("be.visible");
+          pageMenuLeftAplicacion.clicAvatar(cy)
+          pageMenuLeftAplicacion.clicSignOut(cy) 
+        })
+      
+    
      afterEach(() => {
       
     });

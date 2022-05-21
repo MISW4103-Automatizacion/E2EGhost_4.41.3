@@ -22,6 +22,7 @@ const tagAplicacionBuscar = function (cy, nameTag, nameTagEsperado) {
 };
 
 const tagAplicacionCrear = function (cy, nameTag,color,slug,description,meta_title,meta_description,canonical_url) {
+    console.log("cadena despues"+nameTag);
     cy.xpath('/html/body/div[2]/div/main/section/div/header/section/a').click() // NewTag
     cy.wait(1000)
     cy.get('#tag-name').type(nameTag)
