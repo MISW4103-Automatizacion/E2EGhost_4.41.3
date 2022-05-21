@@ -84,7 +84,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicSignOut(cy);
   });
 
-  it(`Escenario 2 Crear un member con campos vacios`, () => {
+  it(`Escenario 2 Crear un member con campo vacios`, () => {
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
