@@ -23,16 +23,16 @@ const tagAplicacionBuscar = function (cy, nameTag, nameTagEsperado) {
 
 const tagAplicacionCrear = function (cy, nameTag,color,slug,description,meta_title,meta_description,canonical_url) {
     cy.xpath('/html/body/div[2]/div/main/section/div/header/section/a').click() // NewTag
-    cy.wait(3000)
+    cy.wait(1000)
     cy.get('#tag-name').type(nameTag)
     cy.xpath('/html/body/div[2]/div/main/section/form/div[2]/div/section/div/div[1]/div[1]/div[2]/div/input').type(color);
     cy.get('#tag-slug').type(slug)
     cy.get('#tag-description').type(description)
     cy.xpath('/html/body/div[2]/div/main/section/form/div[2]/section/div[1]/div[1]/button/span').click()
     cy.get('#meta-title').type(meta_title)
-    cy.get('#tag-description').type(meta_description)
+    cy.get('#meta-description').type(meta_description)
     cy.get('#canonical-url').type(canonical_url)
-     cy.wait(3000)
+     cy.wait(1000)
     cy.xpath('/html/body/div[2]/div/main/section/form/div[1]/header/section/button/span').click() // Save
 }
 

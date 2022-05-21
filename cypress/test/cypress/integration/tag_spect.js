@@ -3,9 +3,17 @@ describe('Pruebas de Tag', () => {
   const pageLogin = require('../funcionalidades/Login')
   const pageMenuLeftAplicacion = require('../funcionalidades/MenuLeftAplicacion')
   const pageTag = require('../funcionalidades/tag')
+  const datos = require('../datos/login.json')
   const json = require('../fixtures/tag')
   const { faker } = require('@faker-js/faker')
-  let contador=0;
+  let nameTag;
+  let nameUpdateTag;
+  let color;
+  let slug;
+  let description;
+  let meta_title;
+  let mdescription ;
+  let canonical_url;
 
   beforeEach(()=> {
     cy.clearCookies()
@@ -28,34 +36,7 @@ describe('Pruebas de Tag', () => {
         cy.wait(3000)
   })
 
-//   it('Escenario 1 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Contributor y validar que aparezca en la lista de staff, sale de la aplicación', () => {
-//     pageLogin.eMail(cy, datos.EmailValido)
-//     pageLogin.password(cy, datos.PasswordValido)
-//     pageLogin.clicSignIn(cy)
-//     cy.wait(3000)
-//     pageMenuLeftAplicacion.clicSettings(cy)
-//     pageSetting.clicStaff(cy)
-//     pageStaff.clicInvitePeople(cy)        
-//     pageStaff.setEmailAAddress(cy, email)
-//     pageStaff.checkContributor(cy)
-//     cy.screenshot('Escenario 1 Prueba Positiva, Crear un staff de tipo Contributor')
-//     pageStaff.clicSendInvitationNow(cy)
-//     cy.reload()
-//     cy.wait(3000)
-//     pageStaff.validarIntitedUser(cy, email, true)
-//     if(Cypress.env('isRegresionVisual') == false){
-//         cy.wait(3000)
-//         pageStaff.clicRevokeStaff(cy, email)
-//         cy.wait(3000)
-//         pageStaff.validarIntitedUser(cy, email, false)
-//         cy.reload()
-//     }
-//     pageMenuLeftAplicacion.clicAvatar(cy)
-//     pageMenuLeftAplicacion.clicSignOut(cy)
-// })
-
-
-it(`Escenario ${contador+1}, Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de tag. Crear y validar en la lista tag, sale de la aplicación`, () => {
+it(`Escenario 1, Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de tag. Crear y validar en la lista tag, sale de la aplicación`, () => {
   if(Cypress.env('isRegresionVisual') == false){
     nameTag = faker.name.jobType();
     
@@ -63,135 +44,228 @@ it(`Escenario ${contador+1}, Prueba Positiva, Ingresar a la aplicación, se diri
     nameTag = 'Tag Prueba';
   }
   cy.screenshot('Escenario13_crear_tag_')
-  pageTag.tagAplicacion.tagAplicacion(cy)
+  pageTag.tagAplicacion(cy)
   cy.screenshot('Escenario13_crear_tag_')
-  pageTag.tagAplicacionCrear.tagAplicacionCrear(cy, nameTag, json[0].color,json[0].slug,json[0].description,json[0].meta_title,json[0].meta_description,json[0].canonical_url)
+  pageTag.tagAplicacionCrear(cy, nameTag, json[9].color,json[9].slug,json[9].description,json[9].meta_title,json[9].meta_description,json[9].canonical_url)
   cy.screenshot('Escenario13_crear_tag_')
-  pageTag.tagAplicacion.tagAplicacion(cy)
+  pageTag.tagAplicacion(cy)
   cy.screenshot('Escenario13_crear_tag_')
-  pageTag.tagAplicacionBuscar.tagAplicacionBuscar(cy, nameTag, true)
+  pageTag.tagAplicacionBuscar(cy, nameTag, true)
   cy.screenshot('Escenario13_crear_tag_')
   if(Cypress.env('isRegresionVisual') != false) {
-    pageTag.tagAplicacionEliminar.tagAplicacionEliminar(cy, nameTag)
-    pageTag.tagAplicacionBuscar.tagAplicacionBuscar(cy, nameTag, false)
+    pageTag.tagAplicacionEliminar(cy, nameTag)
+    pageTag.tagAplicacionBuscar(cy, nameTag, false)
   }
   pageMenuLeftAplicacion.clicAvatar(cy)
   pageMenuLeftAplicacion.clicSignOut(cy)
 
 })
 
-// it(`Escenario ${contador+1}, Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de tag. Crear y validar en la lista tag, sale de la aplicación`, () => {
-//       tagAplicacion.tagAplicacion(cy)
-//       tagAplicacionCrear.tagAplicacionCrear(cy, json[0].tag_name,json[0].color,json[0].slug,json[0].description,json[0].meta_title,json[0].meta_description,json[0].canonical_url)
-//       cy.wait(1000)
-//       salirAplicacion.salirAplicacion(cy)
-//     })
+it(`Escenario 2, Prueba Positiva, se dirige al modulo de tags. Crear un tag, lo valida. Modifica un tag y valida que aparezca en la lista de tags y sale de la aplicación`, () => {
+  if(Cypress.env('isRegresionVisual') == false){
+    nameTag = faker.name.jobType();
+    nameUpdateTag = faker.name.jobType();
+  } else {
+    nameTag = 'Tag Prueba';
+    nameUpdateTag = 'Modificado';
+  }
+  cy.screenshot('_Escenario14_modificar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('_Escenario14_modificar_tag_')
+  pageTag.tagAplicacionCrear(cy, nameTag, json[10].color,json[10].slug,json[10].description,json[10].meta_title,json[10].meta_description,json[10].canonical_url)
+  cy.screenshot('_Escenario14_modificar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('_Escenario14_modificar_tag_')
+  pageTag.tagAplicacionBuscar(cy, nameTag, true)
+  cy.screenshot('_Escenario14_modificar_tag_')
+  pageTag.tagAplicacion(cy)
+  pageTag.tagAplicacionModificar(cy,nameUpdateTag)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario14_modificar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario14_modificar_tag_')
+  pageTag.tagAplicacionBuscar(cy, nameTag, true)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario14_modificar_tag_')
+  if(Cypress.env('isRegresionVisual') != false) {
+    pageTag.tagAplicacionEliminar(cy, nameTag)
+    pageTag.tagAplicacionBuscar(cy, nameTag, false)
+  }
+  pageMenuLeftAplicacion.clicAvatar(cy)
+  pageMenuLeftAplicacion.clicSignOut(cy)
 
-//     contador+=1;
-//     it(`Escenario ${contador+1}, crear un tag  con datos en Name y demas datos vacios`, () => {
-//         tagAplicacion.tagAplicacion(cy)
-//         tagAplicacionCrear.tagAplicacionCrear(cy, json[1].tag_name,json[1].color,json[1].slug,json[1].description,json[1].meta_title,json[1].meta_description,json[1].canonical_url)
-//         cy.wait(1000)
-//         salirAplicacion.salirAplicacion(cy)
-//       })
-
-//       contador+=1;
-//       it(`Escenario ${contador+1}, crear un tag ingresando en el campo Name caracters especiales`, () => {
-//         tagAplicacion.tagAplicacion(cy)
-//         tagAplicacionCrear.tagAplicacionCrear(cy, json[2].tag_name,json[2].color,json[2].slug,json[2].description,json[2].meta_title,json[2].meta_description,json[2].canonical_url)
-//         cy.wait(1000)
-//         salirAplicacion.salirAplicacion(cy)
-//     })
-
-//     contador+=1;
-//     it(`Escenario ${contador+1}, crear un tag ingresando un color invalido`, () => {
-//       tagAplicacion.tagAplicacion(cy)
-//       tagAplicacionCrear.tagAplicacionCrear(cy, json[3].tag_name,json[3].color,json[3].slug,json[3].description,json[3].meta_title,json[3].meta_description,json[3].canonical_url)
-//       cy.wait(1000)
-//       salirAplicacion.salirAplicacion(cy)
-//   })
-
-//   contador+=1;
-//   it(`Escenario ${contador+1}, crear un tag dejando el campo color vacio  `, () => {
-//     tagAplicacion.tagAplicacion(cy)
-//     tagAplicacionCrear.tagAplicacionCrear(cy, json[4].tag_name,json[4].color,json[4].slug,json[4].description,json[4].meta_title,json[4].meta_description,json[4].canonical_url)
-//     cy.wait(1000)
-//     salirAplicacion.salirAplicacion(cy)
-// })
-
-// contador+=1;
-// it(`Escenario ${contador+1}, crear un tag dejando el campo slug vacio`, () => {
-//   tagAplicacion.tagAplicacion(cy)
-//   tagAplicacionCrear.tagAplicacionCrear(cy, json[5].tag_name,json[5].color,json[5].slug,json[5].description,json[5].meta_title,json[5].meta_description,json[5].canonical_url)
-//   cy.wait(1000)
-//   salirAplicacion.salirAplicacion(cy)
-// })
-
-// contador+=1;
-// it(`Escenario ${contador+1}, crear un tag dejando el campo description vacio`, () => {
-//   tagAplicacion.tagAplicacion(cy)
-//   tagAplicacionCrear.tagAplicacionCrear(cy, json[6].tag_name,json[6].color,json[6].slug,json[6].description,json[6].meta_title,json[6].meta_description,json[6].canonical_url)
-//   cy.wait(1000)
-//   salirAplicacion.salirAplicacion(cy)
-// })
-
-// contador+=1;
-// it(`Escenario ${contador+1}, crear un tag dejando el campo meta title vacio`, () => {
-//   tagAplicacion.tagAplicacion(cy)
-//   tagAplicacionCrear.tagAplicacionCrear(cy, json[7].tag_name,json[7].color,json[7].slug,json[7].description,json[7].meta_title,json[7].meta_description,json[7].canonical_url)
-//   cy.wait(1000)
-//   salirAplicacion.salirAplicacion(cy)
-// })
-
-// contador+=1;
-// it(`Escenario ${contador+1}, crear un tag dejando el campo meta description vacio`, () => {
-//   tagAplicacion.tagAplicacion(cy)
-//   tagAplicacionCrear.tagAplicacionCrear(cy, json[8].tag_name,json[8].color,json[8].slug,json[8].description,json[8].meta_title,json[8].meta_description,json[8].canonical_url)
-//   cy.wait(1000)
-//   salirAplicacion.salirAplicacion(cy)
-// })
-
-// contador+=1;
-// it(`Escenario ${contador+1}, crear un tag dejando el campo canonical url vacio`, () => {
-//   tagAplicacion.tagAplicacion(cy)
-//   tagAplicacionCrear.tagAplicacionCrear(cy, json[9].tag_name,json[9].color,json[9].slug,json[9].description,json[9].meta_title,json[9].meta_description,json[9].canonical_url)
-//   cy.wait(1000)
-//   salirAplicacion.salirAplicacion(cy)
-// })
+})
 
 
-      // for(let j = 0; j < nameTag.length; j++){
-      //   cy.screenshot('Escenario13_crear_tag_')
-      //   tagAplicacion.tagAplicacion(cy)
-      //   cy.screenshot('Escenario13_crear_tag_')
-      //   tagAplicacionCrear.tagAplicacionCrear(cy, nameTag[j])
-      //   cy.screenshot('Escenario13_crear_tag_')
-      //   tagAplicacion.tagAplicacion(cy)
-      //   cy.screenshot('Escenario13_crear_tag_')
-      //   tagAplicacionBuscar.tagAplicacionBuscar(cy, nameTag[j], true)
-      //   cy.screenshot('Escenario13_crear_tag_')
-      //   if(Cypress.env('isRegresionVisual') != false) {
-      //     tagAplicacionEliminar.tagAplicacionEliminar(cy, nameTag[j])
-      //     tagAplicacionBuscar.tagAplicacionBuscar(cy, nameTag[j], false)
-      //   }
-      // }
-    //   for(let j = 1; j < json.length; j++){
-    //     console.log("json" +json);
-    //     cy.screenshot('Escenario13_crear_tag_')
-    //     tagAplicacion.tagAplicacion(cy)
-    //     cy.screenshot('Escenario13_crear_tag_')
-    //     tagAplicacionCrear.tagAplicacionCrear(cy, json[j].tag_name)
-    //     cy.screenshot('Escenario13_crear_tag_')
-    //     tagAplicacion.tagAplicacion(cy)
-    //     cy.screenshot('Escenario13_crear_tag_')
-    //     tagAplicacionBuscar.tagAplicacionBuscar(cy, json[j].tag_name, true)
-    //     cy.screenshot('Escenario13_crear_tag_')
-    //   }
-  
-    //   salirAplicacion.salirAplicacion(cy)
-    
-  
-    afterEach(() => {
+it(`Escenario 3, Prueba Positiva, Escenario 15 Ingresar a la aplicación, si el usuario no existe se crea, se dirige al modulo de tags. Crea un tag y valida la creación. Elimina un tag y valida que no aparezca en la lista de tags y sale de la aplicación`, () => {
+  if(Cypress.env('isRegresionVisual') == false){
+    nameTag = faker.name.jobType();
+    nameUpdateTag = faker.name.jobType();
+  } else {
+    nameTag = 'Tag Prueba';
+    nameUpdateTag = 'Modificado';
+  }
+  cy.screenshot('_Escenario15_eliminar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('_Escenario15_eliminar_tag_')
+  pageTag.tagAplicacionCrear(cy, nameTag, json[11].color,json[11].slug,json[11].description,json[11].meta_title,json[11].meta_description,json[11].canonical_url)
+  cy.screenshot('_Escenario15_eliminar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('_Escenario15_eliminar_tag_')
+  pageTag.tagAplicacionBuscar(cy, nameTag, true)
+  cy.screenshot('_Escenario15_eliminar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario15_eliminar_tag_')
+  pageTag.tagAplicacionEliminar(cy,nameTag)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario15_eliminar_tag_')
+  pageTag.tagAplicacionBuscar(cy, nameTag, false)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + '_Escenario15_eliminar_tag_')
+  if(Cypress.env('isRegresionVisual') != false) {
+    pageTag.tagAplicacionEliminar(cy, nameTag)
+    pageTag.tagAplicacionBuscar(cy, nameTag, false)
+  }
+  pageMenuLeftAplicacion.clicAvatar(cy)
+  pageMenuLeftAplicacion.clicSignOut(cy)
+
+})
+
+it(`Escenario 4,  Ingresar a la aplicación, si el usuario no existe se crea, se dirige al modulo de tags. Crear y validar tag, modificar y validar tag, eliminar un tag y validar que no aparezca en la lista de tags y salir de la aplicación`, () => {
+  if(Cypress.env('isRegresionVisual') == false){
+    nameTag = faker.name.jobType();
+    nameUpdateTag = faker.name.jobType();
+  } else {
+    nameTag = 'Tag Prueba';
+    nameUpdateTag = 'Modificado';
+  }
+  cy.screenshot('Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacionCrear(cy, nameTag, json[12].color,json[12].slug,json[12].description,json[12].meta_title,json[12].meta_description,json[12].canonical_url)
+  cy.screenshot('Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacionBuscar(cy, nameTag, true)
+  pageTag.tagAplicacion(cy)
+  pageTag.tagAplicacionModificar(cy,nameUpdateTag)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + 'Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + 'Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacionBuscar(cy, nameTag, true)
+  cy.screenshot('Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacion(cy)
+  cy.screenshot('Ghost_' + Cypress.env('VersionEnPrueba') + 'Escenario16_crear_modificar_eliminar_tag_')
+  pageTag.tagAplicacionEliminar(cy,nameTag)
+  pageTag.tagAplicacionBuscar(cy, nameUpdateTag, false)
+  cy.screenshot('Escenario16_crear_modificar_eliminar_tag_')
+  if(Cypress.env('isRegresionVisual') != false) {
+    pageTag.tagAplicacionEliminar(cy, nameTag)
+    pageTag.tagAplicacionBuscar(cy, nameTag, false)
+  }
+  pageMenuLeftAplicacion.clicAvatar(cy)
+  pageMenuLeftAplicacion.clicSignOut(cy)
+
+})
+
+
+it(`Escenario 5, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el modulo de tag. Crear tag con datos vacios y validar, sale de la aplicación`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[0].tag_name,json[0].color,json[0].slug,json[0].description,json[0].meta_title,json[0].meta_description,json[0].canonical_url)
+      cy.wait(1000)
+      cy.screenshot('Escenario 5 Prueba Negativa, Crear un Tag con datos vacios')
+      cy.contains("Retry").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+    })
+
+    it(`Escenario 6, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el modulo de tag.crear un tag  con datos en campo Name y demas datos vacios`, () => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, json[1].tag_name,json[1].color,json[1].slug,json[1].description,json[1].meta_title,json[1].meta_description,json[1].canonical_url)
+        cy.wait(1000)
+        cy.screenshot('Escenario 6 Prueba Negativa, Crear un Tag con campo Name y demas datos vacios')
+        cy.contains("Retry").should("be.visible");
+        pageMenuLeftAplicacion.clicAvatar(cy)
+        pageMenuLeftAplicacion.clicSignOut(cy)
+      })
+
+      it(`Escenario 7, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el modulo de tag. Crear un tag ingresando en el campo Name caracters especiales`, () => {
+        pageTag.tagAplicacion(cy)
+        pageTag.tagAplicacionCrear(cy, json[2].tag_name,json[2].color,json[2].slug,json[2].description,json[2].meta_title,json[2].meta_description,json[2].canonical_url)
+        cy.wait(1000)
+        cy.screenshot('Escenario 7 Prueba Negativa, Crear un Tag con campo Name con caracteres especiales')
+        cy.contains("Retry").should("be.visible");
+        pageMenuLeftAplicacion.clicAvatar(cy)
+        pageMenuLeftAplicacion.clicSignOut(cy)
+    })
+
+    it(`Escenario 8, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag ingresando un color invalido`, () => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, json[3].tag_name,json[3].color,json[3].slug,json[3].description,json[3].meta_title,json[3].meta_description,json[3].canonical_url)
+      cy.wait(1000)
+      cy.screenshot('Escenario 8 Prueba Negativa, crear un tag ingresando un color invalido')
+      cy.contains("Retry").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+  })
+
+    it(`Escenario 9, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo color vacio  `, () => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, json[4].tag_name,json[4].color,json[4].slug,json[4].description,json[4].meta_title,json[4].meta_description,json[4].canonical_url)
+      cy.wait(1000)
+      cy.screenshot('Escenario 9 Prueba Negativa, crear un tag ingresando el campo color  vacio')
+      cy.contains("Retry").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+  })
+
+  it(`Escenario 10, Prueba Negativa. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo slug vacio`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[5].tag_name,json[5].color,json[5].slug,json[5].description,json[5].meta_title,json[5].meta_description,json[5].canonical_url)
+    cy.wait(1000)
+    cy.screenshot('Escenario 10 Prueba Negativa, crear un tag ingresando el campo slug  vacio')
+    cy.contains("Retry").should("be.visible");
+     pageMenuLeftAplicacion.clicAvatar(cy)
+     pageMenuLeftAplicacion.clicSignOut(cy)
+  })
+
+  it(`Escenario 11, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo description vacio`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[6].tag_name,json[6].color,json[6].slug,json[6].description,json[6].meta_title,json[6].meta_description,json[6].canonical_url)
+    cy.wait(1000)
+       cy.screenshot('Escenario 11 Prueba Positiva, crear un tag ingresando el campo description  vacio')
+      cy.contains("Saved").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+  })
+
+  it(`Escenario 12, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo meta title vacio`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[7].tag_name,json[7].color,json[7].slug,json[7].description,json[7].meta_title,json[7].meta_description,json[7].canonical_url)
+    cy.wait(1000)
+    cy.screenshot('Escenario 12 Prueba Positiva, crear un tag ingresando el campo meta title  vacio')
+    cy.contains("Saved").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+  })
+
+  it(`Escenario 13, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo meta description vacio`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[8].tag_name,json[8].color,json[8].slug,json[8].description,json[8].meta_title,json[8].meta_description,json[8].canonical_url)
+    cy.wait(1000)
+       cy.screenshot('Escenario 9 Prueba Positiva, crear un tag ingresando el campo meta description  vacio')
+      cy.contains("Saved").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+  })
+
+  it(`Escenario 14, Prueba positiva Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo canonical url vacio`, () => {
+    pageTag.tagAplicacion(cy)
+    pageTag.tagAplicacionCrear(cy, json[13].tag_name,json[13].color,json[13].slug,json[13].description,json[13].meta_title,json[13].meta_description,json[13].canonical_url)
+    cy.wait(1000)
+    cy.screenshot('Escenario 14 Prueba positiva, crear un tag ingresando el campo canonical url  vacio')
+      cy.contains("Retry").should("be.visible");
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy) 
+    })
+
+     afterEach(() => {
       
     });
   })
