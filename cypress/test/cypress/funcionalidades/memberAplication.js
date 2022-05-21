@@ -42,12 +42,11 @@ const memberAplicacionCrear = function (cy, name, email, note,label,isSubscribe)
     if(isSubscribe==false){
 
     cy.xpath("//span[@class='input-toggle-component']").should("be.visible").click()
-    cy.wait(1000);
+    cy.wait(3000);
     }
     // cy.xpath("//span[@class='input-toggle-component']").should("be.visible").click()
     // cy.wait(1000);
     // cy.screenshot('Escenario21_crear_member')
-    cy.wait(1000);
 
     cy.xpath("/html/body/div[2]/div/main/section/div[1]/header/section/button").should("be.visible").click()
    
@@ -89,7 +88,7 @@ const memberAplicacionEliminar = function (cy) {
 
    
     cy.xpath("/html/body/div[2]/div/main/section/div[1]/header/section/span/button").click();
-    cy.screenshot('Escenario22_DeleteMemberA')
+    // cy.screenshot('Escenario22_DeleteMemberA')
   
     cy.wait(3000);
 
@@ -97,7 +96,7 @@ const memberAplicacionEliminar = function (cy) {
     // Click Delete Member
     cy.xpath("//span[@class='red'][contains(.,'Delete member')]").click();
     cy.wait(2000);
-    cy.screenshot('Escenario22_DeleteMemberB')
+    // cy.screenshot('Escenario22_DeleteMemberB')
     cy.wait(5000);
            
     // Click Delete Member
@@ -120,7 +119,7 @@ const memberAplicacionEliminar = function (cy) {
     
         // Click boton settings
         cy.xpath("//span[contains(.,'Save')]").click();
-        cy.screenshot('Escenario22_DeleteMemberA')
+        // cy.screenshot('Escenario22_DeleteMemberA')
         cy.wait(3000);
         
         
@@ -130,7 +129,7 @@ const memberAplicacionEliminar = function (cy) {
 
     
         cy.wait(2000);
-        cy.screenshot('Escenario22_DeleteMemberB')
+        // cy.screenshot('Escenario22_DeleteMemberB')
         cy.wait(5000);
                
         // Click Delete Member
