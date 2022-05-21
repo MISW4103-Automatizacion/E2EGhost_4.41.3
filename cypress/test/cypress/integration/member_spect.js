@@ -1,7 +1,8 @@
 describe("Escenario  21, Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige al modulo Member. Crear un member y validar que aparezca en la lista de members, sale de la aplicacion.", () => {
-  const loginUser = require("../funcionalidades/ingresarLogin");
-  const registerUser = require("../funcionalidades/registrarUsuario");
-  const salirAplicacion = require("../funcionalidades/salirAplicacion");
+  const registerUser = require('../funcionalidades/registrarUsuario')
+  const pageLogin = require('../funcionalidades/Login')
+  const pageMenuleftAplicacion = require('../funcionalidades/MenuLeftAplicacion')
+  const datos = require('../datos/login.json')
 
   const memberAplicacion = require("../funcionalidades/memberAplication");
 
@@ -25,29 +26,30 @@ describe("Escenario  21, Ingresar a la aplicacion, si el usuario no existe se cr
   let new_note;
   let new_name;
 
-  beforeEach(() => {
-    cy.clearCookies();
-    cy.visit("/");
-
-    cy.get("main").then(($main) => {
-      if ($main.find("form").length > 0) {
-        if ($main.find("form")[0].id == "setup") {
-          registerUser.registerUser(
-            cy,
-            Cypress.env("NAMEBLOG"),
-            Cypress.env("FULLNAME"),
-            Cypress.env("USER"),
-            Cypress.env("PASSWORD")
-          );
-          cy.screenshot("Escenario1_registrarUsuario_");
-          salirAplicacion.salirAplicacion(cy);
+  beforeEach(()=> {
+    cy.clearCookies()
+    cy.visit('/')
+    
+    cy.get('main').then(($main) => {
+        if($main.find('form').length > 0) {
+            if($main.find('form')[0].id == 'setup') { 
+                cy.screenshot('Escenario01_registrarUsuario_')           
+                registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
+                cy.wait(3000)
+                pageMenuLeftAplicacion.clicAvatar(cy)
+                pageMenuLeftAplicacion.clicSignOut(cy)
+            }
         }
-      }
-    });
-    loginUser.loginUser(cy, Cypress.env("USER"), Cypress.env("PASSWORD"));
-    cy.screenshot("Escenario1_ingresoLogin_");
-   
-  });
+    })
+
+    if(Cypress.env('isRegresionVisual') == false){
+        email = faker.internet.email();
+    } else {
+        email = 'pruebaRegresion@regresion.com.co';
+    }
+})
+
+
 
 
   contador+=1;
@@ -72,7 +74,8 @@ describe("Escenario  21, Ingresar a la aplicacion, si el usuario no existe se cr
     memberAplicacion.memberAplicacionBuscar(cy, mail, true);
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionEliminar(cy);
-    salirAplicacion.salirAplicacion(cy);
+    pageMenuleftAplicacion.clicAvatar(cy)
+    pageMenuleftAplicacion.clicSignOut(cy)
   });
 
 
@@ -82,7 +85,8 @@ describe("Escenario  21, Ingresar a la aplicacion, si el usuario no existe se cr
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(cy, membersJson[0].name, membersJson[0].email, membersJson[0].note,membersJson[0].label,membersJson[0].isSubscribe)
     cy.screenshot(`Escenario ${contador} Prueba Negativa Crear un member con campos vacios`);
-    salirAplicacion.salirAplicacion(cy);
+    pageMenuleftAplicacion.clicAvatar(cy)
+    pageMenuleftAplicacion.clicSignOut(cy)
   });
 
 
@@ -92,7 +96,8 @@ describe("Escenario  21, Ingresar a la aplicacion, si el usuario no existe se cr
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(cy, membersJson[1].name, membersJson[1].email, membersJson[1].note,membersJson[1].label,membersJson[1].isSubscribe)
     cy.screenshot(`Escenario ${contador} Prueba Negativa Crear un member con subscribe inactivo sin datos (nombre, email.label y note)`);
-    salirAplicacion.salirAplicacion(cy);
+    pageMenuleftAplicacion.clicAvatar(cy)
+    pageMenuleftAplicacion.clicSignOut(cy)
   });
 
   // contador+=1;
