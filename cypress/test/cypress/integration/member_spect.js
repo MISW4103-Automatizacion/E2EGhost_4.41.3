@@ -59,7 +59,7 @@ describe("Escenario  21, Ingresar a la aplicacion, si el usuario no existe se cr
       name = faker.name.findName();
       label = faker.company.bs();
       note = faker.company.bs();
-      versionGhost = Cypress.env("VersionEnPrueba");
+      
     } else {
       mail = "pruebaRegresion_member@regresion.com.co";
       name = "PruebaMemberUser";
