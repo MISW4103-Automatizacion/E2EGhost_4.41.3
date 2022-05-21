@@ -342,13 +342,13 @@ describe('Pruebas de Staff', () => {
         }
         pageMenuLeftAplicacion.clicAvatar(cy)
         pageMenuLeftAplicacion.clicSignOut(cy)
-    })
-
-    it('Escenario 12 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Administrator y validar que aparezca en la lista de staff, elimina el staff creado, y se debe cambiar a de tipo Contributor, sale de la aplicación', () => {
         pageLogin.eMail(cy, datos.EmailValido)
         pageLogin.password(cy, datos.PasswordValido)
         pageLogin.clicSignIn(cy)
         cy.wait(3000)
+    })
+
+    it('Escenario 12 Prueba Positiva, Ingresar a la aplicación, se dirige hasta el modulo de staff. Crear un staff de tipo Administrator y validar que aparezca en la lista de staff, elimina el staff creado, y se debe cambiar a de tipo Contributor, sale de la aplicación', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -382,10 +382,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 13 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Contributor', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -397,10 +393,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Author', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -412,10 +404,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 15 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Editor', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -427,10 +415,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 16 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Administrator', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -442,10 +426,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 17 Prueba Negativa, Crear un staff sin mail, de tipo Contributor', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)
@@ -457,10 +437,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 18 Prueba Negativa, Crear un staff sin mail, de tipo Author', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)
@@ -472,10 +448,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 19 Prueba Negativa, Crear un staff sin mail, de tipo Editor', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)
@@ -487,10 +459,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 20 Prueba Negativa, Crear un staff sin mail, de tipo Administrator', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)
@@ -502,10 +470,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 21 Prueba Negative, crear un staff de tipo Contributor e intentar asignarle de tipo Author', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -523,10 +487,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 22 Prueba Negative, crear un staff de tipo Author e intentar asignarle de tipo Editor', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -544,10 +504,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 23 Prueba Negative, crear un staff de tipo Editor e intentar asignarle de tipo Administrator', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -565,10 +521,6 @@ describe('Pruebas de Staff', () => {
     })
 
     it('Escenario 24 Prueba Negative, crear un staff de tipo Administrator e intentar asignarle de tipo Contributor', () => {
-        pageLogin.eMail(cy, datos.EmailValido)
-        pageLogin.password(cy, datos.PasswordValido)
-        pageLogin.clicSignIn(cy)
-        cy.wait(3000)
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        

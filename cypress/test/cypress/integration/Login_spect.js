@@ -1,7 +1,7 @@
 describe('Pruebas generales de Login', () => {
     const registerUser = require('../funcionalidades/registrarUsuario')
     const pageLogin = require('../funcionalidades/Login')
-    const pageMenuRightAplicacion = require('../funcionalidades/MenuRightAplicacion')
+    const pageMenuleftAplicacion = require('../funcionalidades/MenuLeftAplicacion')
     const datos = require('../datos/login.json')
     const { faker } = require('@faker-js/faker')
 
@@ -15,8 +15,8 @@ describe('Pruebas generales de Login', () => {
                     cy.screenshot('Escenario01_registrarUsuario_')           
                     registerUser.registerUser(cy, Cypress.env('NAMEBLOG'), Cypress.env('FULLNAME'), Cypress.env('USER'), Cypress.env('PASSWORD'))
                     cy.wait(3000)
-                    pageMenuRightAplicacion.clicAvatar(cy)
-                    pageMenuRightAplicacion.clicSignOut(cy)
+                    pageMenuleftAplicacion.clicAvatar(cy)
+                    pageMenuleftAplicacion.clicSignOut(cy)
                 }
             }
         })
@@ -34,8 +34,8 @@ describe('Pruebas generales de Login', () => {
         pageLogin.eMail(cy, datos.EmailValido)
         pageLogin.password(cy, datos.PasswordValido)
         pageLogin.clicSignIn(cy)
-        pageMenuRightAplicacion.clicAvatar(cy)
-        pageMenuRightAplicacion.clicSignOut(cy)
+        pageMenuleftAplicacion.clicAvatar(cy)
+        pageMenuleftAplicacion.clicSignOut(cy)
     })
 
     it('Escenario 3 Prueba Negativa, clic Sign In, Validar usuario email valido, password errorneo', () => {
