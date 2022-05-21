@@ -1,4 +1,5 @@
 const loginUser = function (cy, email, password) {
+    cy.wait(5000)
     cy.get('#ember7').type(email)
     cy.get('#ember9').type(password)
     cy.get('#ember11').click()
