@@ -47,7 +47,7 @@ const memberAplicacionCrear = function (cy, name, email, note,label,isSubscribe)
     // cy.xpath("//span[@class='input-toggle-component']").should("be.visible").click()
     // cy.wait(1000);
     // cy.screenshot('Escenario21_crear_member')
-    cy.wait(3000);
+ 
     cy.xpath("/html/body/div[2]/div/main/section/div[1]/header/section/button").should("be.visible").click()
    
     cy.wait(1000);
