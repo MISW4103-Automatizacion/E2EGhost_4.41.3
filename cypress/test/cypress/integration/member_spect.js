@@ -263,7 +263,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
 
 
   
-  it.only(`Escenario 10 Crear un member con registro en campo name(incorrecto),label, note y Subscribe inactivo, email vacío`, () => {
+  it(`Escenario 10 Crear un member con registro en campo name(incorrecto),label, note y Subscribe inactivo, email vacío`, () => {
     cy.request(
       "GET",
       "https://my.api.mockaroo.com/users.json?key=47a96010"
@@ -521,7 +521,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
 
 
 
-  it.only(`Escenario 19 Crear un member con registro en name, mail (datos incorrectos) y Subscribe activo`, () => {
+  it(`Escenario 19 Crear un member con registro en name, mail (datos incorrectos) y Subscribe activo`, () => {
     cy.request(
       "GET",
       "https://my.api.mockaroo.com/users.json?key=47a96010"
@@ -889,7 +889,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      name.substring(0, 192),
+      name.substring(0, 193),
       mail,
       note,
       label,
