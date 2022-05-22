@@ -30,10 +30,10 @@ describe('Pruebas de Staff', () => {
         pageLogin.clicSignIn(cy)
         cy.wait(3000)
 
-        if(Cypress.env('isRegresionVisual') == false){
-            email = faker.internet.email();
+        if(Cypress.env('isRegresionVisual') == true){
+            email = datosStaff.EmailValid;
         } else {
-            email = 'pruebaRegresion@regresion.com.co';
+            email = faker.internet.email();
         }
     })
 
@@ -48,7 +48,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -70,7 +70,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -92,7 +92,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -114,7 +114,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -227,7 +227,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -260,7 +260,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -293,7 +293,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -330,7 +330,7 @@ describe('Pruebas de Staff', () => {
         cy.reload()
         cy.wait(3000)
         pageStaff.validarIntitedUser(cy, email, true)
-        if(Cypress.env('isRegresionVisual') == false){
+        if(Cypress.env('isRegresionVisual') == true){
             cy.wait(3000)
             pageStaff.clicRevokeStaff(cy, email)
             cy.wait(3000)
@@ -429,7 +429,7 @@ describe('Pruebas de Staff', () => {
         cy.screenshot('Escenario 18 Prueba Negativa, Crear un staff sin mail, de tipo Administrator')
     })
 
-    it('Escenario 21 Prueba Negative, crear un staff de tipo Contributor e intentar asignarle de tipo Author', () => {
+    it('Escenario 21 Prueba Negativa, crear un staff de tipo Contributor e intentar asignarle de tipo Author', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -443,10 +443,10 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkAutor(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'A user with that email address was already invited.')
-        cy.screenshot('Escenario 21 Prueba Negative, crear un staff de tipo Contributor e intentar asignarle de tipo Author')
+        cy.screenshot('Escenario 21 Prueba Negativa, crear un staff de tipo Contributor e intentar asignarle de tipo Author')
     })
 
-    it('Escenario 22 Prueba Negative, crear un staff de tipo Author e intentar asignarle de tipo Editor', () => {
+    it('Escenario 22 Prueba Negativa, crear un staff de tipo Author e intentar asignarle de tipo Editor', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -460,10 +460,10 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkEditor(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'A user with that email address was already invited.')
-        cy.screenshot('Escenario 22 Prueba Negative, crear un staff de tipo Author e intentar asignarle de tipo Editor')
+        cy.screenshot('Escenario 22 Prueba Negativa, crear un staff de tipo Author e intentar asignarle de tipo Editor')
     })
 
-    it('Escenario 23 Prueba Negative, crear un staff de tipo Editor e intentar asignarle de tipo Administrator', () => {
+    it('Escenario 23 Prueba Negativa, crear un staff de tipo Editor e intentar asignarle de tipo Administrator', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -477,10 +477,10 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkAdministrador(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'A user with that email address was already invited.')
-        cy.screenshot('Escenario 23 Prueba Negative, crear un staff de tipo Editor e intentar asignarle de tipo Administrator')
+        cy.screenshot('Escenario 23 Prueba Negativa, crear un staff de tipo Editor e intentar asignarle de tipo Administrator')
     })
 
-    it('Escenario 24 Prueba Negative, crear un staff de tipo Administrator e intentar asignarle de tipo Contributor', () => {
+    it('Escenario 24 Prueba Negativa, crear un staff de tipo Administrator e intentar asignarle de tipo Contributor', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -494,7 +494,51 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkContributor(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'A user with that email address was already invited.')
-        cy.screenshot('Escenario 24 Prueba Negative, crear un staff de tipo Administrator e intentar asignarle de tipo Contributor')
+        cy.screenshot('Escenario 24 Prueba Negativa, crear un staff de tipo Administrator e intentar asignarle de tipo Contributor')
+    })
+
+    it('Escenario 25 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Contributor', () => {
+        pageMenuLeftAplicacion.clicSettings(cy)
+        pageSetting.clicStaff(cy)
+        pageStaff.clicInvitePeople(cy)        
+        pageStaff.setEmailAAddress(cy, datosStaff.EmailImcompleto)
+        pageStaff.checkContributor(cy)
+        pageStaff.clicSendInvitationNow(cy)
+        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Contributor')
+    })
+
+    it('Escenario 26 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Author', () => {
+        pageMenuLeftAplicacion.clicSettings(cy)
+        pageSetting.clicStaff(cy)
+        pageStaff.clicInvitePeople(cy)        
+        pageStaff.setEmailAAddress(cy, datosStaff.EmailImcompleto)
+        pageStaff.checkAutor(cy)
+        pageStaff.clicSendInvitationNow(cy)
+        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Author')
+    })
+
+    it('Escenario 27 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Editor', () => {
+        pageMenuLeftAplicacion.clicSettings(cy)
+        pageSetting.clicStaff(cy)
+        pageStaff.clicInvitePeople(cy)        
+        pageStaff.setEmailAAddress(cy, datosStaff.EmailImcompleto)
+        pageStaff.checkEditor(cy)
+        pageStaff.clicSendInvitationNow(cy)
+        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Editor')
+    })
+
+    it('Escenario 28 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Administrator', () => {
+        pageMenuLeftAplicacion.clicSettings(cy)
+        pageSetting.clicStaff(cy)
+        pageStaff.clicInvitePeople(cy)        
+        pageStaff.setEmailAAddress(cy, datosStaff.EmailImcompleto)
+        pageStaff.checkAdministrador(cy)
+        pageStaff.clicSendInvitationNow(cy)
+        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Administrator')
     })
 
     afterEach(() => { });
