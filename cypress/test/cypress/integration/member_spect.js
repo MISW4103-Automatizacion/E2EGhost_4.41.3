@@ -64,14 +64,19 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
   it.only(`Escenario 1 - Crear un member`, () => {
 
 
-    var client = new Mockaroo.Client({
+  let client = new Mockaroo.Client({
       apiKey: '47a96010' // see http://mockaroo.com/api/docs to get your api key
   })
 
-  console.log(client.generate({
-    count: 1,
-    schema: 'test_schema'
-}))
+
+client.generate({
+  count: 1,
+  schema: 'test_schema'
+}).then(function(records) {
+  console.log(records)
+});
+
+
 
 
     if (Cypress.env("isRegresionVisual") != true) {
