@@ -341,48 +341,56 @@ describe('Pruebas de Staff', () => {
         pageMenuLeftAplicacion.clicSignOut(cy)
     })
 
-    it('Escenario 13 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Contributor', () => {
-        pageMenuLeftAplicacion.clicSettings(cy)
-        pageSetting.clicStaff(cy)
-        pageStaff.clicInvitePeople(cy)        
-        pageStaff.setEmailAAddress(cy, datosStaff.NoEsEmail)
-        pageStaff.checkContributor(cy)
-        pageStaff.clicSendInvitationNow(cy)
-        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('Escenario 13 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Contributor')
+    it('Escenario 13 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Contributor', () => {
+        cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+            pageMenuLeftAplicacion.clicSettings(cy)
+            pageSetting.clicStaff(cy)
+            pageStaff.clicInvitePeople(cy)        
+            pageStaff.setEmailAAddress(cy, response.body[0].email.replace('@',''))
+            pageStaff.checkContributor(cy)
+            pageStaff.clicSendInvitationNow(cy)
+            pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+            cy.screenshot('Escenario 13 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Contributor')
+        })
     })
 
-    it('Escenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Author', () => {
-        pageMenuLeftAplicacion.clicSettings(cy)
-        pageSetting.clicStaff(cy)
-        pageStaff.clicInvitePeople(cy)        
-        pageStaff.setEmailAAddress(cy, datosStaff.NoEsEmail)
-        pageStaff.checkAutor(cy)
-        pageStaff.clicSendInvitationNow(cy)
-        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Author')
+    it('Escenario 14 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Author', () => {
+        cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+            pageMenuLeftAplicacion.clicSettings(cy)
+            pageSetting.clicStaff(cy)
+            pageStaff.clicInvitePeople(cy)        
+            pageStaff.setEmailAAddress(cy, response.body[0].email.replace('.',','))
+            pageStaff.checkAutor(cy)
+            pageStaff.clicSendInvitationNow(cy)
+            pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+            cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Author')
+        })
     })
 
-    it('Escenario 15 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Editor', () => {
-        pageMenuLeftAplicacion.clicSettings(cy)
-        pageSetting.clicStaff(cy)
-        pageStaff.clicInvitePeople(cy)        
-        pageStaff.setEmailAAddress(cy, datosStaff.NoEsEmail)
-        pageStaff.checkEditor(cy)
-        pageStaff.clicSendInvitationNow(cy)
-        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Editor')
+    it('Escenario 15 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Editor', () => {
+        cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+            pageMenuLeftAplicacion.clicSettings(cy)
+            pageSetting.clicStaff(cy)
+            pageStaff.clicInvitePeople(cy)        
+            pageStaff.setEmailAAddress(cy, response.body[0].email.replace('@','@@'))
+            pageStaff.checkEditor(cy)
+            pageStaff.clicSendInvitationNow(cy)
+            pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+            cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Editor')
+        })
     })
 
-    it('Escenario 16 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Administrator', () => {
-        pageMenuLeftAplicacion.clicSettings(cy)
-        pageSetting.clicStaff(cy)
-        pageStaff.clicInvitePeople(cy)        
-        pageStaff.setEmailAAddress(cy, datosStaff.NoEsEmail)
-        pageStaff.checkAdministrador(cy)
-        pageStaff.clicSendInvitationNow(cy)
-        pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Administrator')
+    it('Escenario 16 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Administrator', () => {
+        cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+            pageMenuLeftAplicacion.clicSettings(cy)
+            pageSetting.clicStaff(cy)
+            pageStaff.clicInvitePeople(cy)        
+            pageStaff.setEmailAAddress(cy, response.body[0].email.replace('@','#'))
+            pageStaff.checkAdministrador(cy)
+            pageStaff.clicSendInvitationNow(cy)
+            pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
+            cy.screenshot('Escenario 16 Prueba Negativa, Crear un staff con un mail incorrecto, de tipo Administrator')
+        })
     })
 
     it('Escenario 17 Prueba Negativa, Crear un staff sin mail, de tipo Contributor', () => {
@@ -415,7 +423,7 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkEditor(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'Please enter an email.')
-        cy.screenshot('Escenario 18 Prueba Negativa, Crear un staff sin mail, de tipo Editor')
+        cy.screenshot('Escenario 19 Prueba Negativa, Crear un staff sin mail, de tipo Editor')
     })
 
     it('Escenario 20 Prueba Negativa, Crear un staff sin mail, de tipo Administrator', () => {
@@ -426,7 +434,7 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkAdministrador(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'Please enter an email.')
-        cy.screenshot('Escenario 18 Prueba Negativa, Crear un staff sin mail, de tipo Administrator')
+        cy.screenshot('Escenario 20 Prueba Negativa, Crear un staff sin mail, de tipo Administrator')
     })
 
     it('Escenario 21 Prueba Negativa, crear un staff de tipo Contributor e intentar asignarle de tipo Author', () => {
@@ -497,7 +505,7 @@ describe('Pruebas de Staff', () => {
         cy.screenshot('Escenario 24 Prueba Negativa, crear un staff de tipo Administrator e intentar asignarle de tipo Contributor')
     })
 
-    it('Escenario 25 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Contributor', () => {
+    it('Escenario 25 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Contributor', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -505,10 +513,10 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkContributor(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Contributor')
+        cy.screenshot('Escenario 25 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Contributor')
     })
 
-    it('Escenario 26 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Author', () => {
+    it('Escenario 26 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Author', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -516,10 +524,10 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkAutor(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Author')
+        cy.screenshot('Escenario 26 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Author')
     })
 
-    it('Escenario 27 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Editor', () => {
+    it('Escenario 27 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Editor', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -527,10 +535,10 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkEditor(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Editor')
+        cy.screenshot('Escenario 27 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Editor')
     })
 
-    it('Escenario 28 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Administrator', () => {
+    it('Escenario 28 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Administrator', () => {
         pageMenuLeftAplicacion.clicSettings(cy)
         pageSetting.clicStaff(cy)
         pageStaff.clicInvitePeople(cy)        
@@ -538,7 +546,7 @@ describe('Pruebas de Staff', () => {
         pageStaff.checkAdministrador(cy)
         pageStaff.clicSendInvitationNow(cy)
         pageStaff.mensajeValidacionError(cy, 'Invalid Email.')
-        cy.screenshot('scenario 14 Prueba Negativa, Crear un staff con un mail incorrector, de tipo Administrator')
+        cy.screenshot('Escenario 28 Prueba Negativa, Crear un staff con un mail incompleto, de tipo Administrator')
     })
 
     afterEach(() => { });
