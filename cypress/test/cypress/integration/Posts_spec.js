@@ -97,94 +97,94 @@ describe('Escenarios funcionalidad Post.', () => {
   });
 
   
-  it('Escenario 4. Prueba positiva. Crear un post: título normal y texto con caracteres especiales', () => {
+  it('Escenario 4. Prueba positiva. Crear un post con título normal y texto con caracteres especiales', () => {
     tituloTest = datosEspeciales[49].title;
     textoTest = faker.lorem.paragraph();
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
     pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 4. Prueba positiva. Crear un post: título normal y texto con caracteres especiales');
+    cy.screenshot('Escenario 4. Prueba positiva. Crear un post con título normal y texto con caracteres especiales');
     pagePost.postAplicacionSalirCrearPost(cy);
     pageMenuLeftAplicacion.clicAvatar(cy)
     pageMenuLeftAplicacion.clicSignOut(cy)
     cy.wait(4000);
     pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 4. Prueba positiva. Crear un post: título normal y texto con caracteres especiales');
+    cy.screenshot('Escenario 4. Prueba positiva. Crear un post con título normal y texto con caracteres especiales');
     pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
     pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
   });
 
-  it('Escenario 5. Prueba negativa. Crear un post: título vacío y texto vacío', () => {
+  it('Escenario 5. Prueba negativa. Crear un post con título vacío y texto vacío', () => {
     tituloTest = '';
     textoTest = '';
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
     pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 5. Prueba negativa. Crear un post: título vacío y texto vacío');
+    cy.screenshot('Escenario 5. Prueba negativa. Crear un post con título vacío y texto vacío');
     pagePost.postAplicacionComprobarAlerta(cy);
   });
 
-  it('Escenario 6. Prueba negativa. Crear un post: título vacío y texto con caracteres especiales', () => {
+  it('Escenario 6. Prueba negativa. Crear un post con título vacío y texto con caracteres especiales', () => {
     tituloTest = '';
     textoTest = datosEspeciales[65].body;
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
     pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 6. Prueba negativa. Crear un post: título vacío y texto con caracteres especiales');
+    cy.screenshot('Escenario 6. Prueba negativa. Crear un post con título vacío y texto con caracteres especiales');
     pagePost.postAplicacionComprobarAlerta(cy);
   });
 
-  it('Escenario 7. Prueba positiva. Crear un post: título con caracteres especiales y texto vacío.', () => {
+  it('Escenario 7. Prueba positiva. Crear un post con título con caracteres especiales y texto vacío.', () => {
     tituloTest = datosEspeciales[25].title;
     textoTest = '';
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
     pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 7. Prueba positiva. Crear un post: título con caracteres especiales y texto vacío.');
+    cy.screenshot('Escenario 7. Prueba positiva. Crear un post con título con caracteres especiales y texto vacío.');
     pagePost.postAplicacionSalirCrearPost(cy);
     pageMenuLeftAplicacion.clicAvatar(cy)
     pageMenuLeftAplicacion.clicSignOut(cy)
     cy.wait(4000);
     pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 7. Prueba positiva. Crear un post: título con caracteres especiales y texto vacío.');
+    cy.screenshot('Escenario 7. Prueba positiva. Crear un post con título con caracteres especiales y texto vacío.');
     pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
     pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
   });
 
-  it('Escenario 8. Prueba negativa. Crear un post: título vacío y texto normal.', () => {
+  it('Escenario 8. Prueba negativa. Crear un post con título vacío y texto normal.', () => {
     tituloTest = '';
     textoTest = faker.lorem.paragraph();
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
     pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 8. Prueba negativa. Crear un post: título vacío y texto normal.',);
+    cy.screenshot('Escenario 8. Prueba negativa. Crear un post con título vacío y texto normal.',);
     pagePost.postAplicacionComprobarAlerta(cy);
    });
 
-  it('Escenario 9. Prueba negativa. Crear un post: título de más de 255 caracteres y texto vacío.', () => {
-    tituloTest = (faker.lorem.paragraph() + faker.lorem.paragraph()).slice(0,256);
+  it('Escenario 9. Prueba negativa. Crear un post con título de más de 255 caracteres y texto vacío.', () => {
+    tituloTest = faker.lorem.paragraphs(5).replace('\n','').slice(0,256)
     textoTest = ''
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
-    cy.screenshot('Escenario 9. Prueba negativa. Crear un post: título de más de 255 caracteres y texto vacío.');
+    cy.screenshot('Escenario 9. Prueba negativa. Crear un post con título de más de 255 caracteres y texto vacío.');
     pagePost.postAplicacionNoBotonPost(cy);
   });
 
-  it('Escenario 10. Prueba negativa. Crear un post: título de más de 255 caracteres y texto con caracteres especiales.', () => {
+  it('Escenario 10. Prueba negativa. Crear un post con título de más de 255 caracteres y texto con caracteres especiales.', () => {
     tituloTest = faker.lorem.paragraphs(5).replace('\n','').slice(0,256);
     textoTest = datosEspeciales[68].body;
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
-    cy.screenshot('Escenario 10. Prueba negativa. Crear un post: título de más de 255 caracteres y texto con caracteres especiales.');
+    cy.screenshot('Escenario 10. Prueba negativa. Crear un post con título de más de 255 caracteres y texto con caracteres especiales.');
     pagePost.postAplicacionNoBotonPost(cy);
   });
 
-  it('Escenario 11. Prueba negativa. Crear un post: título de más de 255 caracteres y texto con caracteres especiales.', () => {
+  it('Escenario 11. Prueba negativa. Crear un post con título de más de 255 caracteres y texto normal.', () => {
     tituloTest = faker.lorem.paragraphs(5).replace('\n','').slice(0,256);
-    textoTest = datosEspeciales[69].body;
+    textoTest = faker.lorem.paragraph();
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
-    cy.screenshot('Escenario 11. Prueba negativa. Crear un post: título de más de 255 caracteres y texto con caracteres especiales.');
+    cy.screenshot('Escenario 11. Prueba negativa. Crear un post con título de más de 255 caracteres y texto con caracteres especiales.');
     pagePost.postAplicacionNoBotonPost(cy);
     });
 
