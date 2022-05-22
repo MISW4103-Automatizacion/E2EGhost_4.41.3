@@ -7,6 +7,9 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
 
   let membersJson = require("../datos/dataPoolMemberFull.json");
 
+  var Mockaroo = require('mockaroo');
+
+
   const { faker } = require("@faker-js/faker");
   let mail;
   let note;
@@ -58,7 +61,19 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     }
   });
 
-  it(`Escenario 1 - Crear un member`, () => {
+  it.only(`Escenario 1 - Crear un member`, () => {
+
+
+    var client = new Mockaroo.Client({
+      apiKey: '47a96010' // see http://mockaroo.com/api/docs to get your api key
+  })
+
+  console.log(client.generate({
+    count: 1,
+    schema: 'test_schema'
+}))
+
+
     if (Cypress.env("isRegresionVisual") != true) {
       mail = faker.internet.email();
       name = faker.name.findName();
@@ -71,6 +86,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
       note = "Prueba notas usuario";
     }
 
+    cy.request('https://my.api.mockaroo.com/data_pool_members.json?key=dc2a1da0')
+
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(cy, name, mail, note, label, true);
     cy.screenshot(`Escenario 1 Prueba Positiva crear member`);
@@ -82,6 +99,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
   });
 
   it(`Escenario 2 Crear un member con campo vacios`, () => {
@@ -101,6 +119,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
   });
 
   it(`Escenario 3 Crear un member con subscribe inactivo sin datos (nombre, email.label y note)`, () => {
@@ -120,6 +139,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 4 Crear un member con registro en campo name, Subscribe inactivo, email vacío`, () => {
@@ -139,6 +160,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 5 Crear un member con registro en campo label y Subscribe inactivo, email vacío`, () => {
@@ -158,6 +181,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 6 Crear un member con registro en campo note y Subscribe inactivo, email vacío`, () => {
@@ -177,6 +202,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 7 Crear un member con registro en campo name, label y Subscribe inactivo, note vacio, email vacío`, () => {
@@ -196,6 +223,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 8 Crear un member con registro en campo label,note y Subscribe inactivo, name vacio, email vacío`, () => {
@@ -215,6 +244,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 9 Crear un member con registro en campo name,note y Subscribe inactivo, label vacio, email vacío`, () => {
@@ -234,6 +265,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 10 Crear un member con registro en campo name(incorrecto),label, note y Subscribe inactivo, email vacío`, () => {
@@ -253,6 +286,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 11 Crear un member con registro solamente en campo name y Subscribe inactivo`, () => {
@@ -272,6 +307,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 12 Crear un member con registro solamente en campo label y Subscribe inactivo`, () => {
@@ -291,6 +328,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 13 Crear un member con registro solamente en campo note y Subscribe inactivo`, () => {
@@ -310,6 +349,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 14 Crear un member con registro en campos name, label y Subscribe inactivo`, () => {
@@ -329,6 +370,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 15 Crear un member con registro en campos label,note y Subscribe inactivo`, () => {
@@ -348,6 +391,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 16 Crear un member con registro en campos name,note y Subscribe inactivo`, () => {
@@ -367,6 +412,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 17 Crear un member con registro en campos name,note,label y Subscribe inactivo`, () => {
@@ -386,6 +433,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 18 Crear un member con registro en mail (datos incorrectos) y Subscribe activo demás datos vacíos`, () => {
@@ -405,6 +454,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 19 Crear un member con registro en name, mail (datos incorrectos) y Subscribe activo`, () => {
@@ -424,6 +475,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 20 Crear un member con registro en label, mail (datos incorrectos) y Subscribe activo`, () => {
@@ -443,6 +496,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 21 Crear un member con registro en note, mail (datos incorrectos) y Subscribe activo`, () => {
@@ -462,6 +517,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 22  Crear un member con registro en name, label, mail (datos incorrectos) y Subscribe activo`, () => {
@@ -481,6 +538,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 23 Crear un member con registro en label, mail (datos incorrectos) y Subscribe activo`, () => {
@@ -500,6 +559,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 24  Crear un member con registro en name, mail (datos incorrectos) y Subscribe activo`, () => {
@@ -519,6 +580,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   // ISSUE
@@ -540,6 +603,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 26  Crear un member con registro en mail (datos incorrectos) y Subscribe activo`, () => {
@@ -559,6 +624,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   // // ISSUE
@@ -580,6 +647,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 28  Crear un member con registro en label, mail (datos incorrectos) y Subscribe activo`, () => {
@@ -599,6 +668,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   // // ISSUE
@@ -620,6 +691,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 30 Crear un member con registro en name,label mail (datos incorrectos) y Subscribe activo`, () => {
@@ -639,6 +712,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 31 Crear un member con registro en label,note mail (datos incorrectos) y Subscribe activo`, () => {
@@ -658,6 +733,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 32 Crear un member con registro en name,note mail (datos incorrectos) y Subscribe activo`, () => {
@@ -677,6 +754,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   //ISSUE
@@ -698,6 +777,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 34 Crear un member con registro en name limite a 191 caracteres`, () => {
@@ -722,6 +803,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 35 Crear un member con registro en name limite a 192 caracteres`, () => {
@@ -746,6 +829,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(3000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 36 Crear un member con un registro en note limite a 500 caracteres`, () => {
@@ -770,6 +855,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(3000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 37 Crear un member con un registro en note limite mayor a 500 caracteres`, () => {
@@ -794,6 +881,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 38 Crear un member con un registro en note limite a 500 caracteres y name limite a 191 caracteres`, () => {
@@ -818,6 +907,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 39 Crear un member con un registro en note mayor a 500 caracteres y name mayor a 191 caracteres`, () => {
@@ -842,6 +933,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 40 Crear un member con un registro en mail limite a 64 caracteres o números con dominio válido`, () => {
@@ -869,6 +962,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   // ISSUE - Sale invalid email
@@ -897,6 +992,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   // ISSUE
@@ -925,6 +1022,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it(`Escenario 43 Crear un member con un registro en mail mayor a 191 caracteres o números con dominio válido`, () => {
@@ -952,6 +1051,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
 
@@ -1018,6 +1119,8 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 
   it("Escenario 45 crear un member unsubscribe", () => {
@@ -1042,5 +1145,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     pageMenuLeftAplicacion.clicAvatar(cy);
     cy.wait(1000)
     pageMenuLeftAplicacion.clicSignOut(cy);
+    cy.wait(1000)
+
   });
 });
