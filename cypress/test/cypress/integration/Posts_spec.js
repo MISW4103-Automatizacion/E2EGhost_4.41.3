@@ -37,7 +37,7 @@ describe('Escenarios funcionalidad Post.', () => {
         cy.wait(3000)
   })
 
-  it(`Escenario 1. Prueba positiva. Crear un post: título normal y texto normal`, () => {
+  it(`Escenario 1. Prueba positiva. Crear un post con título normal y texto normal`, () => {
     if (Cypress.env('isRegresionVisual') == false) {
       tituloTest = faker.lorem.sentence();
       textoTest = faker.lorem.paragraph();
@@ -77,8 +77,10 @@ describe('Escenarios funcionalidad Post.', () => {
   });
 
  it('Escenario 3. Prueba positiva. Crear un post con título con caracteres especiales y texto normal', () => {
-    tituloTest = datosEspeciales[14].title;
-    textoTest = faker.lorem.paragraph();
+  cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+    console.log(response.body[0].email);
+    textoTest = response.body[0].body;
+    tituloTest = datosEspeciales[14].title;        
     pagePost.postAplicacionNuevoPost(cy);
     pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
     pagePost.postAplicacionPublicar(cy);
@@ -91,6 +93,7 @@ describe('Escenarios funcionalidad Post.', () => {
     cy.screenshot('Escenario 3. Prueba positiva. Crear un post con título con caracteres especiales y texto normal');
     pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
     pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
+    });
   });
 
   
@@ -230,114 +233,120 @@ describe('Escenarios funcionalidad Post.', () => {
   });
 
   it('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales', () => {
-    tituloTest = faker.lorem.sentence();
-    textoTest = faker.lorem.paragraph();
-    tituloTest2 = datosEspeciales[2].title;
-    textoTest2 = datosEspeciales[3].body;
-    pagePost.postAplicacionNuevoPost(cy);
-    pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
-    pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
-    cy.visit('/')
-    pageLogin.eMail(cy, datos.EmailValido)
-    pageLogin.password(cy, datos.PasswordValido)
-    pageLogin.clicSignIn(cy)
-    cy.wait(3000)
-    pagePost.postAplicacionPosts(cy);
-    pagePost.postAplicacionIrPrimerPost(cy);
-    pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
-    pagePost.postAplicacionUpdate(cy);
-    cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+      tituloTest = response.body[0].title;
+      textoTest = response.body[0].body;
+      tituloTest2 = datosEspeciales[2].title;
+      textoTest2 = datosEspeciales[3].body;
+      pagePost.postAplicacionNuevoPost(cy);
+      pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
+      pagePost.postAplicacionPublicar(cy);
+      cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
+      cy.visit('/')
+      pageLogin.eMail(cy, datos.EmailValido)
+      pageLogin.password(cy, datos.PasswordValido)
+      pageLogin.clicSignIn(cy)
+      cy.wait(3000)
+      pagePost.postAplicacionPosts(cy);
+      pagePost.postAplicacionIrPrimerPost(cy);
+      pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
+      pagePost.postAplicacionUpdate(cy);
+      cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 13. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto y título con caracteres especiales');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    });
   });
 
   it('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal', () => {
-    tituloTest = faker.lorem.sentence();
-    textoTest = faker.lorem.paragraph();
-    tituloTest2 = datosEspeciales[3].title;
-    textoTest2 = faker.lorem.paragraph();
-    pagePost.postAplicacionNuevoPost(cy);
-    pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
-    pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
-    cy.visit('/')
-    pageLogin.eMail(cy, datos.EmailValido)
-    pageLogin.password(cy, datos.PasswordValido)
-    pageLogin.clicSignIn(cy)
-    cy.wait(3000)
-    pagePost.postAplicacionPosts(cy);
-    pagePost.postAplicacionIrPrimerPost(cy);
-    pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
-    pagePost.postAplicacionUpdate(cy);
-    cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+      tituloTest = response.body[0].title;
+      textoTest = response.body[0].body;
+      tituloTest2 = datosEspeciales[3].title;
+      textoTest2 = response.body[1].body;
+      pagePost.postAplicacionNuevoPost(cy);
+      pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
+      pagePost.postAplicacionPublicar(cy);
+      cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
+      cy.visit('/')
+      pageLogin.eMail(cy, datos.EmailValido)
+      pageLogin.password(cy, datos.PasswordValido)
+      pageLogin.clicSignIn(cy)
+      cy.wait(3000)
+      pagePost.postAplicacionPosts(cy);
+      pagePost.postAplicacionIrPrimerPost(cy);
+      pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
+      pagePost.postAplicacionUpdate(cy);
+      cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 14. Prueba positiva. Crear un post con título y texto normal y modificarlo por título con caracteres especiales y texto normal');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    });
   });
 
   it('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal', () => {
-    tituloTest = faker.lorem.sentence();
-    textoTest = faker.lorem.paragraph();
-    tituloTest2 = faker.lorem.sentence();
-    textoTest2 = datosEspeciales[4].body;
-    pagePost.postAplicacionNuevoPost(cy);
-    pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
-    pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
-    cy.visit('/')
-    pageLogin.eMail(cy, datos.EmailValido)
-    pageLogin.password(cy, datos.PasswordValido)
-    pageLogin.clicSignIn(cy)
-    cy.wait(3000)
-    pagePost.postAplicacionPosts(cy);
-    pagePost.postAplicacionIrPrimerPost(cy);
-    pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
-    pagePost.postAplicacionUpdate(cy);
-    cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+      tituloTest = response.body[0].title;
+      textoTest = response.body[0].body;
+      tituloTest2 = response.body[1].title;
+      textoTest2 = datosEspeciales[4].body;
+      pagePost.postAplicacionNuevoPost(cy);
+      pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
+      pagePost.postAplicacionPublicar(cy);
+      cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
+      cy.visit('/')
+      pageLogin.eMail(cy, datos.EmailValido)
+      pageLogin.password(cy, datos.PasswordValido)
+      pageLogin.clicSignIn(cy)
+      cy.wait(3000)
+      pagePost.postAplicacionPosts(cy);
+      pagePost.postAplicacionIrPrimerPost(cy);
+      pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
+      pagePost.postAplicacionUpdate(cy);
+      cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 15. Prueba positiva. Crear un post con título y texto normal y modificarlo por texto con caracteres especiales y título normal');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    });
   });
 
   it('Escenario 16. Prueba negativa. Crear un post con título y texto normal y modificarlo por texto y título vacíos', () => {
@@ -438,40 +447,42 @@ describe('Escenarios funcionalidad Post.', () => {
   });
 
   it('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío', () => {
-    tituloTest = faker.lorem.sentence();
-    textoTest = faker.lorem.paragraph();
-    tituloTest2 = faker.lorem.sentence();
-    textoTest2 = '';
-    pagePost.postAplicacionNuevoPost(cy);
-    pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
-    pagePost.postAplicacionPublicar(cy);
-    cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
-    cy.visit('/')
-    pageLogin.eMail(cy, datos.EmailValido)
-    pageLogin.password(cy, datos.PasswordValido)
-    pageLogin.clicSignIn(cy)
-    cy.wait(3000)
-    pagePost.postAplicacionPosts(cy);
-    pagePost.postAplicacionIrPrimerPost(cy);
-    pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
-    pagePost.postAplicacionUpdate(cy);
-    cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
-    pagePost.postAplicacionSalirCrearPost(cy);
-    pageMenuLeftAplicacion.clicAvatar(cy)
-    pageMenuLeftAplicacion.clicSignOut(cy)
-    cy.wait(4000);
-    pagePost.postAplicacionIrPaginaPublica(cy);
-    cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
-    pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
-    pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+      tituloTest = faker.lorem.sentence();
+      textoTest = faker.lorem.paragraph();
+      tituloTest2 = faker.lorem.sentence();
+      textoTest2 = '';
+      pagePost.postAplicacionNuevoPost(cy);
+      pagePost.postAplicacionCrearPost(cy, tituloTest, textoTest);
+      pagePost.postAplicacionPublicar(cy);
+      cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest, true);
+      cy.visit('/')
+      pageLogin.eMail(cy, datos.EmailValido)
+      pageLogin.password(cy, datos.PasswordValido)
+      pageLogin.clicSignIn(cy)
+      cy.wait(3000)
+      pagePost.postAplicacionPosts(cy);
+      pagePost.postAplicacionIrPrimerPost(cy);
+      pagePost.postAplicacionModificarPost(cy, tituloTest2, textoTest2);
+      pagePost.postAplicacionUpdate(cy);
+      cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
+      pagePost.postAplicacionSalirCrearPost(cy);
+      pageMenuLeftAplicacion.clicAvatar(cy)
+      pageMenuLeftAplicacion.clicSignOut(cy)
+      cy.wait(4000);
+      pagePost.postAplicacionIrPaginaPublica(cy);
+      cy.screenshot('Escenario 19. Prueba positiva. Crear un post con título y texto normal y modificarlo por título normal y texto vacío');
+      pagePost.postAplicacionComprobarTitulo(cy, tituloTest2, true);
+      pagePost.postAplicacionComprobarTexto(cy, textoTest2, true);
+    });
   });
 
   it('Escenario 20. Prueba negativa. Crear un post con título y texto normal y modificarlo por título vacío y texto normal', () => {
