@@ -34,7 +34,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     cy.get("main").then(($main) => {
       if ($main.find("form").length > 0) {
         if ($main.find("form")[0].id == "setup") {
-          cy.screenshot("Escenario01_registrarUsuario_");
+          cy.screenshot("Escenario01_registrarUsuario_ ");
           registerUser.registerUser(
             cy,
             Cypress.env("NAMEBLOG"),
