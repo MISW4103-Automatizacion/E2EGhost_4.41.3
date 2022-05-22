@@ -7,9 +7,6 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
 
   let membersJson = require("../datos/dataPoolMemberFull.json");
 
-  var Mockaroo = require('mockaroo');
-
-
   const { faker } = require("@faker-js/faker");
   let mail;
   let note;
@@ -25,6 +22,12 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
   let new_note;
   let new_name;
   let short_email;
+
+
+  // Uso de Mockaroo para  la data en tiempo de ejecución
+  let client = new Mockaroo.Client({
+    apiKey: '47a96010' 
+  })
 
   beforeEach(() => {
     cy.clearCookies();
@@ -61,21 +64,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
     }
   });
 
-  it.only(`Escenario 1 - Crear un member`, () => {
-
-
-  let client = new Mockaroo.Client({
-      apiKey: '47a96010' // see http://mockaroo.com/api/docs to get your api key
-  })
-
-
-client.generate({
-  count: 1,
-  schema: 'test_schema'
-}).then(function(records) {
-  console.log(records)
-});
-
+  it(`Escenario 1 - Crear un member`, () => {
 
 
 
@@ -274,60 +263,140 @@ client.generate({
 
   });
 
-  it(`Escenario 10 Crear un member con registro en campo name(incorrecto),label, note y Subscribe inactivo, email vacío`, () => {
-    memberAplicacion.memberAplicacion(cy);
-    memberAplicacion.memberAplicacionCrear(
-      cy,
-      membersJson[8].name,
-      membersJson[8].email,
-      membersJson[8].note,
-      membersJson[8].label,
-      membersJson[8].isSubscribe
-    );
-    cy.screenshot(
-      `Escenario 10 Prueba Negativa Crear un member con registro en campo name(incorrecto)label note y Subscribe inactivo email vacío`
-    );
-    cy.wait(3000);
-    pageMenuLeftAplicacion.clicAvatar(cy);
-    cy.wait(1000)
-    pageMenuLeftAplicacion.clicSignOut(cy);
-    cy.wait(1000)
 
+  
+  it(`Escenario 10 Crear un member con registro en campo name(incorrecto),label, note y Subscribe inactivo, email vacío`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+   
+
+  
+      memberAplicacion.memberAplicacion(cy);
+      memberAplicacion.memberAplicacionCrear(
+        cy,
+        response.body[0].badText,
+        " ",
+        response.body[0].note,
+        response.body[0].label,
+        false
+      );
+      cy.screenshot(
+        `Escenario 10 Prueba Negativa Crear un member con registro en campo name(incorrecto)label note y Subscribe inactivo email vacío`
+      );
+      cy.wait(3000);
+      pageMenuLeftAplicacion.clicAvatar(cy);
+      cy.wait(1000);
+      pageMenuLeftAplicacion.clicSignOut(cy);
+      cy.wait(1000);
+    });
   });
 
-  it(`Escenario 11 Crear un member con registro solamente en campo name y Subscribe inactivo`, () => {
-    memberAplicacion.memberAplicacion(cy);
-    memberAplicacion.memberAplicacionCrear(
-      cy,
-      membersJson[9].name,
-      membersJson[9].email,
-      membersJson[9].note,
-      membersJson[9].label,
-      membersJson[9].isSubscribe
-    );
-    cy.screenshot(
-      `Escenario 11 Prueba Negativa Crear un member con registro en campo  name y Subscribe inactivo`
-    );
-    cy.wait(3000);
-    pageMenuLeftAplicacion.clicAvatar(cy);
-    cy.wait(1000)
-    pageMenuLeftAplicacion.clicSignOut(cy);
-    cy.wait(1000)
 
+
+
+  it(`Escenario 11 Crear un member con registro solamente en campo name y Subscribe inactivo`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+
+        memberAplicacion.memberAplicacion(cy);
+        memberAplicacion.memberAplicacionCrear(
+          cy,
+          response.body[0].fullName,
+          " ",
+          " ",
+          " ",
+          false
+        );
+        cy.screenshot(
+          `Escenario 11 Prueba Negativa Crear un member con registro en campo  name y Subscribe inactivo`
+        );
+        cy.wait(3000);
+        pageMenuLeftAplicacion.clicAvatar(cy);
+        cy.wait(1000);
+        pageMenuLeftAplicacion.clicSignOut(cy);
+        cy.wait(1000);
+      });
   });
 
   it(`Escenario 12 Crear un member con registro solamente en campo label y Subscribe inactivo`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+
+
+        memberAplicacion.memberAplicacion(cy);
+        memberAplicacion.memberAplicacionCrear(
+          cy,
+          " ",
+          " ",
+          " ",
+          response.body[0].label,
+          false
+        );
+        cy.screenshot(
+          `Escenario 12 Prueba Negativa Crear un member con registro en campo  label y Subscribe inactivo`
+        );
+        cy.wait(3000);
+        pageMenuLeftAplicacion.clicAvatar(cy);
+        cy.wait(1000);
+        pageMenuLeftAplicacion.clicSignOut(cy);
+        cy.wait(1000);
+      });
+  });
+
+
+
+
+  it(`Escenario 13 Crear un member con registro solamente en campo note y Subscribe inactivo mail vacio`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+        memberAplicacion.memberAplicacion(cy);
+        memberAplicacion.memberAplicacionCrear(
+          cy,
+          " ",
+          " ",
+          response.body[0].note,
+          " ",
+          false
+        );
+        cy.screenshot(
+          `Escenario 13 Prueba Negativa Crear un member con registro en campo  note y Subscribe inactivo mail vacio`
+        );
+        cy.wait(3000);
+        pageMenuLeftAplicacion.clicAvatar(cy);
+        cy.wait(1000);
+        pageMenuLeftAplicacion.clicSignOut(cy);
+        cy.wait(1000);
+      });
+  });
+
+
+
+  it(`Escenario 14 Crear un member con registro en campos name, label y Subscribe inactivo, mail vacio`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+
+
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      membersJson[10].name,
-      membersJson[10].email,
-      membersJson[10].note,
-      membersJson[10].label,
-      membersJson[10].isSubscribe
+      response.body[0].fullName,
+      " ",
+      response.body[0].note,
+      response.body[0].label,
+      false
     );
     cy.screenshot(
-      `Escenario 12 Prueba Negativa Crear un member con registro en campo  label y Subscribe inactivo`
+      `Escenario 14 Prueba Negativa Crear un member con registro en name label y Subscribe inactivo mail vacio`
     );
     cy.wait(3000);
     pageMenuLeftAplicacion.clicAvatar(cy);
@@ -337,18 +406,26 @@ client.generate({
 
   });
 
-  it(`Escenario 13 Crear un member con registro solamente en campo note y Subscribe inactivo`, () => {
+  });
+
+  it(`Escenario 15 Crear un member con registro en campos label,note y Subscribe inactivo mail vacio`, () => {
+
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      membersJson[11].name,
-      membersJson[11].email,
-      membersJson[11].note,
-      membersJson[11].label,
-      membersJson[11].isSubscribe
+      " ",
+     " ",
+     response.body[0].note,
+     response.body[0].label,
+      false
     );
     cy.screenshot(
-      `Escenario 13 Prueba Negativa Crear un member con registro en campo  note y Subscribe inactivo`
+      `Escenario 15 Prueba Negativa Crear un member con registro en campo label note y Subscribe inactivo mail vacio`
     );
     cy.wait(3000);
     pageMenuLeftAplicacion.clicAvatar(cy);
@@ -357,19 +434,25 @@ client.generate({
     cy.wait(1000)
 
   });
+});
 
-  it(`Escenario 14 Crear un member con registro en campos name, label y Subscribe inactivo`, () => {
+  it(`Escenario 16 Crear un member con registro en campos name,note y Subscribe inactivo mail vacio`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      membersJson[12].name,
-      membersJson[12].email,
-      membersJson[12].note,
-      membersJson[12].label,
-      membersJson[12].isSubscribe
+      response.body[0].fullName,
+      " ",
+      response.body[0].note,
+      " ",
+      false
     );
     cy.screenshot(
-      `Escenario 14 Prueba Negativa Crear un member con registro en name label y Subscribe inactivo`
+      `Escenario 16 Prueba Negativa Crear un member con registro en campo  name note y Subscribe inactivo mail vacio`
     );
     cy.wait(3000);
     pageMenuLeftAplicacion.clicAvatar(cy);
@@ -378,19 +461,28 @@ client.generate({
     cy.wait(1000)
 
   });
+});
 
-  it(`Escenario 15 Crear un member con registro en campos label,note y Subscribe inactivo`, () => {
+
+
+
+  it(`Escenario 17 Crear un member con registro en campos name,note,label y Subscribe inactivo mail vacio`, () => {
+
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      membersJson[13].name,
-      membersJson[13].email,
-      membersJson[13].note,
-      membersJson[13].label,
-      membersJson[13].isSubscribe
+      response.body[0].fullName,
+      " ",
+      response.body[0].note,
+      response.body[0].label,
+      false
     );
     cy.screenshot(
-      `Escenario 15 Prueba Negativa Crear un member con registro en campo label note y Subscribe inactivo`
+      `Escenario 17 Prueba Negativa Crear un member con registro en campo  name note label y Subscribe inactivo mail vacio`
     );
     cy.wait(3000);
     pageMenuLeftAplicacion.clicAvatar(cy);
@@ -399,58 +491,23 @@ client.generate({
     cy.wait(1000)
 
   });
-
-  it(`Escenario 16 Crear un member con registro en campos name,note y Subscribe inactivo`, () => {
-    memberAplicacion.memberAplicacion(cy);
-    memberAplicacion.memberAplicacionCrear(
-      cy,
-      membersJson[14].name,
-      membersJson[14].email,
-      membersJson[14].note,
-      membersJson[14].label,
-      membersJson[14].isSubscribe
-    );
-    cy.screenshot(
-      `Escenario 16 Prueba Negativa Crear un member con registro en campo  name note y Subscribe inactivo`
-    );
-    cy.wait(3000);
-    pageMenuLeftAplicacion.clicAvatar(cy);
-    cy.wait(1000)
-    pageMenuLeftAplicacion.clicSignOut(cy);
-    cy.wait(1000)
-
-  });
-
-  it(`Escenario 17 Crear un member con registro en campos name,note,label y Subscribe inactivo`, () => {
-    memberAplicacion.memberAplicacion(cy);
-    memberAplicacion.memberAplicacionCrear(
-      cy,
-      membersJson[15].name,
-      membersJson[15].email,
-      membersJson[15].note,
-      membersJson[15].label,
-      membersJson[15].isSubscribe
-    );
-    cy.screenshot(
-      `Escenario 17 Prueba Negativa Crear un member con registro en campo  name note label y Subscribe inactivo`
-    );
-    cy.wait(3000);
-    pageMenuLeftAplicacion.clicAvatar(cy);
-    cy.wait(1000)
-    pageMenuLeftAplicacion.clicSignOut(cy);
-    cy.wait(1000)
-
-  });
+});
 
   it(`Escenario 18 Crear un member con registro en mail (datos incorrectos) y Subscribe activo demás datos vacíos`, () => {
+
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
+
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      membersJson[16].name,
-      membersJson[16].email,
-      membersJson[16].note,
-      membersJson[16].label,
-      membersJson[16].isSubscribe
+      " ",
+      response.body[0].fullName,
+      " ",
+      " ",
+      true
     );
     cy.screenshot(
       `Escenario 18 Prueba Negativa Crear un member con registro en mail (datos incorrectos) y Subscribe activo demás datos vacíos`
@@ -462,16 +519,23 @@ client.generate({
     cy.wait(1000)
 
   });
+});
 
-  it(`Escenario 19 Crear un member con registro en name, mail (datos incorrectos) y Subscribe activo`, () => {
+
+
+  it.only(`Escenario 19 Crear un member con registro en name, mail (datos incorrectos) y Subscribe activo`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      membersJson[17].name,
-      membersJson[17].email,
-      membersJson[17].note,
-      membersJson[17].label,
-      membersJson[17].isSubscribe
+      response.body[0].fullName,
+      response.body[0].badText,
+      " ",
+      " ",
+      true
     );
     cy.screenshot(
       `Escenario 19 Prueba Negativa Crear un member con registro en name mail (datos incorrectos) y Subscribe activo`
@@ -483,16 +547,21 @@ client.generate({
     cy.wait(1000)
 
   });
+});
 
   it(`Escenario 20 Crear un member con registro en label, mail (datos incorrectos) y Subscribe activo`, () => {
+    cy.request(
+      "GET",
+      "https://my.api.mockaroo.com/users.json?key=47a96010"
+    ).then((response) => {
     memberAplicacion.memberAplicacion(cy);
     memberAplicacion.memberAplicacionCrear(
       cy,
-      membersJson[18].name,
-      membersJson[18].email,
-      membersJson[18].note,
-      membersJson[18].label,
-      membersJson[18].isSubscribe
+      " ",
+      response.body[0].badText,
+      " ",
+      response.body[0].label,
+      true
     );
     cy.screenshot(
       `Escenario 20 Prueba Negativa Crear un member con registro en label mail (datos incorrectos) y Subscribe activo`
@@ -504,6 +573,7 @@ client.generate({
     cy.wait(1000)
 
   });
+});
 
   it(`Escenario 21 Crear un member con registro en note, mail (datos incorrectos) y Subscribe activo`, () => {
     memberAplicacion.memberAplicacion(cy);
