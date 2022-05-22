@@ -25,9 +25,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
 
 
   // Uso de Mockaroo para  la data en tiempo de ejecución
-  let client = new Mockaroo.Client({
-    apiKey: '47a96010' 
-  })
+
 
   beforeEach(() => {
     cy.clearCookies();
@@ -265,7 +263,7 @@ describe("Ingresar a la aplicacion, si el usuario no existe se crea. Se dirige a
 
 
   
-  it(`Escenario 10 Crear un member con registro en campo name(incorrecto),label, note y Subscribe inactivo, email vacío`, () => {
+  it.only(`Escenario 10 Crear un member con registro en campo name(incorrecto),label, note y Subscribe inactivo, email vacío`, () => {
     cy.request(
       "GET",
       "https://my.api.mockaroo.com/users.json?key=47a96010"
