@@ -6,6 +6,8 @@ describe('Pruebas de Tag', () => {
   const datos = require('../datos/login.json')
   const json = require('../fixtures/tag')
   const { faker } = require('@faker-js/faker')
+  var Mockaroo = require('mockaroo');
+
   let nameTag;
   let nameUpdateTag;
   let color;
@@ -14,6 +16,7 @@ describe('Pruebas de Tag', () => {
   let meta_title;
   let meta_description ;
   let canonical_url;
+  let data;
 
   beforeEach(()=> {
     cy.clearCookies()
@@ -196,23 +199,31 @@ it(`Escenario 5, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el 
     })
 
     it(`Escenario 8, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag ingresando un color invalido`, () => {
+      cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+        
       pageTag.tagAplicacion(cy)
-      pageTag.tagAplicacionCrear(cy, json[3].tag_name,json[3].color,json[3].slug,json[3].description,json[3].meta_title,json[3].meta_description,json[3].canonical_url)
+      pageTag.tagAplicacionCrear(cy, response.body[0].nameTag, response.body[0].color,response.body[0].slug,response.body[0].description,response.body[0].meta_title,response.body[0].meta_description.substring(0,153),response.body[0].canonical_url)      
       cy.wait(1000)
       cy.screenshot('Escenario 8 Prueba Negativa, crear un tag ingresando un color invalido')
       cy.contains("Retry").should("be.visible");
       pageMenuLeftAplicacion.clicAvatar(cy)
       pageMenuLeftAplicacion.clicSignOut(cy)
+      })
+
+  
+      
   })
 
     it(`Escenario 9, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo color vacio  `, () => {
+      cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
       pageTag.tagAplicacion(cy)
-      pageTag.tagAplicacionCrear(cy, json[4].tag_name,json[4].color,json[4].slug,json[4].description,json[4].meta_title,json[4].meta_description,json[4].canonical_url)
+      pageTag.tagAplicacionCrear(cy, response.body[0].nameTag, " ",response.body[0].slug,response.body[0].description,response.body[0].meta_title,response.body[0].meta_description.substring(0,153),response.body[0].canonical_url)      
       cy.wait(1000)
       cy.screenshot('Escenario 9 Prueba Negativa, crear un tag ingresando el campo color  vacio')
       cy.contains("Retry").should("be.visible");
       pageMenuLeftAplicacion.clicAvatar(cy)
       pageMenuLeftAplicacion.clicSignOut(cy)
+    })
   })
 
   it(`Escenario 10, Prueba Negativa. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo slug vacio`, () => {
@@ -226,34 +237,40 @@ it(`Escenario 5, Prueba Negativa, Ingresar a la aplicación, se dirige hasta el 
   })
 
   it(`Escenario 11, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo description vacio`, () => {
-    pageTag.tagAplicacion(cy)
-    pageTag.tagAplicacionCrear(cy, json[6].tag_name,json[6].color,json[6].slug,json[6].description,json[6].meta_title,json[6].meta_description,json[6].canonical_url)
-    cy.wait(1000)
+    cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, response.body[0].nameTag, response.body[0].color.substring(1,7),response.body[0].slug," ",response.body[0].meta_title,response.body[0].meta_description.substring(0,153),response.body[0].canonical_url)      
+      cy.wait(1000)
        cy.screenshot('Escenario 11 Prueba Positiva, crear un tag ingresando el campo description  vacio')
       cy.contains("Saved").should("be.visible");
       pageMenuLeftAplicacion.clicAvatar(cy)
       pageMenuLeftAplicacion.clicSignOut(cy)
   })
+})
 
   it(`Escenario 12, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo meta title vacio`, () => {
-    pageTag.tagAplicacion(cy)
-    pageTag.tagAplicacionCrear(cy, json[7].tag_name,json[7].color,json[7].slug,json[7].description,json[7].meta_title,json[7].meta_description,json[7].canonical_url)
-    cy.wait(1000)
+    cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, response.body[0].nameTag, response.body[0].color.substring(1,7),response.body[0].slug,response.body[0].description," ",response.body[0].meta_description.substring(0,153),response.body[0].canonical_url)      
+     cy.wait(1000)
     cy.screenshot('Escenario 12 Prueba Positiva, crear un tag ingresando el campo meta title  vacio')
     cy.contains("Saved").should("be.visible");
       pageMenuLeftAplicacion.clicAvatar(cy)
       pageMenuLeftAplicacion.clicSignOut(cy)
   })
+})
 
   it(`Escenario 13, Prueba Positiva. Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo meta description vacio`, () => {
-    pageTag.tagAplicacion(cy)
-    pageTag.tagAplicacionCrear(cy, json[8].tag_name,json[8].color,json[8].slug,json[8].description,json[8].meta_title,json[8].meta_description,json[8].canonical_url)
+    cy.request('GET', 'https://my.api.mockaroo.com/users.json?key=47a96010').then((response) => {
+      pageTag.tagAplicacion(cy)
+      pageTag.tagAplicacionCrear(cy, response.body[0].nameTag, response.body[0].color.substring(1,7),response.body[0].slug,response.body[0].description,response.body[0].meta_title," ",response.body[0].canonical_url)      
     cy.wait(1000)
        cy.screenshot('Escenario 9 Prueba Positiva, crear un tag ingresando el campo meta description  vacio')
       cy.contains("Saved").should("be.visible");
       pageMenuLeftAplicacion.clicAvatar(cy)
       pageMenuLeftAplicacion.clicSignOut(cy)
   })
+})
 
   it(`Escenario 14, Prueba positiva Ingresar a la aplicación, se dirige hasta el modulo de tag. crear un tag dejando el campo canonical url vacio`, () => {
     pageTag.tagAplicacion(cy)
